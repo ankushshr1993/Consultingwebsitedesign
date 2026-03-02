@@ -4,5 +4,7 @@
  * Next.js requires custom PostCSS configs to export a `plugins` key.
  */
 export default {
-  plugins: {},
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
 };
