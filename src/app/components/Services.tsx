@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import { ClipboardCheck, Compass, GanttChartSquare, Handshake, SearchCheck } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
+import { trackEvent } from '../../lib/analytics';
 
 type Service = {
   icon: LucideIcon;
@@ -176,10 +177,41 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {mandatedServices.map((service) => (
-            <ServiceCard key={service.name} service={service} />
-          ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={index}
+                className="relative min-h-[14rem]"
+                onClick={() => trackEvent('insight_open', { props: { insight: service.title } })}
+              >
+                <div className="relative h-full rounded-xl border border-white/10 p-2 bg-black/40 backdrop-blur-sm">
+                  <GlowingEffect
+                    spread={40}
+                    glow={true}
+                    disabled={false}
+                    proximity={64}
+                    inactiveZone={0.01}
+                    borderWidth={2}
+                  />
+                  <div className="relative flex h-full flex-col gap-6 rounded-lg border border-white/5 bg-[#030303]/80 p-6 shadow-lg">
+                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500/20 to-rose-500/20 rounded-lg flex items-center justify-center border border-white/10">
+                      <Icon className="text-indigo-400" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-white mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-400">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
