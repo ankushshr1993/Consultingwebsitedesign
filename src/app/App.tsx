@@ -1,24 +1,47 @@
-import { Navigate, Route, Routes } from 'react-router';
-import { AppLayout } from './layout';
-import { HomePage } from './pages/HomePage';
-import { ServicesPage } from './pages/ServicesPage';
-import { ApproachPage } from './pages/ApproachPage';
-import { ProofPage } from './pages/ProofPage';
-import { LegalPage } from './pages/LegalPage';
-import { ContactPage } from './pages/ContactPage';
+import { HomePage } from "./pages/HomePage";
+import { InsightDetailPage } from "./pages/InsightDetailPage";
+import { InsightsPage } from "./pages/InsightsPage";
+import { usePageMetadata } from "./hooks/usePageMetadata";
+
+function resolvePath(pathname: string) {
+  if (pathname === "/insights") {
+    return { type: "insights-list" as const };
+  }
+
+  if (pathname.startsWith("/insights/")) {
+    return {
+      type: "insight-detail" as const,
+      slug: pathname.replace("/insights/", ""),
+    };
+  }
+
+  return { type: "home" as const };
+}
 
 export default function App() {
-  return (
-    <Routes>
-      <Route element={<AppLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/approach" element={<ApproachPage />} />
-        <Route path="/proof" element={<ProofPage />} />
-        <Route path="/legal" element={<LegalPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Route>
-    </Routes>
-  );
+  const route = resolvePath(window.location.pathname);
+
+  const metadata =
+    route.type === "insights-list"
+      ? {
+          title: "Insights",
+          description: "Strategic memos and operating playbooks.",
+        }
+      : route.type === "home"
+        ? {
+            title: "Consulting Website",
+            description: "Consulting strategy, execution, and advisory services.",
+          }
+        : null;
+  usePageMetadata(metadata);
+
+  if (route.type === "insights-list") {
+    return <InsightsPage />;
+  }
+
+  if (route.type === "insight-detail") {
+    return <InsightDetailPage slug={route.slug} />;
+  }
+
+  return <HomePage />;
 }
