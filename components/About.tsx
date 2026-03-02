@@ -1,10 +1,10 @@
 import { CheckCircle } from 'lucide-react';
 
 const highlights = [
-  'Data-driven strategy and execution planning.',
-  'Clear milestones, ownership, and accountability.',
-  'Hands-on support from discovery to delivery.',
-  'Practical recommendations built for real teams.',
+  'Decision clarity with accountable execution',
+  'Architecture and delivery governance that holds under pressure',
+  'Hands-on support from discovery through implementation',
+  'Outcomes measured in shipped capability, risk reduction, and ROI',
 ];
 
 export function About() {
@@ -17,8 +17,7 @@ export function About() {
             About Regression Consulting
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            We help organizations transform vision into measurable outcomes through strategic advisory, market insight,
-            and implementation support.
+            Regression Consulting is an operator-led execution partner for teams that can’t afford missed deadlines, unclear ownership, or architecture-by-opinion. We bring senior decision-making plus delivery discipline to get critical work over the line.
           </p>
         </div>
 
@@ -26,8 +25,7 @@ export function About() {
           <div className="rounded-xl border border-white/10 bg-white/5 p-8">
             <h3 className="text-2xl font-semibold text-white mb-4">Our mission</h3>
             <p className="text-gray-300 leading-relaxed">
-              Regression Consulting partners with growing businesses to solve complex challenges and unlock sustainable growth.
-              We combine business strategy, technology, and operational excellence to deliver practical results.
+              Our mission is to provide execution clarity and operational ownership for technology programs where the cost of failure is real. We align stakeholders, lock the plan, and help teams deliver—without hand-wavy recommendations.
             </p>
           </div>
 
