@@ -56,7 +56,11 @@ export async function POST(request: NextRequest) {
   try {
     await sendContactEmail(parsed.data);
     return NextResponse.json({ ok: true, message: 'Message sent successfully.' }, { status: 200 });
-  } catch {
+  } catch (error) {
+    if (error instanceof Error && error.message.includes('Missing email configuration')) {
+      return jsonError('EMAIL_NOT_CONFIGURED', 'Contact form email is not configured on the server.', 500);
+    }
+
     return jsonError('EMAIL_SEND_FAILED', 'Unable to send your message right now.', 500);
   }
 }
