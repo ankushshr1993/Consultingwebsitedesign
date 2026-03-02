@@ -46,7 +46,11 @@ export async function POST(request: NextRequest) {
   const parsed = contactSchema.safeParse(payload);
 
   if (!parsed.success) {
-    return jsonError('VALIDATION_ERROR', 'Invalid request payload.', 400, parsed.error.flatten());
+    const flattened = parsed.error.flatten();
+    const fieldErrors = Object.values(flattened.fieldErrors).flat();
+    const firstError = fieldErrors[0] || flattened.formErrors[0] || 'Invalid request payload.';
+
+    return jsonError('VALIDATION_ERROR', firstError, 400, flattened);
   }
 
   if (parsed.data.website) {
@@ -56,7 +60,11 @@ export async function POST(request: NextRequest) {
   try {
     await sendContactEmail(parsed.data);
     return NextResponse.json({ ok: true, message: 'Message sent successfully.' }, { status: 200 });
-  } catch {
+  } catch (error) {
+    if (error instanceof Error && error.message.includes('Missing email configuration')) {
+      return jsonError('EMAIL_NOT_CONFIGURED', 'Contact form email is not configured on the server.', 500);
+    }
+
     return jsonError('EMAIL_SEND_FAILED', 'Unable to send your message right now.', 500);
   }
 }

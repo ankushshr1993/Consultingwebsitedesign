@@ -34,14 +34,20 @@ export function Contact() {
         body: JSON.stringify(form),
       });
 
+      const data = await response.json().catch(() => null);
+
       if (!response.ok) {
-        throw new Error('Request failed');
+        const errorMessage = data?.error?.message || 'Unable to submit right now. Please try again later.';
+        throw new Error(errorMessage);
       }
 
       setStatus({ type: 'success', message: 'Thanks! We will reach out shortly.' });
       setForm(initialForm);
-    } catch {
-      setStatus({ type: 'error', message: 'Unable to submit right now. Please try again later.' });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Unable to submit right now. Please try again later.',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -66,7 +72,7 @@ export function Contact() {
               <Mail className="text-indigo-400 mt-1" size={24} />
               <div>
                 <div className="font-semibold text-white">Email</div>
-                <div className="text-gray-400">Info@regressioncosnsulting.com</div>
+                <div className="text-gray-400">info@regressionconsulting.com</div>
               </div>
             </div>
             <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
@@ -114,10 +120,11 @@ export function Contact() {
             <textarea
               rows={4}
               required
+              minLength={10}
               value={form.message}
               onChange={(event) => setForm((prev) => ({ ...prev, message: event.target.value }))}
               className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500"
-              placeholder="How can we help?"
+              placeholder="How can we help? (at least 10 characters)"
             />
             {status && <p className={status.type === 'success' ? 'text-green-400' : 'text-rose-400'}>{status.message}</p>}
             <button
