@@ -1,4 +1,5 @@
 import { Linkedin, Twitter, Facebook, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 export function Footer() {
   return (
@@ -14,36 +15,36 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-white">Services</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#services" className="hover:text-white transition-colors">Business Strategy</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Market Analysis</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Change Management</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Innovation</a></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Business Strategy</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Market Analysis</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Change Management</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Innovation</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Company</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/proof" className="hover:text-white transition-colors">Testimonials</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/legal" className="hover:text-white transition-colors">Careers</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Connect</h4>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
+              <Link href="/legal" className="text-gray-400 hover:text-indigo-400 transition-colors">
                 <Linkedin size={24} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
+              </Link>
+              <Link href="/legal" className="text-gray-400 hover:text-indigo-400 transition-colors">
                 <Twitter size={24} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
+              </Link>
+              <Link href="/legal" className="text-gray-400 hover:text-indigo-400 transition-colors">
                 <Facebook size={24} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
+              </Link>
+              <Link href="/legal" className="text-gray-400 hover:text-indigo-400 transition-colors">
                 <Mail size={24} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

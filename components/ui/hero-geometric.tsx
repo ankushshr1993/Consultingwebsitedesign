@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from "motion/react";
 import { Circle } from "lucide-react";
 import { cn } from "./utils";
