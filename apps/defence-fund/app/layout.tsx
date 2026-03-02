@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Footer, Header } from '../components/ui';
-import { defenceMetadata } from '../config/metadata';
+import { Footer, Header } from '../../../packages/ui/src';
+import { defenceMetadata } from '../../../packages/config/src';
 import { siteMetadata } from './metadata';
 import './globals.css';
 

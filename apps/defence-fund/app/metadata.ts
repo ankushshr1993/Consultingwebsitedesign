@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { defenceMetadata } from '../config/metadata';
+import { defenceMetadata } from '../../../packages/config/src';
 
 export const siteMetadata: Metadata = {
   title: defenceMetadata.title,
