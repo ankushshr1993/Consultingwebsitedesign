@@ -1,6 +1,23 @@
-import { getAllInsights } from "../../../lib/content";
-
-const insights = getAllInsights();
+const insights = [
+  {
+    slug: 'market-positioning-playbook',
+    title: 'Market Positioning Playbook',
+    description: 'A practical framework to sharpen messaging, segment prioritization, and GTM execution.',
+    date: '2026-01-11',
+  },
+  {
+    slug: 'operational-efficiency-checklist',
+    title: 'Operational Efficiency Checklist',
+    description: 'Decision-oriented checklist for improving throughput, ownership clarity, and cycle times.',
+    date: '2026-01-03',
+  },
+  {
+    slug: 'change-management-framework',
+    title: 'Change Management Framework',
+    description: 'A focused approach to adoption planning, resistance mitigation, and leadership alignment.',
+    date: '2025-12-19',
+  },
+];
 
 export function InsightsPage() {
   return (
