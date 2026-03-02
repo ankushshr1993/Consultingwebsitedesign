@@ -11,16 +11,16 @@ export function Footer() {
               Regression Consulting
             </h3>
             <p className="text-gray-400">
-              Helping businesses transform with expert strategy, insight, and execution support.
+              Operator-led strategy and execution for high-stakes technology delivery.
             </p>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Services</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/#services" className="hover:text-white transition-colors">Business Strategy</Link></li>
-              <li><Link href="/#services" className="hover:text-white transition-colors">Market Analysis</Link></li>
-              <li><Link href="/#services" className="hover:text-white transition-colors">Change Management</Link></li>
-              <li><Link href="/#services" className="hover:text-white transition-colors">Innovation</Link></li>
+              <li><Link href="/#services" className="hover:text-white transition-colors">Execution Planning</Link></li>
+              <li><Link href="/#services" className="hover:text-white transition-colors">Architecture Blueprint</Link></li>
+              <li><Link href="/#services" className="hover:text-white transition-colors">Program Governance</Link></li>
+              <li><Link href="/#services" className="hover:text-white transition-colors">Investor Support</Link></li>
             </ul>
           </div>
           <div>
@@ -36,7 +36,7 @@ export function Footer() {
               <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><Linkedin size={24} /></Link>
               <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><Twitter size={24} /></Link>
               <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Facebook"><Facebook size={24} /></Link>
-              <Link href="mailto:Info@regressioncosnsulting.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Email"><Mail size={24} /></Link>
+              <Link href="mailto:info@regressionconsulting.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Email"><Mail size={24} /></Link>
             </div>
           </div>
         </div>

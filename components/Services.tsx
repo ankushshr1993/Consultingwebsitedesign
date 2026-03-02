@@ -3,23 +3,23 @@ import { BarChart3, Briefcase, Lightbulb, TrendingUp } from 'lucide-react';
 const services = [
   {
     icon: Briefcase,
-    title: 'Business Strategy',
-    description: 'Align your goals, teams, and operations with a clear strategic roadmap for growth.',
+    title: 'Execution Planning & Delivery Readiness',
+    description: 'Define scope, milestones, ownership, and operating rhythm. Turn priorities into an executable plan teams can deliver.',
   },
   {
     icon: BarChart3,
-    title: 'Market Analysis',
-    description: 'Understand your competitive landscape and identify high-impact opportunities.',
+    title: 'Architecture & Integration Blueprint',
+    description: 'Create a pragmatic target architecture, system boundaries, and integration approach that scales and survives real constraints.',
   },
   {
     icon: TrendingUp,
-    title: 'Change Management',
-    description: 'Lead organizational change with confidence through structured implementation plans.',
+    title: 'Delivery Control & Program Governance',
+    description: 'Establish metrics, cadences, vendor coordination, and escalation paths—so leadership gets predictable outcomes, not surprises.',
   },
   {
     icon: Lightbulb,
-    title: 'Innovation Consulting',
-    description: 'Design forward-looking initiatives that improve performance and customer value.',
+    title: 'Investor & Portfolio Technology Support',
+    description: 'Support diligence, 100-day plans, and execution turnarounds. Improve confidence in timelines, cost, and delivery capability.',
   },
 ];
 
@@ -33,7 +33,7 @@ export function Services() {
             Our Services
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Strategic solutions built to help your business scale, adapt, and lead.
+            Focused engagements that reduce delivery risk, accelerate execution, and improve reliability.
           </p>
         </div>
 

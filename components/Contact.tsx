@@ -62,7 +62,7 @@ export function Contact() {
             Contact Us
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Tell us about your goals and we’ll help you build a practical strategy to move forward.
+            Share the context (scope, constraints, timeline). We’ll respond with a clear next step and a practical path to execution.
           </p>
         </div>
 
