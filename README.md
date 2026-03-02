@@ -35,27 +35,6 @@ npm run build
 
 This runs both app builds in sequence from the repository root.
 
-## Website map
-
-### Consulting site (`regressionconsulting.com`)
-
-- `/`
-- `/about`
-- `/approach`
-- `/services`
-- `/contact`
-- `/insights`
-- `/insights/[slug]`
-
-### Defence fund microsite (`deftech.regressionconsulting.com`)
-
-- `/`
-- `/focus`
-- `/criteria`
-- `/team`
-- `/intake`
-- `/legal`
-
 ## Vercel multi-project setup
 
 Use two Vercel projects pointed to the same Git repository:
