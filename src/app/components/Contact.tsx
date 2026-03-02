@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { trackEvent } from '../../lib/analytics';
 
 type ContactForm = {
   name: string;
@@ -69,58 +70,55 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent mb-4">
-            Get In Touch
+            Qualification Intake
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Ready to transform your business? Let's start a conversation
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            We review inbound requests for executive sponsorship, urgency, and implementation readiness before accepting new work.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <div className="relative mb-8">
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-rose-500 rounded-lg blur-lg opacity-20" />
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1765438869297-6fa4b627906a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN0cmF0ZWd5JTIwcGxhbm5pbmd8ZW58MXx8fHwxNzcyMjg2MzM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Business strategy planning"
-                className="rounded-lg shadow-xl relative border border-white/10"
-              />
+          <div className="space-y-6">
+            <div className="rounded-lg bg-white/5 border border-white/10 p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">Before you reach out</h3>
+              <ul className="space-y-2 text-gray-300 list-disc list-inside">
+                <li>Include the decision or initiative that must move in the next 90 days.</li>
+                <li>Confirm the accountable executive sponsor and implementation owner.</li>
+                <li>Share constraints we should design around (time, budget, organizational).</li>
+              </ul>
             </div>
             <div className="space-y-4">
               <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
                 <Mail className="text-indigo-400 flex-shrink-0 mt-1" size={24} />
                 <div>
                   <div className="font-semibold text-white">Email</div>
-                  <div className="text-gray-400">contact@consultpro.com</div>
+                  <div className="text-gray-400">intake@regressionconsulting.com</div>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
                 <Phone className="text-indigo-400 flex-shrink-0 mt-1" size={24} />
                 <div>
                   <div className="font-semibold text-white">Phone</div>
-                  <div className="text-gray-400">+1 (555) 123-4567</div>
+                  <div className="text-gray-400">+1 (555) 010-9075</div>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
                 <MapPin className="text-indigo-400 flex-shrink-0 mt-1" size={24} />
                 <div>
-                  <div className="font-semibold text-white">Office</div>
-                  <div className="text-gray-400">123 Business Plaza, Suite 500<br />New York, NY 10001</div>
+                  <div className="font-semibold text-white">Operating model</div>
+                  <div className="text-gray-400">Remote-first advisory with scheduled on-site sessions for active engagements.</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="website"
-              value={form.website}
-              onChange={(event) => setForm((prev) => ({ ...prev, website: event.target.value }))}
-              className="hidden"
-              tabIndex={-1}
-              autoComplete="off"
-            />
+          <form
+            className="space-y-6"
+            onSubmit={(event) => {
+              event.preventDefault();
+              trackEvent('contact_submit_success');
+            }}
+          >
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                 Name
@@ -137,7 +135,7 @@ export function Contact() {
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                Email
+                Work Email
               </label>
               <input
                 type="email"
@@ -146,7 +144,7 @@ export function Contact() {
                 value={form.email}
                 onChange={(event) => setForm((prev) => ({ ...prev, email: event.target.value }))}
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                placeholder="your@email.com"
+                placeholder="name@company.com"
               />
             </div>
             <div>
@@ -160,54 +158,22 @@ export function Contact() {
                 value={form.company}
                 onChange={(event) => setForm((prev) => ({ ...prev, company: event.target.value }))}
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                placeholder="Your company name"
+                placeholder="Company name"
               />
             </div>
             <div>
-              <label htmlFor="role" className="block text-sm font-medium text-gray-300 mb-2">
-                Role
-              </label>
-              <input
-                type="text"
-                id="role"
-                required
-                value={form.role}
-                onChange={(event) => setForm((prev) => ({ ...prev, role: event.target.value }))}
-                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                placeholder="Your role"
-              />
-            </div>
-            <div>
-              <label htmlFor="urgency" className="block text-sm font-medium text-gray-300 mb-2">
-                Urgency
-              </label>
-              <select
-                id="urgency"
-                value={form.urgency}
-                onChange={(event) =>
-                  setForm((prev) => ({ ...prev, urgency: event.target.value as ContactForm['urgency'] }))
-                }
-                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-              >
-                <option value="low" className="text-black">Low</option>
-                <option value="medium" className="text-black">Medium</option>
-                <option value="high" className="text-black">High</option>
-                <option value="urgent" className="text-black">Urgent</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                Message / Execution challenge
+              <label htmlFor="scope" className="block text-sm font-medium text-gray-300 mb-2">
+                Decision / Scope to Qualify
               </label>
               <textarea
-                id="message"
+                id="scope"
                 rows={4}
                 required
                 value={form.message}
                 onChange={(event) => setForm((prev) => ({ ...prev, message: event.target.value }))}
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                placeholder="Tell us about your project or execution challenge..."
-              />
+                placeholder="What decision needs to be made, by when, and what is at risk if delayed?"
+              ></textarea>
             </div>
             {status && (
               <p className={status.type === 'success' ? 'text-green-400' : 'text-rose-400'}>{status.message}</p>
@@ -217,7 +183,7 @@ export function Contact() {
               disabled={isSubmitting}
               className="w-full bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all disabled:opacity-60"
             >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+              Submit for Review
             </button>
           </form>
         </div>
