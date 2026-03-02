@@ -177,7 +177,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -212,6 +212,25 @@ export function Services() {
               </div>
             );
           })}
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-6">
+            <h3 className="text-lg font-semibold text-white mb-3">Who this is for</h3>
+            <ul className="space-y-2 text-gray-300 list-disc list-inside">
+              <li>Founder-led and executive-led teams making time-sensitive decisions.</li>
+              <li>Organizations with a clear owner for implementation.</li>
+              <li>Leaders open to direct challenge and prioritization tradeoffs.</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-white/5 p-6">
+            <h3 className="text-lg font-semibold text-white mb-3">Who this is not for</h3>
+            <ul className="space-y-2 text-gray-300 list-disc list-inside">
+              <li>Teams seeking outsourced execution or staff augmentation.</li>
+              <li>Organizations without decision rights or executive sponsorship.</li>
+              <li>Exploratory engagements without a defined business priority.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
