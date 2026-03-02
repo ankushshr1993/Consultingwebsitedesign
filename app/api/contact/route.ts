@@ -46,7 +46,11 @@ export async function POST(request: NextRequest) {
   const parsed = contactSchema.safeParse(payload);
 
   if (!parsed.success) {
-    return jsonError('VALIDATION_ERROR', 'Invalid request payload.', 400, parsed.error.flatten());
+    const flattened = parsed.error.flatten();
+    const fieldErrors = Object.values(flattened.fieldErrors).flat();
+    const firstError = fieldErrors[0] || flattened.formErrors[0] || 'Invalid request payload.';
+
+    return jsonError('VALIDATION_ERROR', firstError, 400, flattened);
   }
 
   if (parsed.data.website) {

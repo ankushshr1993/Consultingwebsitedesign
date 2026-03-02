@@ -120,10 +120,11 @@ export function Contact() {
             <textarea
               rows={4}
               required
+              minLength={10}
               value={form.message}
               onChange={(event) => setForm((prev) => ({ ...prev, message: event.target.value }))}
               className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500"
-              placeholder="How can we help?"
+              placeholder="How can we help? (at least 10 characters)"
             />
             {status && <p className={status.type === 'success' ? 'text-green-400' : 'text-rose-400'}>{status.message}</p>}
             <button
