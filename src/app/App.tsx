@@ -6,7 +6,19 @@ import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
-export default function App() {
+function ServicesPage() {
+  return (
+    <div className="min-h-screen bg-[#030303]">
+      <Header />
+      <main>
+        <Services />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function HomePage() {
   return (
     <div className="min-h-screen bg-[#030303]">
       <Header />
@@ -20,4 +32,12 @@ export default function App() {
       <Footer />
     </div>
   );
+}
+
+export default function App() {
+  if (window.location.pathname === '/services') {
+    return <ServicesPage />;
+  }
+
+  return <HomePage />;
 }
