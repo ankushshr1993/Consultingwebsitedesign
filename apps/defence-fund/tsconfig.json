@@ -25,15 +25,6 @@
     "paths": {
       "@/*": [
         "./*"
-      ],
-      "react": [
-        "./node_modules/react"
-      ],
-      "react/jsx-runtime": [
-        "./node_modules/react/jsx-runtime"
-      ],
-      "react-dom": [
-        "./node_modules/react-dom"
       ]
     }
   },
