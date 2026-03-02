@@ -16,7 +16,9 @@ export function Header() {
             <a href="#home" className="text-gray-300 hover:text-white transition-colors">Home</a>
             <a href="#services" className="text-gray-300 hover:text-white transition-colors">Services</a>
             <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
-            <a href="#contact" className="bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all">Qualification Intake</a>
+            <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
+            <a href="/insights" className="text-gray-300 hover:text-white transition-colors">Insights</a>
+            <a href="#contact" className="bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all">Contact Us</a>
           </div>
 
           <div className="md:hidden">
@@ -34,7 +36,9 @@ export function Header() {
             <a href="#home" className="block text-gray-300 hover:text-white transition-colors">Home</a>
             <a href="#services" className="block text-gray-300 hover:text-white transition-colors">Services</a>
             <a href="#about" className="block text-gray-300 hover:text-white transition-colors">About</a>
-            <a href="#contact" className="block bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all text-center">Qualification Intake</a>
+            <a href="#testimonials" className="block text-gray-300 hover:text-white transition-colors">Testimonials</a>
+            <a href="/insights" className="block text-gray-300 hover:text-white transition-colors">Insights</a>
+            <a href="#contact" className="block bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all text-center">Contact Us</a>
           </div>
         )}
       </nav>
