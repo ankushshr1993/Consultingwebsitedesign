@@ -1,7 +1,8 @@
 /**
- * PostCSS configuration for Next.js + Tailwind CSS v4.
+ * PostCSS configuration for Next.js.
  *
- * Tailwind v4 handles its setup through CSS imports, so this can remain empty
- * unless extra PostCSS plugins are needed.
+ * Next.js requires custom PostCSS configs to export a `plugins` key.
  */
-export default {};
+export default {
+  plugins: {},
+};
