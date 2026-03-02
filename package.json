@@ -8,9 +8,5 @@
     "build:consulting": "npm --prefix apps/consulting run build",
     "build:defence-fund": "npm --prefix apps/defence-fund run build",
     "build": "npm run build:consulting && npm run build:defence-fund"
-  },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  }
 }
