@@ -1,4 +1,5 @@
 import { Linkedin, Twitter, Facebook, Mail } from 'lucide-react';
+import { Link } from 'react-router';
 
 export function Footer() {
   return (
@@ -7,41 +8,39 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-indigo-400 to-rose-400 bg-clip-text text-transparent">ConsultPro</h3>
-            <p className="text-gray-400">
-              Transforming businesses through expert consulting and strategic insights.
-            </p>
+            <p className="text-gray-400">Transforming businesses through expert consulting and strategic insights.</p>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Services</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#services" className="hover:text-white transition-colors">Business Strategy</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Market Analysis</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Change Management</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Innovation</a></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Strategy Architecture</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Go-To-Market Design</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Operating Model Evolution</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Transformation PMO</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Company</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><Link to="/approach" className="hover:text-white transition-colors">Approach</Link></li>
+              <li><Link to="/proof" className="hover:text-white transition-colors">Proof Narratives</Link></li>
+              <li><Link to="/legal" className="hover:text-white transition-colors">Legal</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Connect</h4>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
+              <a href="https://www.linkedin.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn">
                 <Linkedin size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
+              <a href="https://x.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="X">
                 <Twitter size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
+              <a href="https://www.facebook.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Facebook">
                 <Facebook size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
+              <a href="mailto:contact@consultpro.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Email">
                 <Mail size={24} />
               </a>
             </div>

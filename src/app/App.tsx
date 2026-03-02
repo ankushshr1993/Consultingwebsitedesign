@@ -1,23 +1,24 @@
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { About } from './components/About';
-import { Testimonials } from './components/Testimonials';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
+import { Navigate, Route, Routes } from 'react-router';
+import { AppLayout } from './layout';
+import { HomePage } from './pages/HomePage';
+import { ServicesPage } from './pages/ServicesPage';
+import { ApproachPage } from './pages/ApproachPage';
+import { ProofPage } from './pages/ProofPage';
+import { LegalPage } from './pages/LegalPage';
+import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#030303]">
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route element={<AppLayout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/approach" element={<ApproachPage />} />
+        <Route path="/proof" element={<ProofPage />} />
+        <Route path="/legal" element={<LegalPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
   );
 }
