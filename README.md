@@ -1,33 +1,70 @@
-# Consulting website design
+# Regression Web Monorepo
 
-This is a code bundle for Consulting website design. The original project is available at https://www.figma.com/design/gOkwHpCV2sVbrsUfSjOtf4/Consulting-website-design.
+This repository contains two independent Next.js applications managed from a single monorepo.
 
-## Running the code
+## Applications
 
-Run `npm i` to install the dependencies.
+- `apps/consulting` → production consulting site for `regressionconsulting.com`.
+- `apps/defence-fund` → defence technology microsite for `deftech.regressionconsulting.com`.
 
-Run `npm run dev` to start the development server.
+## Shared packages
 
-## Contact form setup (local + Vercel)
+- `packages/ui` → reusable, generic UI primitives for both apps.
+- `packages/config` → shared metadata/constants (for example SEO defaults).
 
-The contact form posts to `/api/contact` and sends email via Resend.
-
-Set the following environment variables:
-
-- `RESEND_API_KEY` — API key from Resend.
-- `CONTACT_FROM_EMAIL` — sender address (must be from a verified domain in Resend).
-- `CONTACT_TO_EMAIL` — optional override destination inbox where form messages should be delivered. Defaults to `info@regressionconsulting.com`.
-
-### Local `.env.local` example
+## Install
 
 ```bash
-RESEND_API_KEY=re_xxxxx
-CONTACT_FROM_EMAIL=contact@yourdomain.com
-CONTACT_TO_EMAIL=info@yourdomain.com
+npm install
 ```
 
-### Vercel configuration
+## Run locally
 
-In Vercel, go to **Project → Settings → Environment Variables** and add all 3 values above for the environments you use (Production/Preview/Development), then redeploy.
+```bash
+npm run dev:consulting
+npm run dev:defence-fund
+```
 
-If `RESEND_API_KEY` or `CONTACT_FROM_EMAIL` are missing, the API returns an `EMAIL_NOT_CONFIGURED` error and form submission will fail.
+Each app runs as its own Next.js project from its respective workspace.
+
+## Build
+
+```bash
+npm run build
+```
+
+This runs both app builds in sequence from the repository root.
+
+## Website map
+
+### Consulting site (`regressionconsulting.com`)
+
+- `/`
+- `/about`
+- `/approach`
+- `/services`
+- `/contact`
+- `/insights`
+- `/insights/[slug]`
+
+### Defence fund microsite (`deftech.regressionconsulting.com`)
+
+- `/`
+- `/focus`
+- `/criteria`
+- `/team`
+- `/intake`
+- `/legal`
+
+## Vercel multi-project setup
+
+Use two Vercel projects pointed to the same Git repository:
+
+1. **Consulting project**
+   - Root Directory: `apps/consulting`
+   - Domain: `regressionconsulting.com`
+2. **Defence fund project**
+   - Root Directory: `apps/defence-fund`
+   - Domain: `deftech.regressionconsulting.com`
+
+No route or metadata sharing is required between these deployments.
