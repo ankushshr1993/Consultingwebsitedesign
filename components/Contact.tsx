@@ -1,7 +1,9 @@
+'use client';
+
 import { FormEvent, useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { trackEvent } from '../../lib/analytics';
+import { trackEvent } from '../src/lib/analytics';
 
 type ContactForm = {
   name: string;
@@ -52,6 +54,7 @@ export function Contact() {
         return;
       }
 
+      trackEvent('contact_submit_success');
       setStatus({ type: 'success', message: 'Thanks! Your message has been sent successfully.' });
       setForm(initialForm);
     } catch {
@@ -114,10 +117,7 @@ export function Contact() {
 
           <form
             className="space-y-6"
-            onSubmit={(event) => {
-              event.preventDefault();
-              trackEvent('contact_submit_success');
-            }}
+            onSubmit={handleSubmit}
           >
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">

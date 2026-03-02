@@ -1,3 +1,5 @@
+'use client';
+
 import { memo, useCallback, useEffect, useRef } from "react";
 import { cn } from "./utils";
 import { animate } from "motion/react";
