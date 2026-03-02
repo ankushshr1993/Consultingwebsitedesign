@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import matter from "../src/vendor/gray-matter";
 
 export type InsightFrontMatter = {
@@ -11,12 +13,6 @@ export type Insight = InsightFrontMatter & {
   content: string;
 };
 
-const insightModules = import.meta.glob<string>("/content/insights/*.md", {
-  eager: true,
-  query: "?raw",
-  import: "default",
-});
-
 function parseInsight(markdown: string): Insight {
   const { data, content } = matter(markdown);
 
@@ -27,15 +23,21 @@ function parseInsight(markdown: string): Insight {
     slug: String(data.slug ?? ""),
   };
 
-  return {
-    ...frontMatter,
-    content,
-  };
+  return { ...frontMatter, content };
 }
 
 export function getAllInsights(): Insight[] {
-  return Object.values(insightModules)
-    .map((markdown) => parseInsight(markdown))
+  const insightsDir = path.join(process.cwd(), "content/insights");
+
+  if (!fs.existsSync(insightsDir)) return [];
+
+  return fs
+    .readdirSync(insightsDir)
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => {
+      const markdown = fs.readFileSync(path.join(insightsDir, file), "utf-8");
+      return parseInsight(markdown);
+    })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
