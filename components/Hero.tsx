@@ -6,7 +6,6 @@ export function Hero() {
   return (
     <section id="home" className="relative">
       <HeroGeometric
-        badge="Regression Consulting"
         title1="Execution-led technology consulting"
         title2="for founders and investors"
       />
