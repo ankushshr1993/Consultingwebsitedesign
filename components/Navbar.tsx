@@ -23,7 +23,7 @@ export function Navbar() {
       return pathname === href;
     }
 
-    return pathname === href || pathname.startsWith(`${href}/`);
+    return pathname === href || (pathname?.startsWith(`${href}/`) ?? false);
   };
 
   return (
