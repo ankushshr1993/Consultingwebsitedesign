@@ -1,4 +1,4 @@
-import matter from "gray-matter";
+import matter from "../src/vendor/gray-matter";
 
 export type InsightFrontMatter = {
   title: string;
