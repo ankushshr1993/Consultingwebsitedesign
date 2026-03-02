@@ -6,9 +6,9 @@ export function Hero() {
   return (
     <section id="home" className="relative">
       <HeroGeometric
-        badge="Professional Consulting"
-        title1="Transform Your Business"
-        title2="Expert Strategic Solutions"
+        badge="Regression Consulting"
+        title1="Regression Consulting"
+        title2="Strategic Advisory & Execution"
       />
       <div className="absolute bottom-0 left-0 right-0 pb-12 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

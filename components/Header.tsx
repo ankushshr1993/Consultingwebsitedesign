@@ -12,15 +12,13 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-semibold bg-gradient-to-r from-indigo-400 to-rose-400 bg-clip-text text-transparent">ConsultPro</span>
+            <span className="text-2xl font-semibold bg-gradient-to-r from-indigo-400 to-rose-400 bg-clip-text text-transparent">Regression Consulting</span>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/#home" className="text-gray-300 hover:text-white transition-colors">Home</Link>
             <Link href="/#services" className="text-gray-300 hover:text-white transition-colors">Services</Link>
             <Link href="/#about" className="text-gray-300 hover:text-white transition-colors">About</Link>
-            <Link href="/#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</Link>
             <Link href="/#contact" className="bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all">Contact Us</Link>
           </div>
 
@@ -38,10 +36,8 @@ export function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-3">
-            <Link href="/#home" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors">Home</Link>
             <Link href="/#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors">Services</Link>
             <Link href="/#about" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors">About</Link>
-            <Link href="/#testimonials" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors">Testimonials</Link>
             <Link href="/#contact" onClick={() => setMobileMenuOpen(false)} className="block bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all text-center">Contact Us</Link>
           </div>
         )}

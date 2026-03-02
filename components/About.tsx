@@ -14,7 +14,7 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent mb-4">
-            About ConsultPro
+            About Regression Consulting
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             We help organizations transform vision into measurable outcomes through strategic advisory, market insight,
@@ -26,7 +26,7 @@ export function About() {
           <div className="rounded-xl border border-white/10 bg-white/5 p-8">
             <h3 className="text-2xl font-semibold text-white mb-4">Our mission</h3>
             <p className="text-gray-300 leading-relaxed">
-              ConsultPro partners with growing businesses to solve complex challenges and unlock sustainable growth.
+              Regression Consulting partners with growing businesses to solve complex challenges and unlock sustainable growth.
               We combine business strategy, technology, and operational excellence to deliver practical results.
             </p>
           </div>

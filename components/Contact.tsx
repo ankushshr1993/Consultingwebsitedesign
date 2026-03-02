@@ -66,21 +66,22 @@ export function Contact() {
               <Mail className="text-indigo-400 mt-1" size={24} />
               <div>
                 <div className="font-semibold text-white">Email</div>
-                <div className="text-gray-400">hello@consultpro.com</div>
+                <div className="text-gray-400">Info@regressioncosnsulting.com</div>
               </div>
             </div>
             <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
               <Phone className="text-indigo-400 mt-1" size={24} />
               <div>
                 <div className="font-semibold text-white">Phone</div>
-                <div className="text-gray-400">+1 (555) 123-4567</div>
+                <div className="text-gray-400">+31619116786</div>
               </div>
             </div>
             <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
               <MapPin className="text-indigo-400 mt-1" size={24} />
               <div>
                 <div className="font-semibold text-white">Location</div>
-                <div className="text-gray-400">New York, NY</div>
+                <div className="text-gray-400">India<br />Regression Consulting Private Limited<br />F-275, Jal Vayu Vihar, Sector 30, Gurugram</div>
+                <div className="text-gray-400 mt-3">Netherlands<br />Ertskade, Amsterdam, 1019 BB</div>
               </div>
             </div>
           </div>

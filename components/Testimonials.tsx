@@ -1,7 +1,7 @@
 const testimonials = [
   {
     quote:
-      'ConsultPro transformed our business strategy and increased our revenue by 150% within just six months.',
+      'Regression Consulting transformed our business strategy and increased our revenue by 150% within just six months.',
     name: 'Sarah Chen',
     role: 'CEO, TechStart Inc.',
   },

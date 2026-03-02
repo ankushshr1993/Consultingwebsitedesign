@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'ConsultPro',
+  title: 'Regression Consulting',
   description: 'Consulting website',
 };
 
