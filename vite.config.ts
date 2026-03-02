@@ -14,6 +14,8 @@ export default defineConfig({
     alias: {
       // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
+      'gray-matter': path.resolve(__dirname, './src/vendor/gray-matter.ts'),
+      'react-markdown': path.resolve(__dirname, './src/vendor/react-markdown.tsx'),
     },
   },
 
