@@ -16,7 +16,7 @@ const navItems = [
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname() ?? '';
+  const pathname = usePathname();
 
   const isActive = (href: string, end?: boolean) => {
     if (end) {
