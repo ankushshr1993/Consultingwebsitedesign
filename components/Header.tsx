@@ -17,11 +17,11 @@ export function Header() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-            <Link href="/services" className="text-gray-300 hover:text-white transition-colors">Services</Link>
-            <Link href="/about" className="text-gray-300 hover:text-white transition-colors">About</Link>
-            <Link href="/proof" className="text-gray-300 hover:text-white transition-colors">Testimonials</Link>
-            <Link href="/contact" className="bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all">Contact Us</Link>
+            <Link href="/#home" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+            <Link href="/#services" className="text-gray-300 hover:text-white transition-colors">Services</Link>
+            <Link href="/#about" className="text-gray-300 hover:text-white transition-colors">About</Link>
+            <Link href="/#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</Link>
+            <Link href="/#contact" className="bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all">Contact Us</Link>
           </div>
 
           {/* Mobile menu button */}
@@ -38,11 +38,11 @@ export function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-3">
-            <Link href="/" className="block text-gray-300 hover:text-white transition-colors">Home</Link>
-            <Link href="/services" className="block text-gray-300 hover:text-white transition-colors">Services</Link>
-            <Link href="/about" className="block text-gray-300 hover:text-white transition-colors">About</Link>
-            <Link href="/proof" className="block text-gray-300 hover:text-white transition-colors">Testimonials</Link>
-            <Link href="/contact" className="block bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all text-center">Contact Us</Link>
+            <Link href="/#home" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors">Home</Link>
+            <Link href="/#services" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors">Services</Link>
+            <Link href="/#about" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors">About</Link>
+            <Link href="/#testimonials" onClick={() => setMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors">Testimonials</Link>
+            <Link href="/#contact" onClick={() => setMobileMenuOpen(false)} className="block bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-6 py-2 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all text-center">Contact Us</Link>
           </div>
         )}
       </nav>
