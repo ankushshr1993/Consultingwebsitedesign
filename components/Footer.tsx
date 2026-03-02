@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-indigo-400 to-rose-400 bg-clip-text text-transparent">
-              ConsultPro
+              Regression Consulting
             </h3>
             <p className="text-gray-400">
               Helping businesses transform with expert strategy, insight, and execution support.
@@ -27,8 +27,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-white">Company</h4>
             <ul className="space-y-2 text-gray-400">
               <li><Link href="/#about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/#testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
-              <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
+                            <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
           <div>
@@ -37,12 +36,12 @@ export function Footer() {
               <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><Linkedin size={24} /></Link>
               <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><Twitter size={24} /></Link>
               <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Facebook"><Facebook size={24} /></Link>
-              <Link href="mailto:hello@consultpro.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Email"><Mail size={24} /></Link>
+              <Link href="mailto:Info@regressioncosnsulting.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Email"><Mail size={24} /></Link>
             </div>
           </div>
         </div>
         <div className="pt-8 border-t border-white/10 text-center text-gray-400">
-          <p>&copy; 2026 ConsultPro. All rights reserved.</p>
+          <p>&copy; 2026 Regression Consulting. All rights reserved.</p>
         </div>
       </div>
     </footer>
