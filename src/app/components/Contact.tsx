@@ -1,8 +1,69 @@
+import { FormEvent, useState } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { trackEvent } from '../../lib/analytics';
 
+type ContactForm = {
+  name: string;
+  email: string;
+  company: string;
+  role: string;
+  message: string;
+  urgency: 'low' | 'medium' | 'high' | 'urgent';
+  website: string;
+};
+
+const initialForm: ContactForm = {
+  name: '',
+  email: '',
+  company: '',
+  role: '',
+  message: '',
+  urgency: 'medium',
+  website: '',
+};
+
 export function Contact() {
+  const [form, setForm] = useState<ContactForm>(initialForm);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const payload = await response.json();
+
+      if (!response.ok) {
+        setStatus({
+          type: 'error',
+          message: payload?.error?.message || 'Something went wrong while sending your message.',
+        });
+        return;
+      }
+
+      setStatus({ type: 'success', message: 'Thanks! Your message has been sent successfully.' });
+      setForm(initialForm);
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Network error. Please try again in a moment.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-black relative">
       <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-indigo-500/5" />
@@ -65,6 +126,9 @@ export function Contact() {
               <input
                 type="text"
                 id="name"
+                required
+                value={form.name}
+                onChange={(event) => setForm((prev) => ({ ...prev, name: event.target.value }))}
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 placeholder="Your name"
               />
@@ -76,6 +140,9 @@ export function Contact() {
               <input
                 type="email"
                 id="email"
+                required
+                value={form.email}
+                onChange={(event) => setForm((prev) => ({ ...prev, email: event.target.value }))}
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 placeholder="name@company.com"
               />
@@ -87,6 +154,9 @@ export function Contact() {
               <input
                 type="text"
                 id="company"
+                required
+                value={form.company}
+                onChange={(event) => setForm((prev) => ({ ...prev, company: event.target.value }))}
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 placeholder="Company name"
               />
@@ -98,13 +168,20 @@ export function Contact() {
               <textarea
                 id="scope"
                 rows={4}
+                required
+                value={form.message}
+                onChange={(event) => setForm((prev) => ({ ...prev, message: event.target.value }))}
                 className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 placeholder="What decision needs to be made, by when, and what is at risk if delayed?"
               ></textarea>
             </div>
+            {status && (
+              <p className={status.type === 'success' ? 'text-green-400' : 'text-rose-400'}>{status.message}</p>
+            )}
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all disabled:opacity-60"
             >
               Submit for Review
             </button>
