@@ -1,5 +1,6 @@
 import { TrendingUp, Target, Users, Lightbulb, BarChart3, Shield } from 'lucide-react';
 import { GlowingEffect } from './ui/glowing-effect';
+import { trackEvent } from '../../lib/analytics';
 
 const services = [
   {
@@ -55,6 +56,7 @@ export function Services() {
               <div
                 key={index}
                 className="relative min-h-[14rem]"
+                onClick={() => trackEvent('insight_open', { props: { insight: service.title } })}
               >
                 <div className="relative h-full rounded-xl border border-white/10 p-2 bg-black/40 backdrop-blur-sm">
                   <GlowingEffect

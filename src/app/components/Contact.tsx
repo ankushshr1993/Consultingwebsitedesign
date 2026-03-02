@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { trackEvent } from '../../lib/analytics';
 
 export function Contact() {
   return (
@@ -50,7 +51,13 @@ export function Contact() {
             </div>
           </div>
 
-          <form className="space-y-6">
+          <form
+            className="space-y-6"
+            onSubmit={(event) => {
+              event.preventDefault();
+              trackEvent('contact_submit_success');
+            }}
+          >
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                 Name
