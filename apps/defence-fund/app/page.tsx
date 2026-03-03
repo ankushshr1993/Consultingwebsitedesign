@@ -25,7 +25,7 @@ export default function Page() {
           </Link>
         }
       />
-      <MdxPage title="Investment Thesis" fileName="thesis.mdx" />
+      <MdxPage title="Home Overview" fileName="home.mdx" />
     </>
   );
 }
