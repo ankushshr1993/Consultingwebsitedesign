@@ -1,10 +1,10 @@
 import type { MetadataRoute } from 'next';
-import { getSiteUrl } from './site-url';
+
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://deftech.regressionconsulting.com';
 
 const routes = ['/', '/thesis', '/criteria', '/team', '/contact-us'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = getSiteUrl();
   const lastModified = new Date();
 
   return routes.map((route) => ({
