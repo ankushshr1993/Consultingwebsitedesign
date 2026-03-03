@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { getSiteUrl } from './site-url';
 import './globals.css';
+
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   title: 'Regression Consulting',
   description: 'Consulting website',
+  metadataBase: new URL(siteUrl),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
