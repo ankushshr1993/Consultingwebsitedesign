@@ -6,36 +6,50 @@ function cx(...parts: Array<string | undefined>) {
   return parts.filter(Boolean).join(' ');
 }
 
-export function Header({
+export function SiteHero({
+  eyebrow,
   title,
   subtitle,
-  className,
-  eyebrow = 'Regression Defence Tech'
-}: { title: string; subtitle?: string; eyebrow?: string } & ClassNameProp) {
+  children,
+  className
+}: {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  children?: ReactNode;
+} & ClassNameProp) {
   return (
-    <header className={cx('border-b border-slate-800 bg-slate-950', className)}>
-      <div className="mx-auto max-w-5xl px-6 py-8">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{eyebrow}</p>
-        <h1 className="mt-2 text-2xl font-semibold text-slate-100">{title}</h1>
-        {subtitle ? <p className="mt-2 max-w-3xl text-sm text-slate-300">{subtitle}</p> : null}
+    <section className={cx('relative overflow-hidden border-b border-white/10 bg-[#030303]', className)}>
+      <div className="hero-ambient pointer-events-none absolute inset-0">
+        <div className="fluid-orb fluid-orb-indigo" />
+        <div className="fluid-orb fluid-orb-rose" />
+        <div className="fluid-orb fluid-orb-cyan" />
       </div>
-    </header>
+      <div className="relative mx-auto max-w-6xl px-6 py-24 text-center sm:py-32">
+        <p className="text-xs uppercase tracking-[0.25em] text-slate-400">{eyebrow}</p>
+        <h1 className="mx-auto mt-5 max-w-5xl bg-gradient-to-b from-white to-white/85 bg-clip-text text-4xl font-semibold tracking-tight text-transparent sm:text-6xl md:text-7xl">
+          {title}
+        </h1>
+        <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-xl">{subtitle}</p>
+        {children ? <div className="mt-10 flex flex-wrap items-center justify-center gap-4">{children}</div> : null}
+      </div>
+    </section>
   );
 }
 
 export function Footer({ children, className }: { children?: ReactNode } & ClassNameProp) {
   return (
-    <footer className={cx('border-t border-slate-800', className)}>
-      <div className="mx-auto max-w-5xl px-6 py-8 text-sm text-slate-400">{children}</div>
+    <footer className={cx('border-t border-white/10', className)}>
+      <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-slate-400">{children}</div>
     </footer>
   );
 }
 
 export function Section({ title, children, className }: { title: string; children: ReactNode } & ClassNameProp) {
   return (
-    <section className={cx('mx-auto max-w-5xl px-6 py-10', className)}>
-      <h2 className="mb-4 text-xl font-medium text-slate-100">{title}</h2>
-      <div className="prose prose-invert max-w-none">{children}</div>
+    <section className={cx('mx-auto max-w-6xl px-6 py-10 sm:py-14', className)}>
+      <h2 className="mb-5 text-2xl font-semibold tracking-tight text-slate-100">{title}</h2>
+      <div className="prose prose-invert max-w-none prose-p:text-slate-300 prose-li:text-slate-300">{children}</div>
     </section>
   );
 }
