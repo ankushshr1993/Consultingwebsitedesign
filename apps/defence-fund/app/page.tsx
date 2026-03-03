@@ -6,8 +6,8 @@ export default function Page() {
   return (
     <>
       <SharedSiteHero
-        title="Regression Defence Tech Fund"
-        subtitle="Early-stage defence and dual-use technology focus, backing founders building critical capabilities across security, resilience, and strategic infrastructure."
+        title="Structured Capital for Indian Defence & Dual-Use Innovation"
+        subtitle="We identify high-potential defence and dual-use startups, invest with discipline, strengthen institutional readiness, and align them with long-term capital."
         primaryCta={
           <Link
             href="/intake"
@@ -25,7 +25,7 @@ export default function Page() {
           </Link>
         }
       />
-      <MdxPage title="Thesis" fileName="thesis.mdx" />
+      <MdxPage title="Home Overview" fileName="home.mdx" />
     </>
   );
 }
