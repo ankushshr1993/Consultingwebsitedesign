@@ -50,49 +50,38 @@ function StepCard({ step, title, body }: StepCardProps) {
 export default function ThesisPage() {
   return (
     <div className="pb-16">
-      <section className="relative overflow-hidden border-b border-white/10 bg-[#030303]">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-cyan-500/10" />
-          <div className="absolute left-1/2 top-0 h-64 w-[48rem] -translate-x-1/2 rounded-full bg-indigo-500/10 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto flex max-w-5xl flex-col gap-6 px-6 py-16 md:py-20">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Thesis</p>
-          <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">Investment Thesis</h1>
-          <p className="max-w-4xl text-base leading-relaxed text-slate-200 md:text-lg">
-            Structured Capital for Indian Defence &amp; Dual-Use Innovation (India ↔ Europe)
+      <Section title="Investment Thesis" className="max-w-5xl py-16">
+        <p className="max-w-4xl text-base leading-relaxed text-slate-200 md:text-lg">
+          Structured Capital for Indian Defence &amp; Dual-Use Innovation (India ↔ Europe)
+        </p>
+        <div className="mt-4 max-w-4xl space-y-2 text-sm leading-relaxed text-slate-300 md:text-base">
+          <p>
+            We identify a small number of high-potential companies, invest with discipline, and institutionalise them for venture
+            scale.
           </p>
-          <div className="max-w-4xl space-y-2 text-sm leading-relaxed text-slate-300 md:text-base">
-            <p>
-              We identify a small number of high-potential companies, invest with discipline, and institutionalise them for venture
-              scale.
-            </p>
-            <p>
-              We engage only when governance, export reality, and exit logic can withstand institutional scrutiny.
-            </p>
-          </div>
-          <p className="max-w-4xl text-xs leading-relaxed text-slate-400 md:text-sm">
-            We do not guarantee funding or contracts; we design within regulatory frameworks and introduce capital selectively when a
-            company is institutionally ready.
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link
-              href="/criteria"
-              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-500 to-rose-500 px-6 py-3 text-sm font-medium text-white transition-all hover:from-indigo-600 hover:to-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-            >
-              See Our Criteria
-            </Link>
-            <Link
-              href="/contact-us"
-              className="inline-flex items-center justify-center rounded-md border border-white/20 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-            >
-              Contact
-            </Link>
-          </div>
+          <p>We engage only when governance, export reality, and exit logic can withstand institutional scrutiny.</p>
         </div>
-      </section>
+        <p className="mt-4 max-w-4xl text-xs leading-relaxed text-slate-400 md:text-sm">
+          We do not guarantee funding or contracts; we design within regulatory frameworks and introduce capital selectively when a
+          company is institutionally ready.
+        </p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Link
+            href="/criteria"
+            className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-500 to-rose-500 px-6 py-3 text-sm font-medium text-white transition-all hover:from-indigo-600 hover:to-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+          >
+            See Our Criteria
+          </Link>
+          <Link
+            href="/contact-us"
+            className="inline-flex items-center justify-center rounded-md border border-white/20 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+          >
+            Contact
+          </Link>
+        </div>
+      </Section>
 
-      <section className="border-b border-white/10">
+      <section className="border-y border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-6">
           <div className="flex snap-x gap-3 overflow-x-auto pb-2">
             <FactChip label="Stage" value="Prototype → Early Revenue (Seed / Pre-Series A)" />
@@ -133,22 +122,10 @@ export default function ThesisPage() {
           The best companies are often blocked by mismatches between defence reality and venture capital requirements.
         </p>
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-          <InfoCard
-            title="Governance mismatch"
-            body="Built for grants/procurement, not institutional boards."
-          />
-          <InfoCard
-            title="Regulatory ambiguity"
-            body="Export-control and foreign participation not mapped early."
-          />
-          <InfoCard
-            title="Market framing"
-            body="India-only narratives instead of venture-scale, global logic."
-          />
-          <InfoCard
-            title="Exit confusion"
-            body="No credible acquirer universe or comparable outcomes."
-          />
+          <InfoCard title="Governance mismatch" body="Built for grants/procurement, not institutional boards." />
+          <InfoCard title="Regulatory ambiguity" body="Export-control and foreign participation not mapped early." />
+          <InfoCard title="Market framing" body="India-only narratives instead of venture-scale, global logic." />
+          <InfoCard title="Exit confusion" body="No credible acquirer universe or comparable outcomes." />
         </div>
         <p className="mt-6 max-w-4xl text-sm leading-relaxed text-slate-300 md:text-base">
           We operate as the “institutionalisation layer” before founders enter high-stakes investor conversations.
@@ -158,16 +135,16 @@ export default function ThesisPage() {
       <Section title="Why Now" className="max-w-5xl border-t border-white/10 py-16">
         <ul className="max-w-4xl space-y-3 text-base leading-relaxed text-slate-300 md:text-lg">
           <li>
-            • <strong className="text-slate-100">Defence modernisation + resilience:</strong> European defence priorities
-            increasingly reward deployable innovation and supply-chain resilience.
+            • <strong className="text-slate-100">Defence modernisation + resilience:</strong> European defence priorities increasingly
+            reward deployable innovation and supply-chain resilience.
           </li>
           <li>
-            • <strong className="text-slate-100">Dual-use acceleration:</strong> AI/autonomy/sensing increasingly serve civil +
-            defence markets, expanding TAM and exit optionality.
+            • <strong className="text-slate-100">Dual-use acceleration:</strong> AI/autonomy/sensing increasingly serve civil + defence
+            markets, expanding TAM and exit optionality.
           </li>
           <li>
-            • <strong className="text-slate-100">India capability curve:</strong> More startups are reaching TRL maturity; the
-            bottleneck shifts to structure, governance, and capital alignment.
+            • <strong className="text-slate-100">India capability curve:</strong> More startups are reaching TRL maturity; the bottleneck
+            shifts to structure, governance, and capital alignment.
           </li>
         </ul>
         <p className="mt-5 max-w-4xl text-xs leading-relaxed text-slate-400 md:text-sm">
@@ -230,43 +207,17 @@ export default function ThesisPage() {
 
       <Section title="Investment Criteria" className="max-w-5xl border-t border-white/10 py-16">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <InfoCard
-            title="Team"
-            body="founder velocity + domain credibility + coachability"
-          />
-          <InfoCard
-            title="TRL"
-            body="prototype validated; clear path to deployment"
-          />
-          <InfoCard
-            title="Market"
-            body="venture-scale beyond India-only procurement"
-          />
-          <InfoCard
-            title="Differentiation"
-            body="defensible advantage vs global competitors"
-          />
-          <InfoCard
-            title="Economics"
-            body="margin potential and capital efficiency"
-          />
-          <InfoCard
-            title="Compliance"
-            body="export-control awareness; foreign participation feasible"
-          />
-          <InfoCard
-            title="Governance"
-            body="willingness to add structure, board discipline, reporting"
-          />
-          <InfoCard
-            title="Exit logic"
-            body="plausible acquirer universe or strategic outcomes"
-          />
+          <InfoCard title="Team" body="founder velocity + domain credibility + coachability" />
+          <InfoCard title="TRL" body="prototype validated; clear path to deployment" />
+          <InfoCard title="Market" body="venture-scale beyond India-only procurement" />
+          <InfoCard title="Differentiation" body="defensible advantage vs global competitors" />
+          <InfoCard title="Economics" body="margin potential and capital efficiency" />
+          <InfoCard title="Compliance" body="export-control awareness; foreign participation feasible" />
+          <InfoCard title="Governance" body="willingness to add structure, board discipline, reporting" />
+          <InfoCard title="Exit logic" body="plausible acquirer universe or strategic outcomes" />
         </div>
         <details className="mt-6 max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-5">
-          <summary className="cursor-pointer list-none text-sm font-semibold uppercase tracking-wide text-slate-200">
-            Kill Criteria
-          </summary>
+          <summary className="cursor-pointer list-none text-sm font-semibold uppercase tracking-wide text-slate-200">Kill Criteria</summary>
           <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-300 md:text-base">
             <li>• Founder expects guaranteed funding</li>
             <li>• No clarity on IP ownership or third-party restrictions</li>
@@ -282,18 +233,12 @@ export default function ThesisPage() {
           Defence and dual-use investing is policy- and compliance-sensitive. We design inside constraints, not around them.
         </p>
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-          <InfoCard
-            title="Export control reality"
-            body="early mapping of what can move, what cannot, and what must be localised."
-          />
+          <InfoCard title="Export control reality" body="early mapping of what can move, what cannot, and what must be localised." />
           <InfoCard
             title="Foreign ownership & governance"
             body="structures that preserve lawful control while enabling investable participation."
           />
-          <InfoCard
-            title="Data/security posture"
-            body="baseline expectations for European diligence."
-          />
+          <InfoCard title="Data/security posture" body="baseline expectations for European diligence." />
           <InfoCard
             title="Ethics & end-use"
             body="we avoid ambiguous end-use and require transparency on deployment pathways."
