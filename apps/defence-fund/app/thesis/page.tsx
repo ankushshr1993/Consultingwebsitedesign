@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import { Section } from '../../components/ui';
 
+type FactChipProps = {
+  label: string;
+  value: string;
+};
+
+function FactChip({ label, value }: FactChipProps) {
+  return (
+    <div className="snap-start rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm whitespace-nowrap">
+      <span className="text-slate-400">{label}: </span>
+      <span className="text-slate-200">{value}</span>
+    </div>
+  );
+}
+
 type CardProps = {
   title: string;
   body: string;
