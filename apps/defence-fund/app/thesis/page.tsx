@@ -54,45 +54,37 @@ export default function ThesisPage() {
         <p className="max-w-4xl text-base leading-relaxed text-slate-200 md:text-lg">
           Structured Capital for Indian Defence &amp; Dual-Use Innovation (India ↔ Europe)
         </p>
-        <div className="mt-4 max-w-4xl space-y-2 text-sm leading-relaxed text-slate-300 md:text-base">
+        <div className="mt-4 max-w-4xl space-y-3 text-sm leading-relaxed text-slate-300 md:text-base">
           <p>
             We identify a small number of high-potential companies, invest with discipline, and institutionalise them for venture
             scale.
           </p>
           <p>We engage only when governance, export reality, and exit logic can withstand institutional scrutiny.</p>
         </div>
-        <p className="mt-4 max-w-4xl text-xs leading-relaxed text-slate-400 md:text-sm">
-          We do not guarantee funding or contracts; we design within regulatory frameworks and introduce capital selectively when a
-          company is institutionally ready.
-        </p>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Link
-            href="/criteria"
-            className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-500 to-rose-500 px-6 py-3 text-sm font-medium text-white transition-all hover:from-indigo-600 hover:to-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
-            See Our Criteria
-          </Link>
-          <Link
-            href="/contact-us"
-            className="inline-flex items-center justify-center rounded-md border border-white/20 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
-            Contact
-          </Link>
-        </div>
       </Section>
 
-      <section className="border-y border-white/10">
-        <div className="mx-auto max-w-6xl px-6 py-6">
-          <div className="flex snap-x gap-3 overflow-x-auto pb-2">
-            <FactChip label="Stage" value="Prototype → Early Revenue (Seed / Pre-Series A)" />
-            <FactChip label="Geography" value="India origin; Europe as expansion pathway" />
-            <FactChip label="Focus" value="AI, autonomy, sensing, defence software, resilience" />
-            <FactChip label="Approach" value="Concentrated, operator-led, selective capital alignment" />
-            <FactChip label="We are not" value="Broker, contractor, or grant factory" />
-            <FactChip label="Current phase" value="1–2 deals to build track record" />
+      <Section title="At a Glance" className="max-w-5xl border-y border-white/10 py-12">
+        <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+          <div className="grid grid-cols-1 divide-y divide-white/10 md:grid-cols-2 md:divide-x md:divide-y-0">
+            <div className="p-4">
+              <p className="text-xs uppercase tracking-wide text-slate-400">Stage</p>
+              <p className="mt-1 text-sm text-slate-200">Prototype → Early Revenue (Seed / Pre-Series A)</p>
+            </div>
+            <div className="p-4">
+              <p className="text-xs uppercase tracking-wide text-slate-400">Geography</p>
+              <p className="mt-1 text-sm text-slate-200">India origin; Europe as expansion pathway</p>
+            </div>
+            <div className="p-4">
+              <p className="text-xs uppercase tracking-wide text-slate-400">Focus</p>
+              <p className="mt-1 text-sm text-slate-200">AI, autonomy, sensing, defence software, resilience</p>
+            </div>
+            <div className="p-4">
+              <p className="text-xs uppercase tracking-wide text-slate-400">Approach</p>
+              <p className="mt-1 text-sm text-slate-200">Concentrated, operator-led, selective capital alignment</p>
+            </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       <Section title="Core Thesis" className="max-w-5xl py-16">
         <div className="max-w-4xl space-y-4 text-base leading-relaxed text-slate-300 md:text-lg">
@@ -101,18 +93,12 @@ export default function ThesisPage() {
             institutional readiness.
           </p>
           <p>
-            European capital is active, but it is structurally conservative: governance, compliance, and exit logic must be clear
-            before serious engagement begins.
+            European capital is active, but structurally conservative. Governance, compliance, and exit logic must be clear before
+            serious engagement begins.
           </p>
           <p>
-            Our thesis is that early structural discipline (governance + regulatory clarity + venture economics) creates asymmetric
+            Our thesis is that early structural discipline—governance, regulatory clarity, and venture economics—creates asymmetric
             long-term value.
-          </p>
-        </div>
-        <div className="mt-8 max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-5">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-200">What we believe</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-300 md:text-base">
-            Capital follows structure. Governance precedes valuation. Export reality cannot be ignored.
           </p>
         </div>
       </Section>
@@ -127,9 +113,6 @@ export default function ThesisPage() {
           <InfoCard title="Market framing" body="India-only narratives instead of venture-scale, global logic." />
           <InfoCard title="Exit confusion" body="No credible acquirer universe or comparable outcomes." />
         </div>
-        <p className="mt-6 max-w-4xl text-sm leading-relaxed text-slate-300 md:text-base">
-          We operate as the “institutionalisation layer” before founders enter high-stakes investor conversations.
-        </p>
       </Section>
 
       <Section title="Why Now" className="max-w-5xl border-t border-white/10 py-16">
@@ -147,9 +130,6 @@ export default function ThesisPage() {
             shifts to structure, governance, and capital alignment.
           </li>
         </ul>
-        <p className="mt-5 max-w-4xl text-xs leading-relaxed text-slate-400 md:text-sm">
-          This page is a public thesis; detailed data and internal screening notes are shared selectively.
-        </p>
       </Section>
 
       <Section title="What We Back" className="max-w-5xl border-t border-white/10 py-16">
@@ -200,9 +180,6 @@ export default function ThesisPage() {
             body="Personal participation where appropriate; selective introductions to aligned partners."
           />
         </div>
-        <p className="mt-6 max-w-4xl text-sm leading-relaxed text-slate-300 md:text-base">
-          We do not run broad “demo days” or mass deck distribution.
-        </p>
       </Section>
 
       <Section title="Investment Criteria" className="max-w-5xl border-t border-white/10 py-16">
@@ -216,16 +193,6 @@ export default function ThesisPage() {
           <InfoCard title="Governance" body="willingness to add structure, board discipline, reporting" />
           <InfoCard title="Exit logic" body="plausible acquirer universe or strategic outcomes" />
         </div>
-        <details className="mt-6 max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-5">
-          <summary className="cursor-pointer list-none text-sm font-semibold uppercase tracking-wide text-slate-200">Kill Criteria</summary>
-          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-300 md:text-base">
-            <li>• Founder expects guaranteed funding</li>
-            <li>• No clarity on IP ownership or third-party restrictions</li>
-            <li>• Export-control treated as an afterthought</li>
-            <li>• No credible customer/buyer definition</li>
-            <li>• Resistance to governance / transparency</li>
-          </ul>
-        </details>
       </Section>
 
       <Section title="Risk & Compliance Lens" className="max-w-5xl border-t border-white/10 py-16">
@@ -244,7 +211,6 @@ export default function ThesisPage() {
             body="we avoid ambiguous end-use and require transparency on deployment pathways."
           />
         </div>
-        <p className="mt-6 max-w-4xl text-sm leading-relaxed text-slate-300 md:text-base">If risk cannot be mitigated, we stop early.</p>
       </Section>
 
       <Section title="What Success Looks Like" className="max-w-5xl border-t border-white/10 py-16">
@@ -257,9 +223,6 @@ export default function ThesisPage() {
           <li>• Export/control feasibility mapped with a realistic Europe operating path</li>
           <li>• One meaningful capital event: qualified term sheet / follow-on round / strategic partner alignment</li>
         </ul>
-        <p className="mt-5 max-w-4xl text-xs leading-relaxed text-slate-400 md:text-sm">
-          We prefer a small number of high-quality outcomes over a large number of weak conversations.
-        </p>
       </Section>
 
       <Section title="Closing Perspective" className="max-w-5xl border-t border-white/10 py-16">
@@ -278,7 +241,7 @@ export default function ThesisPage() {
           <article className="rounded-2xl border border-white/10 bg-white/5 p-5">
             <h3 className="text-base font-semibold text-slate-100">For Investors</h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-300">
-              If you seek structured exposure to India-origin defence innovation, we engage selectively.
+              If you seek structured exposure to India-origin defence innovation.
             </p>
           </article>
         </div>
