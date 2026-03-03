@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <nav className="sticky top-0 z-30 border-b border-white/10 bg-[#030303]/85 backdrop-blur-md">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-6 px-6 py-5 text-sm text-slate-300">
+        <nav className="sticky top-0 z-30 border-b border-white/10 bg-[#030303]/90 backdrop-blur-md">
+          <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-5 px-6 py-5 text-sm text-slate-300">
             {links.map(([href, label]) => (
               <Link key={href} href={href} className="transition-colors hover:text-white">
                 {label}

@@ -6,32 +6,37 @@ function cx(...parts: Array<string | undefined>) {
   return parts.filter(Boolean).join(' ');
 }
 
-export function SiteHero({
-  eyebrow,
+export function SharedSiteHero({
+  eyebrow = 'Regression Defence Tech',
   title,
   subtitle,
-  children,
+  primaryCta,
+  secondaryCta,
   className
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle: string;
-  children?: ReactNode;
+  primaryCta?: ReactNode;
+  secondaryCta?: ReactNode;
 } & ClassNameProp) {
   return (
-    <section className={cx('relative overflow-hidden border-b border-white/10 bg-[#030303]', className)}>
-      <div className="hero-ambient pointer-events-none absolute inset-0">
-        <div className="fluid-orb fluid-orb-indigo" />
-        <div className="fluid-orb fluid-orb-rose" />
-        <div className="fluid-orb fluid-orb-cyan" />
+    <section className={cx('relative overflow-hidden border-b border-slate-800 bg-[#030303]', className)}>
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.08] via-transparent to-rose-500/[0.08]" />
+        <div className="absolute -top-28 left-[5%] h-52 w-[30rem] rotate-12 rounded-full border border-white/10 bg-gradient-to-r from-indigo-500/15 to-transparent blur-sm" />
+        <div className="absolute bottom-[-5rem] right-[0%] h-40 w-[24rem] -rotate-12 rounded-full border border-white/10 bg-gradient-to-r from-rose-500/15 to-transparent blur-sm" />
       </div>
-      <div className="relative mx-auto max-w-6xl px-6 py-24 text-center sm:py-32">
-        <p className="text-xs uppercase tracking-[0.25em] text-slate-400">{eyebrow}</p>
-        <h1 className="mx-auto mt-5 max-w-5xl bg-gradient-to-b from-white to-white/85 bg-clip-text text-4xl font-semibold tracking-tight text-transparent sm:text-6xl md:text-7xl">
-          {title}
-        </h1>
-        <p className="mx-auto mt-8 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-xl">{subtitle}</p>
-        {children ? <div className="mt-10 flex flex-wrap items-center justify-center gap-4">{children}</div> : null}
+      <div className="relative mx-auto max-w-5xl px-6 py-20 text-center">
+        <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{eyebrow}</p>
+        <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">{title}</h1>
+        <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">{subtitle}</p>
+        {(primaryCta || secondaryCta) && (
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            {primaryCta}
+            {secondaryCta}
+          </div>
+        )}
       </div>
     </section>
   );
