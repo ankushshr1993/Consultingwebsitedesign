@@ -1,9 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { getSiteUrl } from './site-url';
 
-const routes = ['/', '/thesis', '/criteria', '/team', '/contact-us'];
-
 export default function sitemap(): MetadataRoute.Sitemap {
+  const routes = ['/', '/thesis', '/criteria', '/team', '/contact-us'];
   const baseUrl = getSiteUrl();
   const lastModified = new Date();
 
