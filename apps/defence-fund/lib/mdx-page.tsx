@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { Section } from '../../../packages/ui/src';
+import { Section } from '@regression/ui';
 
 function renderLine(line: string, i: number) {
   if (line.startsWith('## ')) return <h2 key={i}>{line.slice(3)}</h2>;
