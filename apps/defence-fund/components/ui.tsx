@@ -44,17 +44,17 @@ export function SharedSiteHero({
 
 export function Footer({ children, className }: { children?: ReactNode } & ClassNameProp) {
   return (
-    <footer className={cx('border-t border-slate-800', className)}>
-      <div className="mx-auto max-w-5xl px-6 py-8 text-sm text-slate-400">{children}</div>
+    <footer className={cx('border-t border-white/10', className)}>
+      <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-slate-400">{children}</div>
     </footer>
   );
 }
 
 export function Section({ title, children, className }: { title: string; children: ReactNode } & ClassNameProp) {
   return (
-    <section className={cx('mx-auto max-w-5xl px-6 py-10', className)}>
-      <h2 className="mb-4 text-xl font-medium text-slate-100">{title}</h2>
-      <div className="prose prose-invert max-w-none">{children}</div>
+    <section className={cx('mx-auto max-w-6xl px-6 py-10 sm:py-14', className)}>
+      <h2 className="mb-5 text-2xl font-semibold tracking-tight text-slate-100">{title}</h2>
+      <div className="prose prose-invert max-w-none prose-p:text-slate-300 prose-li:text-slate-300">{children}</div>
     </section>
   );
 }

@@ -7,12 +7,11 @@ import './globals.css';
 export const metadata: Metadata = siteMetadata;
 
 const links = [
-  ['/', 'Thesis'],
-  ['/focus', 'Focus'],
+  ['/', 'Home'],
+  ['/thesis', 'Thesis'],
   ['/criteria', 'Criteria'],
   ['/team', 'Team'],
-  ['/intake', 'Intake'],
-  ['/legal', 'Legal']
+  ['/contact-us', 'Contact Us']
 ] as const;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
