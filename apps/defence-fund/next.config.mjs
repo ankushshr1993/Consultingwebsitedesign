@@ -1,5 +1,5 @@
 const nextConfig = {
-  transpilePackages: []
+  transpilePackages: ['@regression/ui']
 };
 
 export default nextConfig;

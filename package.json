@@ -2,6 +2,10 @@
   "name": "regression-web",
   "private": true,
   "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev:consulting": "npm --prefix apps/consulting run dev",
     "dev:defence-fund": "npm --prefix apps/defence-fund run dev",

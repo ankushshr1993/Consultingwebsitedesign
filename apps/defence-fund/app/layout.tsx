@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Footer, Header } from '../../../packages/ui/src';
+import { Footer, Header } from '@regression/ui';
 import { defenceMetadata } from '../../../packages/config/src';
 import { siteMetadata } from './metadata';
 import './globals.css';
