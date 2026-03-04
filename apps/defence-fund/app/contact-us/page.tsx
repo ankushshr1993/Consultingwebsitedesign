@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ContactForm } from '../../components/contact-form';
 
 function LocationBadge({ label }: { label: string }) {
   return (
@@ -61,62 +62,7 @@ export default function ContactUsPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-12">
         <h2 className="mb-4 text-center text-2xl font-semibold tracking-tight text-slate-100">Send Us a Message</h2>
-        <form className="space-y-4" noValidate>
-          <div>
-            <label className="mb-1 block text-base font-medium text-slate-200" htmlFor="name">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full rounded border border-white/15 bg-slate-900 px-3 py-2 text-white outline-none ring-0 transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40"
-            />
-          </div>
-          <div>
-            <label className="mb-1 block text-base font-medium text-slate-200" htmlFor="email">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              className="w-full rounded border border-white/15 bg-slate-900 px-3 py-2 text-white outline-none ring-0 transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40"
-            />
-          </div>
-          <div>
-            <label className="mb-1 block text-base font-medium text-slate-200" htmlFor="subject">
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              required
-              className="w-full rounded border border-white/15 bg-slate-900 px-3 py-2 text-white outline-none ring-0 transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40"
-            />
-          </div>
-          <div>
-            <label className="mb-1 block text-base font-medium text-slate-200" htmlFor="message">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              required
-              className="w-full rounded border border-white/15 bg-slate-900 px-3 py-2 text-white outline-none ring-0 transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full rounded bg-indigo-500 py-3 font-semibold text-white transition hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:ring-offset-2 focus:ring-offset-[#030303]"
-          >
-            Send Message
-          </button>
-        </form>
+        <ContactForm />
       </section>
 
       <section className="mx-auto max-w-4xl bg-slate-900/60 px-6 py-8 text-center leading-relaxed text-slate-100">
