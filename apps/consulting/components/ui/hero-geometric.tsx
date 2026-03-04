@@ -170,7 +170,7 @@ function HeroGeometric({
                         animate="visible"
                     >
                         <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-                            From ambiguity to delivery: strategy, architecture, and hands-on execution that de-risks outcomes. We work with startups, VC/PE teams, and portfolio leadership to turn complex technology priorities into shipped platforms, controlled delivery, and measurable business impact.
+                            Regression Consulting works with investors and leadership teams to stabilise complex technology delivery — aligning architecture, governance, and decision ownership. For venture investors, portfolio companies at inflection points, and leadership teams managing complex delivery environments.
                         </p>
                     </motion.div>
                 </div>

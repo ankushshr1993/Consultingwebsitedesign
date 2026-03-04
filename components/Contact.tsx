@@ -59,10 +59,10 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent mb-4">
-            Contact Us
+            Discuss your execution context
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Share the context (scope, constraints, timeline). We’ll respond with a clear next step and a practical path to execution.
+            If technology execution has become critical to growth, regulatory stability, or investor confidence, we welcome a conversation.
           </p>
         </div>
 
@@ -179,7 +179,7 @@ export function Contact() {
               disabled={isSubmitting}
               className="w-full bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all disabled:opacity-60"
             >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+              {isSubmitting ? 'Sending...' : 'Request an advisory conversation'}
             </button>
           </form>
         </div>
