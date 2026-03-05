@@ -8,10 +8,12 @@ Required environment variables:
 
 - `RESEND_API_KEY` — API key from Resend.
 - `CONTACT_FROM_EMAIL` — sender address (must be from a verified Resend domain).
+  - Backward-compatible aliases supported: `RESEND_FROM_EMAIL` and `FROM_EMAIL`.
 
 Optional environment variable:
 
 - `CONTACT_TO_EMAIL` — destination inbox for submissions. Defaults to `info@regressionconsulting.com`.
+  - Backward-compatible alias supported: `RESEND_TO_EMAIL`.
 
 ### Example `.env.local`
 
