@@ -2,7 +2,8 @@ import { Resend } from 'resend';
 import type { ContactPayload } from './contact';
 
 const resendApiKey = process.env.RESEND_API_KEY;
-const toEmail = process.env.CONTACT_TO_EMAIL || 'info@regressionconsulting.com';
+const defaultContactToEmail = 'info@regressionconsulting.com';
+const toEmail = process.env.CONTACT_TO_EMAIL || defaultContactToEmail;
 const fromEmail = process.env.CONTACT_FROM_EMAIL;
 
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
