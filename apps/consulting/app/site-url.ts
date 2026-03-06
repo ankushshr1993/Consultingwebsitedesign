@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = 'https://www.regressionconsulting.com';
+const DEFAULT_SITE_URL = 'https://regressionconsulting.com';
 
 export function getSiteUrl(): string {
   const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
@@ -9,4 +9,3 @@ export function getSiteUrl(): string {
 
   return configuredUrl.replace(/\/$/, '');
 }
-
