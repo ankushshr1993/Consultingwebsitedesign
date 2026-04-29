@@ -21,6 +21,12 @@ const moments = [
   'Leadership realignment',
 ];
 
+const notFit = [
+  'Teams seeking presentation-only strategy without execution ownership',
+  'Low-urgency transformation programs without leadership mandate',
+  'Situations requiring promotional narratives over operational truth',
+];
+
 export function About() {
   return (
     <section id="about" className="relative bg-black py-20 md:py-24">
@@ -94,6 +100,33 @@ export function About() {
           <a href="/approach" className="inline-block text-sm text-indigo-300 hover:text-indigo-200 transition-colors">
             See our approach →
           </a>
+        </section>
+
+        <section className="space-y-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-indigo-300">Proof signals</p>
+          <div className="grid gap-4 md:grid-cols-3">
+            <article className="rounded-xl border border-white/10 bg-white/[0.03] p-6">
+              <h3 className="text-lg font-semibold text-white">Cycle-time clarity</h3>
+              <p className="mt-2 text-sm text-gray-200">Operating reviews shifted from monthly hindsight to weekly decision cadence in a multi-vendor program.</p>
+            </article>
+            <article className="rounded-xl border border-white/10 bg-white/[0.03] p-6">
+              <h3 className="text-lg font-semibold text-white">Governance recovery</h3>
+              <p className="mt-2 text-sm text-gray-200">Architecture and delivery decision rights reset, reducing escalation churn and unowned dependencies.</p>
+            </article>
+            <article className="rounded-xl border border-white/10 bg-white/[0.03] p-6">
+              <h3 className="text-lg font-semibold text-white">Board confidence</h3>
+              <p className="mt-2 text-sm text-gray-200">Executive reporting reframed around execution risk, confidence level, and corrective actions.</p>
+            </article>
+          </div>
+        </section>
+
+        <section className="space-y-4">
+          <p className="text-xs uppercase tracking-[0.18em] text-indigo-300">Not a fit</p>
+          <div className="space-y-2">
+            {notFit.map((item) => (
+              <p key={item} className="text-gray-200">• {item}</p>
+            ))}
+          </div>
         </section>
       </div>
     </section>

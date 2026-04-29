@@ -19,11 +19,17 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/#contact"
+              href="/contact"
               className="bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all flex items-center justify-center gap-2 shadow-[0_12px_30px_rgba(99,102,241,0.25)]"
             >
               Request an advisory conversation
               <ArrowRight size={20} />
+            </Link>
+            <Link
+              href="/approach"
+              className="border border-indigo-300/40 text-indigo-200 px-8 py-3 rounded-md hover:bg-indigo-500/10 transition-all text-center"
+            >
+              See our advisory method
             </Link>
             <Link
               href="/#services"

@@ -34,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} Regression Defence Tech. Informational content only.</p>
             <div className="flex flex-wrap gap-4">
+              <Link href="https://regressionconsulting.com" className="hover:text-white">Consulting</Link>
               <Link href="/legal" className="hover:text-white">Legal</Link>
               <Link href="/privacy-policy" className="hover:text-white">Privacy</Link>
               <Link href="/terms" className="hover:text-white">Terms</Link>

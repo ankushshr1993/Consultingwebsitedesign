@@ -42,6 +42,7 @@ export function InvestorIntakeForm() {
       `Stage focus: ${form.stageFocus}`,
       `Defence/dual-use exposure: ${form.defenceExposure}`,
       `Strategic value-add: ${form.valueAdd}`,
+      `UTM source: ${typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('utm_source') || 'N/A' : 'N/A'}`,
     ].join('\n');
 
     try {
@@ -79,5 +80,6 @@ export function InvestorIntakeForm() {
     <textarea className={inputClass} rows={3} placeholder="How can you add strategic value?" required minLength={20} value={form.valueAdd} onChange={(e) => setForm((p) => ({ ...p, valueAdd: e.target.value }))} />
     {status && <p className={status.type === 'success' ? 'text-emerald-400' : 'text-rose-400'}>{status.message}</p>}
     <button disabled={isSubmitting} className="w-full rounded bg-indigo-500 py-3 font-semibold text-white hover:bg-indigo-600 disabled:opacity-60">{isSubmitting ? 'Submitting...' : 'Submit Investor Intake'}</button>
+    <p className="text-xs text-slate-400">Next steps: mandate-fit review in 3 business days, then an alignment call where relevant.</p>
   </form>;
 }

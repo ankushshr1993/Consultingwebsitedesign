@@ -27,15 +27,16 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-white">Company</h4>
             <ul className="space-y-2 text-gray-400">
               <li><Link href="/#about" className="hover:text-white transition-colors">About Us</Link></li>
-                            <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="https://defencefund.regressionconsulting.com" className="hover:text-white transition-colors">Defence Fund</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-white">Connect</h4>
             <div className="flex gap-4">
-              <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><Linkedin size={24} /></Link>
-              <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><Twitter size={24} /></Link>
-              <Link href="/#contact" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Facebook"><Facebook size={24} /></Link>
+              <Link href="https://www.linkedin.com/company/regressionconsulting" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><Linkedin size={24} /></Link>
+              <Link href="https://x.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><Twitter size={24} /></Link>
+              <Link href="https://facebook.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Facebook"><Facebook size={24} /></Link>
               <Link href="mailto:info@regressionconsulting.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Email"><Mail size={24} /></Link>
             </div>
           </div>
