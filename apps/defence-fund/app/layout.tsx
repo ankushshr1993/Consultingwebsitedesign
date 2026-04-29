@@ -9,7 +9,10 @@ export const metadata: Metadata = siteMetadata;
 const links = [
   ['/', 'Home'],
   ['/thesis', 'Thesis'],
+  ['/process', 'Process'],
+  ['/resources', 'Resources'],
   ['/criteria', 'Criteria'],
+  ['/faq', 'FAQ'],
   ['/contact-us', 'Contact Us']
 ] as const;
 
@@ -27,7 +30,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </nav>
         <main>{children}</main>
-        <Footer>© {new Date().getFullYear()} Regression Defence Tech. Informational content only.</Footer>
+        <Footer>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} Regression Defence Tech. Informational content only.</p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/legal" className="hover:text-white">Legal</Link>
+              <Link href="/privacy-policy" className="hover:text-white">Privacy</Link>
+              <Link href="/terms" className="hover:text-white">Terms</Link>
+            </div>
+          </div>
+        </Footer>
       </body>
     </html>
   );

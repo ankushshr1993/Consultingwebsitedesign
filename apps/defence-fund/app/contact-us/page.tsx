@@ -9,7 +9,13 @@ function LocationBadge({ label }: { label: string }) {
   );
 }
 
-export default function ContactUsPage() {
+export default async function ContactUsPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ audience?: string }>;
+}) {
+  const params = await searchParams;
+  const audience = params?.audience === 'investor' ? 'investor' : params?.audience === 'founder' ? 'founder' : null;
   return (
     <>
       <section className="mx-auto max-w-5xl px-6 py-20 text-center">
@@ -17,15 +23,24 @@ export default function ContactUsPage() {
         <p className="mx-auto mt-3 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
           We welcome focused enquiries from founders, investors, and ecosystem partners.
         </p>
+        {audience && (
+          <p className="mx-auto mt-4 max-w-2xl rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-slate-200">
+            You selected: <strong>{audience === 'founder' ? 'Founder' : 'Investor'}</strong> pathway.
+          </p>
+        )}
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-12 text-center">
         <h2 className="mb-4 text-2xl font-semibold tracking-tight text-slate-100">What You Can Reach Us For</h2>
         <ul className="list-inside list-disc space-y-2 text-left text-base leading-relaxed text-slate-300 sm:text-center">
-          <li>Founders: discussing engagement with our investment and institutionalisation process.</li>
-          <li>Investors: exploring structured exposure to India-origin defence &amp; dual-use innovation.</li>
+          <li>Founders: apply through the dedicated founder questionnaire.</li>
+          <li>Investors: apply through the dedicated investor questionnaire.</li>
           <li>Partners: regulatory, ecosystem, or strategic collaboration opportunities.</li>
         </ul>
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link href="/founder-intake" className="rounded-md bg-indigo-500 px-5 py-2 text-sm text-white hover:bg-indigo-600">Founder Intake</Link>
+          <Link href="/investor-intake" className="rounded-md border border-white/20 px-5 py-2 text-sm text-white hover:bg-white/10">Investor Intake</Link>
+        </div>
       </section>
 
       <section className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-6 py-12 md:grid-cols-3">
@@ -62,6 +77,9 @@ export default function ContactUsPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-12">
         <h2 className="mb-4 text-center text-2xl font-semibold tracking-tight text-slate-100">Send Us a Message</h2>
+        <p className="mb-6 text-center text-sm text-slate-300">
+          Include your current stage, problem area, and compliance context so we can review fit efficiently.
+        </p>
         <ContactForm />
       </section>
 
