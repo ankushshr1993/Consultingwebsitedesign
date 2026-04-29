@@ -147,15 +147,18 @@ function HeroGeometric({
         <div className="absolute left-0 right-0 top-[78%] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">{title1}</span>
-              <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">{title2}</span>
-            </h1>
-          </motion.div>
+                    <motion.div
+                        custom={2}
+                        variants={fadeUpVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+                            Regression Consulting works with investors and leadership teams to stabilise complex technology delivery — aligning architecture, governance, and decision ownership. For venture investors, portfolio companies at inflection points, and leadership teams managing complex delivery environments.
+                        </p>
+                    </motion.div>
+                </div>
+            </div>
 
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
             <p className="text-base sm:text-lg md:text-xl text-white/50 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">

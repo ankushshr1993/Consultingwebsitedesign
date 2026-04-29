@@ -1,18 +1,41 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateContactPayload } from '../../../lib/contact';
 import { sendContactEmail } from '../../../lib/mail';
+import { rateLimitByIp } from '../../../lib/rateLimit';
 
-function jsonError(code: string, message: string, status: number) {
+function getClientIp(request: NextRequest) {
+  const forwarded = request.headers.get('x-forwarded-for');
+  if (forwarded) {
+    return forwarded.split(',')[0]?.trim() || 'unknown';
+  }
+
+  return request.headers.get('x-real-ip') || 'unknown';
+}
+
+function jsonError(code: string, message: string, status: number, details?: unknown) {
   return NextResponse.json(
     {
       ok: false,
-      error: { code, message },
+      error: {
+        code,
+        message,
+        details,
+      },
     },
     { status },
   );
 }
 
 export async function POST(request: NextRequest) {
+  const ip = getClientIp(request);
+  const rateLimit = rateLimitByIp(ip);
+
+  if (!rateLimit.allowed) {
+    return jsonError('RATE_LIMITED', 'Too many requests. Please try again later.', 429, {
+      resetAt: rateLimit.resetAt,
+    });
+  }
+
   let payload: unknown;
 
   try {
