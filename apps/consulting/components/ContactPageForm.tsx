@@ -17,7 +17,7 @@ const initialForm: ContactFormState = {
   message: '',
 };
 
-export function Contact() {
+export function ContactPageForm() {
   const [form, setForm] = useState<ContactFormState>(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
@@ -89,52 +89,52 @@ export function Contact() {
               </div>
 
               <div className="space-y-7">
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Regression%20Consulting%20Private%20Limited%2C%20F-275%2C%20Jal%20Vayu%20Vihar%2C%20Sector%2030%2C%20Gurugram%2C%20India"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Open India registered office in Google Maps"
-                    className="group block rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                  >
-                    <div className="mb-3 flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2 text-[1.03rem] font-semibold text-white transition-colors group-hover:text-white/95">
-                        <span aria-hidden="true" className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-sm">🇮🇳</span>
-                        India
-                      </div>
-                      <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-200">
-                        Registered Office
-                      </span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Regression%20Consulting%20Private%20Limited%2C%20F-275%2C%20Jal%20Vayu%20Vihar%2C%20Sector%2030%2C%20Gurugram%2C%20India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open India registered office in Google Maps"
+                  className="group block rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                >
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2 text-[1.03rem] font-semibold text-white transition-colors group-hover:text-white/95">
+                      <span aria-hidden="true" className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-sm">🇮🇳</span>
+                      India
                     </div>
-                    <div className="text-sm font-medium text-gray-300 transition-colors group-hover:text-gray-200">Regression Consulting Private Limited</div>
-                    <div className="mt-1 text-sm leading-6 text-gray-400 transition-colors group-hover:text-gray-300">
-                      <div>F-275, Jal Vayu Vihar</div>
-                      <div>Sector 30, Gurugram</div>
-                    </div>
-                  </a>
+                    <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-200">
+                      Registered Office
+                    </span>
+                  </div>
+                  <div className="text-sm font-medium text-gray-300 transition-colors group-hover:text-gray-200">Regression Consulting Private Limited</div>
+                  <div className="mt-1 text-sm leading-6 text-gray-400 transition-colors group-hover:text-gray-300">
+                    <div>F-275, Jal Vayu Vihar</div>
+                    <div>Sector 30, Gurugram</div>
+                  </div>
+                </a>
 
-                  <div className="h-px w-full bg-white/10" aria-hidden="true" />
+                <div className="h-px w-full bg-white/10" aria-hidden="true" />
 
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Ertskade%2C%20Amsterdam%2C%201019%20BB%2C%20Netherlands"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Open Netherlands global presence in Google Maps"
-                    className="group block rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                  >
-                    <div className="mb-3 flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2 text-[1.03rem] font-semibold text-white transition-colors group-hover:text-white/95">
-                        <span aria-hidden="true" className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-sm">🇳🇱</span>
-                        Netherlands
-                      </div>
-                      <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-200">
-                        Global Presence
-                      </span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Ertskade%2C%20Amsterdam%2C%201019%20BB%2C%20Netherlands"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Netherlands global presence in Google Maps"
+                  className="group block rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                >
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2 text-[1.03rem] font-semibold text-white transition-colors group-hover:text-white/95">
+                      <span aria-hidden="true" className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-sm">🇳🇱</span>
+                      Netherlands
                     </div>
-                    <div className="text-sm leading-6 text-gray-400 transition-colors group-hover:text-gray-300">
-                      <div>Ertskade</div>
-                      <div>Amsterdam, 1019 BB</div>
-                    </div>
-                  </a>
+                    <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-200">
+                      Global Presence
+                    </span>
+                  </div>
+                  <div className="text-sm leading-6 text-gray-400 transition-colors group-hover:text-gray-300">
+                    <div>Ertskade</div>
+                    <div>Amsterdam, 1019 BB</div>
+                  </div>
+                </a>
               </div>
             </div>
           </div>

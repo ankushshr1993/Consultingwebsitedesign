@@ -3,23 +3,23 @@ import { BarChart3, Briefcase, Lightbulb, TrendingUp } from 'lucide-react';
 const services = [
   {
     icon: Briefcase,
-    title: 'Execution Planning & Delivery Readiness',
-    description: 'Define scope, milestones, ownership, and operating rhythm. Turn priorities into an executable plan teams can deliver.',
+    title: 'Investment-side execution review',
+    description: 'Execution perspective for deployment decisions, operating plans, and risk visibility.',
   },
   {
     icon: BarChart3,
-    title: 'Architecture & Integration Blueprint',
-    description: 'Create a pragmatic target architecture, system boundaries, and integration approach that scales and survives real constraints.',
+    title: 'Architecture governance reset',
+    description: 'Decision rights, platform boundaries, and governance controls for complex programs.',
   },
   {
     icon: TrendingUp,
-    title: 'Delivery Control & Program Governance',
-    description: 'Establish metrics, cadences, vendor coordination, and escalation paths—so leadership gets predictable outcomes, not surprises.',
+    title: 'Delivery stability advisory',
+    description: 'Cadence, accountability, and leadership reporting where execution confidence has eroded.',
   },
   {
     icon: Lightbulb,
-    title: 'Investor & Portfolio Technology Support',
-    description: 'Support diligence, 100-day plans, and execution turnarounds. Improve confidence in timelines, cost, and delivery capability.',
+    title: 'Leadership transition support',
+    description: 'Execution continuity through CTO/CIO change, portfolio shifts, or operating model realignment.',
   },
 ];
 
@@ -30,10 +30,10 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent mb-4">
-            Our Services
+            Advisory focus areas
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Focused engagements that reduce delivery risk, accelerate execution, and improve reliability.
+            Targeted engagements for investors and leadership teams managing execution-critical environments.
           </p>
         </div>
 
