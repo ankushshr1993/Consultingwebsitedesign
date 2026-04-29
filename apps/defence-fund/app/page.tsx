@@ -13,10 +13,15 @@ export default function Page() {
         subtitle="We identify high-potential defence and dual-use startups, invest with discipline, strengthen institutional readiness, and align them with long-term capital."
         primaryCta={
           <Link
-            href="/thesis"
+            href="/founder-intake"
             className={`${buttonClass} bg-gradient-to-r from-indigo-500 to-rose-500 text-white hover:from-indigo-600 hover:to-rose-600`}
           >
-            View Thesis
+            I&apos;m a Founder
+          </Link>
+        }
+        secondaryCta={
+          <Link href="/investor-intake" className={`${buttonClass} border border-white/20 text-white hover:bg-white/10`}>
+            I&apos;m an Investor
           </Link>
         }
       />
@@ -26,6 +31,42 @@ export default function Page() {
           Concentrated. Selective. Long-term.
         </p>
       </div>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-3xl font-semibold tracking-tight text-white">Proof of Operating Discipline</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <article className={cardClass}>
+            <h3 className="text-lg font-semibold text-white">Case Snapshot A</h3>
+            <p className="mt-2 text-slate-300">Governance rhythm established from ad-hoc to monthly board-ready reporting in 8 weeks.</p>
+          </article>
+          <article className={cardClass}>
+            <h3 className="text-lg font-semibold text-white">Case Snapshot B</h3>
+            <p className="mt-2 text-slate-300">Export-control risk mapping completed before investor outreach, reducing diligence cycles.</p>
+          </article>
+          <article className={cardClass}>
+            <h3 className="text-lg font-semibold text-white">Case Snapshot C</h3>
+            <p className="mt-2 text-slate-300">Investor narrative restructured around deployability, economics, and compliance milestones.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-3xl font-semibold tracking-tight text-white">How We Work</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-4">
+          {[
+            ['01', 'Screen', 'Mission relevance, technology credibility, and institutional fit.'],
+            ['02', 'Evaluate', 'Governance, compliance, and capital pathway review.'],
+            ['03', 'Institutionalise', 'Readiness plan with tangible execution milestones.'],
+            ['04', 'Align Capital', 'Selective capital participation and partner alignment.']
+          ].map(([step, title, body]) => (
+            <article key={step} className={cardClass}>
+              <p className="text-xs tracking-wider text-slate-400">{step}</p>
+              <h3 className="mt-2 text-lg font-semibold text-white">{title}</h3>
+              <p className="mt-2 text-slate-300">{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20">
         <h2 className="text-3xl font-semibold tracking-tight text-white">Who We Are</h2>
@@ -143,10 +184,16 @@ export default function Page() {
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/contact-us"
+              href="/founder-intake"
               className={`${buttonClass} bg-gradient-to-r from-indigo-500 to-rose-500 text-white hover:from-indigo-600 hover:to-rose-600`}
             >
-              Contact
+              Founder Intake
+            </Link>
+            <Link href="/investor-intake" className={`${buttonClass} border border-white/20 text-white hover:bg-white/10`}>
+              Investor Intake
+            </Link>
+            <Link href="/faq" className={`${buttonClass} border border-white/20 text-white hover:bg-white/10`}>
+              Read FAQ
             </Link>
           </div>
         </div>
