@@ -52,6 +52,7 @@ export function FounderIntakeForm() {
       `Current traction / milestones: ${form.traction}`,
       `Compliance/regulatory context: ${form.compliance}`,
       `What the founder is seeking: ${form.ask}`,
+      `UTM source: ${typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('utm_source') || 'N/A' : 'N/A'}`,
     ].join('\n');
 
     try {
@@ -111,6 +112,7 @@ export function FounderIntakeForm() {
       <textarea className={inputClass} rows={3} placeholder="What are you looking for from us?" required minLength={20} value={form.ask} onChange={(e) => setForm((p) => ({ ...p, ask: e.target.value }))} />
       {status && <p className={status.type === 'success' ? 'text-emerald-400' : 'text-rose-400'}>{status.message}</p>}
       <button disabled={isSubmitting} className="w-full rounded bg-indigo-500 py-3 font-semibold text-white hover:bg-indigo-600 disabled:opacity-60">{isSubmitting ? 'Submitting...' : 'Submit Founder Intake'}</button>
+      <p className="text-xs text-slate-400">Next steps: fit-screening in 3 business days, followed by a focused diligence call if aligned.</p>
     </form>
   );
 }

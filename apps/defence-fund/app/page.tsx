@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SharedSiteHero } from '../components/ui';
+import { TrackedLink } from '../components/tracked-link';
 
 const cardClass = 'rounded-2xl border border-white/10 bg-white/5 p-6';
 const buttonClass =
@@ -12,17 +13,18 @@ export default function Page() {
         title="Structured Capital for Indian Defence & Dual-Use Innovation"
         subtitle="We identify high-potential defence and dual-use startups, invest with discipline, strengthen institutional readiness, and align them with long-term capital."
         primaryCta={
-          <Link
+          <TrackedLink
             href="/founder-intake"
+            eventName="hero_founder_cta_click"
             className={`${buttonClass} bg-gradient-to-r from-indigo-500 to-rose-500 text-white hover:from-indigo-600 hover:to-rose-600`}
           >
             I&apos;m a Founder
-          </Link>
+          </TrackedLink>
         }
         secondaryCta={
-          <Link href="/investor-intake" className={`${buttonClass} border border-white/20 text-white hover:bg-white/10`}>
+          <TrackedLink href="/investor-intake" eventName="hero_investor_cta_click" className={`${buttonClass} border border-white/20 text-white hover:bg-white/10`}>
             I&apos;m an Investor
-          </Link>
+          </TrackedLink>
         }
       />
 
