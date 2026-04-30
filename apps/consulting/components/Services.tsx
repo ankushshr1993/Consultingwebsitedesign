@@ -3,51 +3,53 @@ import { BarChart3, Briefcase, Lightbulb, TrendingUp } from 'lucide-react';
 const services = [
   {
     icon: Briefcase,
-    title: 'Investment-side execution review',
+    step: '01',
+    title: 'Diagnose',
     description: 'Execution perspective for deployment decisions, operating plans, and risk visibility.',
   },
   {
     icon: BarChart3,
-    title: 'Architecture governance reset',
+    step: '02',
+    title: 'Reset',
     description: 'Decision rights, platform boundaries, and governance controls for complex programs.',
   },
   {
     icon: TrendingUp,
-    title: 'Delivery stability advisory',
+    step: '03',
+    title: 'Stabilize',
     description: 'Cadence, accountability, and leadership reporting where execution confidence has eroded.',
   },
   {
     icon: Lightbulb,
-    title: 'Leadership transition support',
-    description: 'Execution continuity through CTO/CIO change, portfolio shifts, or operating model realignment.',
+    step: '04',
+    title: 'Fortify',
+    description: 'Execution continuity through leadership transition, portfolio shifts, or operating model realignment.',
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="py-20 bg-[#030303] relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-rose-500/5" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.08),transparent_45%)]" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent mb-4">
-            Advisory focus areas
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Targeted engagements for investors and leadership teams managing execution-critical environments.
+    <section id="services" className="relative bg-[#0B1020] py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <div className="mb-14 text-center">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF] mb-4">How we work</p>
+          <h2 className="text-3xl md:text-5xl font-semibold text-[#E8ECF8] mb-4">Signal over noise, step by step.</h2>
+          <p className="mx-auto max-w-[72ch] text-lg text-[#A8B3CF]">
+            Structured interventions for investors and leadership teams managing execution-critical environments.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <article key={service.title} className="rounded-xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
-                <div className="mb-4 inline-flex rounded-lg border border-white/15 bg-white/5 p-2">
-                  <Icon className="text-indigo-300" size={24} />
+              <article key={service.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6">
+                <p className="font-mono text-3xl text-[#4DA3FF]">{service.step}</p>
+                <div className="mb-4 mt-4 inline-flex rounded-lg border border-[#2A3559] bg-[#0B1020] p-2">
+                  <Icon className="text-[#A8B3CF]" size={22} />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                <p className="text-gray-400">{service.description}</p>
+                <h3 className="mb-3 text-xl font-semibold text-[#E8ECF8]">{service.title}</h3>
+                <p className="text-[#A8B3CF]">{service.description}</p>
               </article>
             );
           })}
