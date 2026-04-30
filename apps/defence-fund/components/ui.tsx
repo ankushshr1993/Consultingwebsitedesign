@@ -12,18 +12,23 @@ export function SharedSiteHero({
   subtitle,
   primaryCta,
   secondaryCta,
-  className
+  className,
+  metrics
 }: {
   eyebrow?: string;
   title: string;
   subtitle: string;
   primaryCta?: ReactNode;
   secondaryCta?: ReactNode;
+  metrics?: Array<{ label: string; value: string }>;
 } & ClassNameProp) {
   return (
     <section className={cx('relative overflow-hidden border-b border-slate-800 bg-[#030303]', className)}>
       <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:42px_42px] [mask-image:radial-gradient(circle_at_center,black,transparent_80%)]" />
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.08] via-transparent to-rose-500/[0.08]" />
+        <div className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/15" />
+        <div className="absolute left-1/2 top-1/2 h-[20rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-indigo-300/20" />
         <div className="absolute -top-28 left-[5%] h-52 w-[30rem] rotate-12 rounded-full border border-white/10 bg-gradient-to-r from-indigo-500/15 to-transparent blur-sm" />
         <div className="absolute bottom-[-5rem] right-[0%] h-40 w-[24rem] -rotate-12 rounded-full border border-white/10 bg-gradient-to-r from-rose-500/15 to-transparent blur-sm" />
       </div>
@@ -35,6 +40,16 @@ export function SharedSiteHero({
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             {primaryCta}
             {secondaryCta}
+          </div>
+        )}
+        {!!metrics?.length && (
+          <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
+            {metrics.map((metric) => (
+              <div key={metric.label} className="rounded-xl border border-white/15 bg-white/5 p-3 text-left">
+                <p className="text-xs uppercase tracking-wider text-slate-400">{metric.label}</p>
+                <p className="mt-1 text-lg font-semibold text-white">{metric.value}</p>
+              </div>
+            ))}
           </div>
         )}
       </div>
