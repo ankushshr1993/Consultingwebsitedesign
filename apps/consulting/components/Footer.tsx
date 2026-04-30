@@ -3,45 +3,43 @@ import { Facebook, Linkedin, Mail, Twitter } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white py-12 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+    <footer className="border-t border-[#2A3559] bg-[#0B1020] py-12 text-[#E8ECF8]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 grid gap-8 md:grid-cols-4">
           <div>
-            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-indigo-400 to-rose-400 bg-clip-text text-transparent">
-              Regression Consulting
-            </h3>
-            <p className="text-gray-400">
+            <h3 className="mb-4 text-xl font-semibold">Regression Consulting</h3>
+            <p className="text-[#A8B3CF]">
               Operator-led strategy and execution for high-stakes technology delivery.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-white">Services</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><Link href="/#services" className="hover:text-white transition-colors">Execution Planning</Link></li>
-              <li><Link href="/#services" className="hover:text-white transition-colors">Architecture Blueprint</Link></li>
-              <li><Link href="/#services" className="hover:text-white transition-colors">Program Governance</Link></li>
-              <li><Link href="/#services" className="hover:text-white transition-colors">Investor Support</Link></li>
+            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Services</h4>
+            <ul className="space-y-2 text-[#A8B3CF]">
+              <li><Link href="/#services" className="transition-colors hover:text-[#E8ECF8]">Execution Planning</Link></li>
+              <li><Link href="/#services" className="transition-colors hover:text-[#E8ECF8]">Architecture Blueprint</Link></li>
+              <li><Link href="/#services" className="transition-colors hover:text-[#E8ECF8]">Program Governance</Link></li>
+              <li><Link href="/#services" className="transition-colors hover:text-[#E8ECF8]">Investor Support</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-white">Company</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><Link href="/#about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
-              <li><Link href="https://defencefund.regressionconsulting.com" className="hover:text-white transition-colors">Defence Fund</Link></li>
+            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Company</h4>
+            <ul className="space-y-2 text-[#A8B3CF]">
+              <li><Link href="/#about" className="transition-colors hover:text-[#E8ECF8]">About</Link></li>
+              <li><Link href="/#contact" className="transition-colors hover:text-[#E8ECF8]">Contact</Link></li>
+              <li><Link href="https://defencefund.regressionconsulting.com" className="transition-colors hover:text-[#E8ECF8]">Defence Fund</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-white">Connect</h4>
+            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Connect</h4>
             <div className="flex gap-4">
-              <Link href="https://www.linkedin.com/company/regressionconsulting" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn"><Linkedin size={24} /></Link>
-              <Link href="https://x.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Twitter"><Twitter size={24} /></Link>
-              <Link href="https://facebook.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Facebook"><Facebook size={24} /></Link>
-              <Link href="mailto:info@regressionconsulting.com" className="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Email"><Mail size={24} /></Link>
+              <Link href="https://www.linkedin.com/company/regressionconsulting" target="_blank" rel="noreferrer" className="text-[#A8B3CF] transition-colors hover:text-[#4DA3FF]" aria-label="LinkedIn"><Linkedin size={20} /></Link>
+              <Link href="https://x.com" target="_blank" rel="noreferrer" className="text-[#A8B3CF] transition-colors hover:text-[#4DA3FF]" aria-label="Twitter"><Twitter size={20} /></Link>
+              <Link href="https://facebook.com" target="_blank" rel="noreferrer" className="text-[#A8B3CF] transition-colors hover:text-[#4DA3FF]" aria-label="Facebook"><Facebook size={20} /></Link>
+              <Link href="mailto:info@regressionconsulting.com" className="text-[#A8B3CF] transition-colors hover:text-[#4DA3FF]" aria-label="Email"><Mail size={20} /></Link>
             </div>
           </div>
         </div>
-        <div className="pt-8 border-t border-white/10 text-center text-gray-400">
+        <div className="border-t border-[#2A3559] pt-8 text-center text-sm text-[#A8B3CF]">
           <p>&copy; 2026 Regression Consulting. All rights reserved.</p>
         </div>
       </div>
