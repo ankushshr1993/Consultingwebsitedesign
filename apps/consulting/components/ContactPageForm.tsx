@@ -179,7 +179,7 @@ export function ContactPageForm() {
               disabled={isSubmitting}
               className="w-full bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all disabled:opacity-60"
             >
-              {isSubmitting ? 'Sending...' : 'Request an advisory conversation'}
+              {isSubmitting ? 'Sending...' : 'Start a conversation'}
             </button>
           </form>
         </div>

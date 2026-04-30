@@ -22,14 +22,14 @@ export function Hero() {
               href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-md bg-[#4DA3FF] px-8 py-3 text-[#0B1020] transition-all hover:bg-[#7cbaff]"
             >
-              Request a risk diagnostic
+              Start a conversation
               <ArrowRight size={20} />
             </Link>
             <Link
-              href="/approach"
+              href="/how-we-work"
               className="rounded-md border border-[#2A3559] px-8 py-3 text-[#E8ECF8] transition-all hover:bg-[#111831]"
             >
-              Stress-test an execution plan
+              See how we work
             </Link>
           </div>
         </div>

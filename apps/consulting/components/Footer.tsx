@@ -22,11 +22,9 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Company</h4>
+            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Initiatives</h4>
             <ul className="space-y-2 text-[#A8B3CF]">
-              <li><Link href="/#about" className="transition-colors hover:text-[#E8ECF8]">About</Link></li>
-              <li><Link href="/#contact" className="transition-colors hover:text-[#E8ECF8]">Contact</Link></li>
-              <li><Link href="https://defencefund.regressionconsulting.com" className="transition-colors hover:text-[#E8ECF8]">Defence Fund</Link></li>
+              <li><Link href="https://defencefund.regressionconsulting.com" className="transition-colors hover:text-[#E8ECF8]">Defence Fund — sector-specific initiative for defence technology founders and investors.</Link></li>
             </ul>
           </div>
           <div>

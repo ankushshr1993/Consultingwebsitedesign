@@ -17,7 +17,7 @@ export function Contact() {
             href="/contact"
             className="inline-flex bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all shadow-[0_12px_30px_rgba(99,102,241,0.25)]"
           >
-            Request an advisory conversation
+            Start a conversation
           </Link>
         </div>
       </div>
