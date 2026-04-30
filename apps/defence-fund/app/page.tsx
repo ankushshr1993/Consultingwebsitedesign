@@ -10,8 +10,14 @@ export default function Page() {
   return (
     <>
       <SharedSiteHero
+        eyebrow="Defence-first venture platform"
         title="Structured Capital for Indian Defence & Dual-Use Innovation"
         subtitle="We identify high-potential defence and dual-use startups, invest with discipline, strengthen institutional readiness, and align them with long-term capital."
+        metrics={[
+          { label: 'Focus', value: 'Defence + Dual-use' },
+          { label: 'Approach', value: 'Compliance-first' },
+          { label: 'Capital Style', value: 'Concentrated conviction' }
+        ]}
         primaryCta={
           <TrackedLink
             href="/founder-intake"
