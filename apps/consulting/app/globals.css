@@ -7,7 +7,7 @@
   --rc-surface: #111831;
   --rc-text: #e8ecf8;
   --rc-muted: #a8b3cf;
-  --rc-accent: #4da3ff;
+  --rc-accent: #f5b544;
   --rc-border: #2a3559;
 }
 
@@ -16,8 +16,19 @@ body {
   margin: 0;
   background: var(--rc-bg);
   color: var(--rc-text);
+  font-family: 'Avenir Next', 'Segoe UI', Inter, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Avenir Next Demi Bold', 'Avenir Next', 'Segoe UI', Inter, system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 p {
-  max-width: 75ch;
+  max-width: 72ch;
 }
