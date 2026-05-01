@@ -85,7 +85,7 @@ export default function AboutPage() {
 
         <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 text-center md:p-10">
           <h2 className="text-3xl font-semibold text-[#E8ECF8]">Need an operator’s view on execution risk?</h2>
-          <Link href="/contact" className="mt-6 inline-flex rounded-md bg-[#F5B544] px-8 py-3 font-medium text-[#0B1020] transition-colors hover:bg-[#ffd27e]">
+          <Link href="/contact" className="mt-6 inline-flex rounded-md border border-[#C8A45D] bg-[#111827] px-8 py-3 font-medium text-white transition-colors hover:bg-[#1F2937]">
             Start a conversation
           </Link>
         </section>

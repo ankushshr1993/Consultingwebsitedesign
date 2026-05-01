@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 const method = [
@@ -54,6 +55,11 @@ const antiScope = [
   'We do not add governance for its own sake.',
 ];
 
+export const metadata: Metadata = {
+  title: 'How We Work | Regression Consulting',
+  description: 'A structured, operator-led method to diagnose execution risk, reset control, and stabilise technology delivery.',
+};
+
 export default function ApproachPage() {
   return (
     <section className="relative bg-[#0B1020] py-20 md:py-24">
@@ -108,7 +114,7 @@ export default function ApproachPage() {
 
         <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 text-center md:p-10">
           <h2 className="text-3xl font-semibold text-[#E8ECF8]">You have seen how we work. Ready to test where control is breaking?</h2>
-          <Link href="/contact" className="mt-6 inline-flex rounded-md bg-[#F5B544] px-8 py-3 font-medium text-[#0B1020] transition-colors hover:bg-[#ffd27e]">
+          <Link href="/contact" className="mt-6 inline-flex rounded-md border border-[#C8A45D] bg-[#111827] px-8 py-3 font-medium text-white transition-colors hover:bg-[#1F2937]">
             Start a conversation
           </Link>
         </section>

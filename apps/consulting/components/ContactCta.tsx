@@ -7,8 +7,9 @@ export function ContactCta() {
         <div className="mx-auto max-w-3xl space-y-6 text-center">
           <h2 className="text-3xl md:text-4xl font-semibold text-[#E8ECF8]">Ready to regain execution control?</h2>
           <p className="text-xl text-[#A8B3CF]">For portfolio and enterprise leadership teams where technology execution has become business risk.</p>
+          <p className="text-sm text-[#A8B3CF]">All conversations are confidential. We work under NDA where required.</p>
           <div className="flex flex-col items-center justify-center gap-3">
-            <Link href="/contact" className="inline-flex rounded-md bg-[#4DA3FF] px-8 py-3 text-[#0B1020] transition-all hover:bg-[#7cbaff]">
+            <Link href="/contact" className="inline-flex rounded-md border border-[#C8A45D] bg-[#111827] px-8 py-3 text-white transition-colors hover:bg-[#1F2937]">
               Start a conversation
             </Link>
             <Link href="/how-we-work" className="text-sm text-[#A8B3CF] transition-colors hover:text-[#E8ECF8]">

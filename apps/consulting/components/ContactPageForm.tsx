@@ -85,6 +85,7 @@ export function ContactPageForm() {
           <p className="mt-4 max-w-[78ch] text-lg leading-relaxed text-[#A8B3CF]">
             Share the situation, the pressure, or the decision you are facing. We will respond within one business day. If we can help, we will tell you how. If we cannot, we will be direct about that too.
           </p>
+          <p className="mt-3 text-sm text-[#A8B3CF]">All conversations are confidential. We work under NDA where required.</p>
         </header>
 
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
@@ -110,7 +111,7 @@ export function ContactPageForm() {
             <input type="text" value={form.website} onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))} className="hidden" tabIndex={-1} autoComplete="off" />
 
             {status && <p className={status.type === 'success' ? 'text-green-400' : 'text-rose-400'}>{status.message}</p>}
-            <button type="submit" disabled={isSubmitting} className="w-full rounded-md bg-[#F5B544] px-8 py-3 font-medium text-[#0B1020] transition-colors hover:bg-[#ffd27e] disabled:opacity-60">
+            <button type="submit" disabled={isSubmitting} className="w-full rounded-md border border-[#C8A45D] bg-[#111827] px-8 py-3 font-medium text-white transition-colors hover:bg-[#1F2937] disabled:opacity-60">
               {isSubmitting ? 'Sending...' : 'Start a conversation'}
             </button>
           </form>
