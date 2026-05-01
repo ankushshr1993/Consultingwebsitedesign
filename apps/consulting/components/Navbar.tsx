@@ -2,6 +2,7 @@
 
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import { BrandLogo } from './BrandLogo';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -33,7 +34,7 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#2A3559] bg-[#0B1020]/90 backdrop-blur-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-xl font-semibold tracking-tight text-[#E8ECF8]">Regression Consulting</Link>
+          <BrandLogo compact className="text-[#E8ECF8]" />
           <div className="hidden md:flex items-center space-x-5">
             {navItems.map((item) => {
               const active = isActive(item.href, item.end);

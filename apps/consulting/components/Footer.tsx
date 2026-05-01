@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BrandLogo } from './BrandLogo';
 import { Facebook, Linkedin, Mail, Twitter } from 'lucide-react';
 
 export function Footer() {
@@ -7,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 grid gap-8 md:grid-cols-4">
           <div>
-            <h3 className="mb-4 text-xl font-semibold">Regression Consulting</h3>
+            <BrandLogo className="mb-4" />
             <p className="text-[#A8B3CF]">
               Operator-led strategy and execution for high-stakes technology delivery.
             </p>
