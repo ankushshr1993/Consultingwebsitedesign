@@ -3,19 +3,43 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useState } from 'react';
 
+type SituationType =
+  | 'Investment deployment'
+  | 'Growth inflection'
+  | 'Execution drift'
+  | 'Platform transition'
+  | 'Leadership realignment'
+  | 'Other';
+
+type UrgencyType = 'Exploring' | 'Important this quarter' | 'Active issue' | 'Board/investor pressure';
+
 type ContactFormState = {
   name: string;
   email: string;
   company: string;
+  role: string;
+  situationType: SituationType;
+  urgency: UrgencyType;
   message: string;
+  website: string;
 };
 
 const initialForm: ContactFormState = {
   name: '',
   email: '',
   company: '',
+  role: '',
+  situationType: 'Execution drift',
+  urgency: 'Exploring',
   message: '',
+  website: '',
 };
+
+const nextSteps = [
+  'You share the context',
+  'We respond within one business day',
+  'We agree whether a diagnostic conversation makes sense',
+];
 
 export function ContactPageForm() {
   const [form, setForm] = useState<ContactFormState>(initialForm);
@@ -37,11 +61,10 @@ export function ContactPageForm() {
       const data = await response.json().catch(() => null);
 
       if (!response.ok) {
-        const errorMessage = data?.error?.message || 'Unable to submit right now. Please try again later.';
-        throw new Error(errorMessage);
+        throw new Error(data?.error?.message || 'Unable to submit right now. Please try again later.');
       }
 
-      setStatus({ type: 'success', message: 'Thanks! We will reach out shortly.' });
+      setStatus({ type: 'success', message: 'Thanks. We will respond within one business day.' });
       setForm(initialForm);
     } catch (error) {
       setStatus({
@@ -54,135 +77,75 @@ export function ContactPageForm() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-black relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-indigo-500/5" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent mb-4">
-            Discuss your execution context
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            If technology execution has become critical to growth, regulatory stability, or investor confidence, we welcome a conversation.
+    <section id="contact" className="relative bg-[#0B1020] py-20 md:py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(245,181,68,0.10),transparent_45%)]" />
+      <div className="relative mx-auto max-w-6xl space-y-12 px-4 sm:px-6 lg:px-8">
+        <header className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
+          <h1 className="text-4xl font-semibold leading-tight text-[#E8ECF8] md:text-6xl">Something is not right with your program. Let’s talk about it.</h1>
+          <p className="mt-4 max-w-[78ch] text-lg leading-relaxed text-[#A8B3CF]">
+            Share the situation, the pressure, or the decision you are facing. We will respond within one business day. If we can help, we will tell you how. If we cannot, we will be direct about that too.
           </p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-4">
-            <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
-              <Mail className="text-indigo-400 mt-1" size={24} />
-              <div>
-                <div className="font-semibold text-white">Email</div>
-                <div className="text-gray-400">info@regressionconsulting.com</div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-4 rounded-lg bg-white/5 border border-white/10">
-              <Phone className="text-indigo-400 mt-1" size={24} />
-              <div>
-                <div className="font-semibold text-white">Phone</div>
-                <div className="text-gray-400">+31619116786</div>
-              </div>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.04] p-5 shadow-[0_10px_24px_rgba(0,0,0,0.24)]">
-              <div className="mb-5 flex items-center gap-2">
-                <MapPin className="text-indigo-300" size={20} />
-                <div className="text-lg font-semibold text-white">Locations</div>
-              </div>
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <form className="space-y-4 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8" onSubmit={handleSubmit}>
+            <input type="text" required value={form.name} onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="Name" />
+            <input type="email" required value={form.email} onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="Work email" />
+            <input type="text" required value={form.company} onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="Company" />
+            <input type="text" required value={form.role} onChange={(e) => setForm((p) => ({ ...p, role: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="Role" />
 
-              <div className="space-y-7">
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Regression%20Consulting%20Private%20Limited%2C%20F-275%2C%20Jal%20Vayu%20Vihar%2C%20Sector%2030%2C%20Gurugram%2C%20India"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open India registered office in Google Maps"
-                  className="group block rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                >
-                  <div className="mb-3 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2 text-[1.03rem] font-semibold text-white transition-colors group-hover:text-white/95">
-                      <span aria-hidden="true" className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-sm">🇮🇳</span>
-                      India
-                    </div>
-                    <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-200">
-                      Registered Office
-                    </span>
-                  </div>
-                  <div className="text-sm font-medium text-gray-300 transition-colors group-hover:text-gray-200">Regression Consulting Private Limited</div>
-                  <div className="mt-1 text-sm leading-6 text-gray-400 transition-colors group-hover:text-gray-300">
-                    <div>F-275, Jal Vayu Vihar</div>
-                    <div>Sector 30, Gurugram</div>
-                  </div>
-                </a>
+            <select value={form.situationType} onChange={(e) => setForm((p) => ({ ...p, situationType: e.target.value as SituationType }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]">
+              {['Investment deployment', 'Growth inflection', 'Execution drift', 'Platform transition', 'Leadership realignment', 'Other'].map((option) => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
 
-                <div className="h-px w-full bg-white/10" aria-hidden="true" />
+            <select value={form.urgency} onChange={(e) => setForm((p) => ({ ...p, urgency: e.target.value as UrgencyType }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]">
+              {['Exploring', 'Important this quarter', 'Active issue', 'Board/investor pressure'].map((option) => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
 
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Ertskade%2C%20Amsterdam%2C%201019%20BB%2C%20Netherlands"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open Netherlands global presence in Google Maps"
-                  className="group block rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                >
-                  <div className="mb-3 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2 text-[1.03rem] font-semibold text-white transition-colors group-hover:text-white/95">
-                      <span aria-hidden="true" className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-sm">🇳🇱</span>
-                      Netherlands
-                    </div>
-                    <span className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-200">
-                      Global Presence
-                    </span>
-                  </div>
-                  <div className="text-sm leading-6 text-gray-400 transition-colors group-hover:text-gray-300">
-                    <div>Ertskade</div>
-                    <div>Amsterdam, 1019 BB</div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+            <textarea rows={5} required minLength={10} value={form.message} onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="What is happening, what is at stake, and what would a useful conversation help clarify?" />
+            <input type="text" value={form.website} onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))} className="hidden" tabIndex={-1} autoComplete="off" />
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              required
-              value={form.name}
-              onChange={(event) => setForm((prev) => ({ ...prev, name: event.target.value }))}
-              className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500"
-              placeholder="Your name"
-            />
-            <input
-              type="email"
-              required
-              value={form.email}
-              onChange={(event) => setForm((prev) => ({ ...prev, email: event.target.value }))}
-              className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500"
-              placeholder="name@company.com"
-            />
-            <input
-              type="text"
-              required
-              value={form.company}
-              onChange={(event) => setForm((prev) => ({ ...prev, company: event.target.value }))}
-              className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500"
-              placeholder="Company"
-            />
-            <textarea
-              rows={4}
-              required
-              minLength={10}
-              value={form.message}
-              onChange={(event) => setForm((prev) => ({ ...prev, message: event.target.value }))}
-              className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-gray-500"
-              placeholder="How can we help? (at least 10 characters)"
-            />
             {status && <p className={status.type === 'success' ? 'text-green-400' : 'text-rose-400'}>{status.message}</p>}
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all disabled:opacity-60"
-            >
+            <button type="submit" disabled={isSubmitting} className="w-full rounded-md bg-[#F5B544] px-8 py-3 font-medium text-[#0B1020] transition-colors hover:bg-[#ffd27e] disabled:opacity-60">
               {isSubmitting ? 'Sending...' : 'Start a conversation'}
             </button>
           </form>
+
+          <div className="space-y-6">
+            <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">What happens next</p>
+              <div className="mt-4 space-y-3">
+                {nextSteps.map((step, idx) => (
+                  <div key={step} className="rounded-lg border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]"><span className="mr-2 font-mono text-[#F5B544]">0{idx + 1}</span>{step}</div>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 space-y-4">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Contact details</p>
+              <div className="flex items-start gap-3 text-[#E8ECF8]"><Mail size={18} className="mt-1 text-[#F5B544]" /> info@regressionconsulting.com</div>
+              <div className="flex items-start gap-3 text-[#E8ECF8]"><Phone size={18} className="mt-1 text-[#F5B544]" /> +31 6 1911 6786</div>
+            </section>
+
+            <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 space-y-4">
+              <div className="flex items-center gap-2"><MapPin size={18} className="text-[#F5B544]" /><p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Locations</p></div>
+              <div>
+                <p className="text-[#E8ECF8]">Amsterdam, Netherlands — European presence</p>
+              </div>
+              <div>
+                <p className="text-[#A8B3CF]">Gurugram, India — Registered office</p>
+              </div>
+            </section>
+          </div>
         </div>
+
+        <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 text-center text-[#A8B3CF]">
+          No generic sales process. No pressure. The first conversation is simply to understand whether the issue is structural, urgent, and within our scope.
+        </section>
       </div>
     </section>
   );

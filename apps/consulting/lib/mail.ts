@@ -13,8 +13,6 @@ export async function sendContactEmail(data: ContactInput) {
     throw new Error('Missing email configuration (RESEND_API_KEY, CONTACT_FROM_EMAIL).');
   }
 
-  const body = data.message?.trim() || data.executionChallenge?.trim() || '';
-
   return resend.emails.send({
     from: fromEmail,
     to: [toEmail],
@@ -25,10 +23,11 @@ export async function sendContactEmail(data: ContactInput) {
       `Email: ${data.email}`,
       `Company: ${data.company}`,
       `Role: ${data.role}`,
+      `Situation type: ${data.situationType}`,
       `Urgency: ${data.urgency}`,
       '',
-      'Message / Execution challenge:',
-      body,
+      'Message:',
+      data.message,
     ].join('\n'),
   });
 }
