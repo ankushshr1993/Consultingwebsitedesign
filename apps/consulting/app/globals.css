@@ -32,3 +32,9 @@ h3 {
 p {
   max-width: 72ch;
 }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
