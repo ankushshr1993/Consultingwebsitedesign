@@ -2,22 +2,19 @@ import Link from 'next/link';
 
 export function ContactCta() {
   return (
-    <section id="contact" className="py-20 bg-black relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-indigo-500/5" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center max-w-3xl mx-auto space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent">
-            Discuss your execution context
-          </h2>
-          <p className="text-xl text-gray-400">
-            If technology execution has become critical to growth, regulatory stability, or investor confidence, we welcome a conversation.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all"
-          >
-            Request an advisory conversation
-          </Link>
+    <section id="contact" className="relative bg-[#0B1020] py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <div className="mx-auto max-w-3xl space-y-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#E8ECF8]">Ready to regain execution control?</h2>
+          <p className="text-xl text-[#A8B3CF]">For portfolio and enterprise leadership teams where technology execution has become business risk.</p>
+          <div className="flex flex-col items-center justify-center gap-3">
+            <Link href="/contact" className="inline-flex rounded-md bg-[#4DA3FF] px-8 py-3 text-[#0B1020] transition-all hover:bg-[#7cbaff]">
+              Start a conversation
+            </Link>
+            <Link href="/how-we-work" className="text-sm text-[#A8B3CF] transition-colors hover:text-[#E8ECF8]">
+              See how we work
+            </Link>
+          </div>
         </div>
       </div>
     </section>

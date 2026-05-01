@@ -1,172 +1,57 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { cn } from './utils';
 
-function ElegantShape({
-  className,
-  delay = 0,
-  width = 400,
-  height = 100,
-  rotate = 0,
-  gradient = 'from-white/[0.08]',
-}: {
-  className?: string;
-  delay?: number;
-  width?: number;
-  height?: number;
-  rotate?: number;
-  gradient?: string;
-}) {
+const points = [
+  [8, 72], [14, 65], [22, 69], [29, 57], [35, 61], [43, 47], [51, 45], [58, 36], [66, 33], [74, 26], [82, 21], [90, 16],
+  [18, 78], [27, 66], [39, 59], [48, 52], [62, 41], [71, 38], [79, 31], [86, 25],
+];
+
+function HeroGeometric({ title1, title2 }: { title1?: string; title2?: string }) {
   return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: -150,
-        rotate: rotate - 15,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-        rotate,
-      }}
-      transition={{
-        duration: 2.4,
-        delay,
-        ease: [0.23, 0.86, 0.39, 0.96],
-        opacity: { duration: 1.2 },
-      }}
-      className={cn('absolute', className)}
-    >
-      <motion.div
-        animate={{
-          y: [0, 15, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: 'easeInOut',
-        }}
-        style={{
-          width,
-          height,
-        }}
-        className="relative"
+    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#090d1a]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(77,163,255,0.16),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(245,181,68,0.12),transparent_45%)]" />
+      <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(168,179,207,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(168,179,207,0.14)_1px,transparent_1px)] [background-size:48px_48px]" />
+
+      <motion.svg
+        viewBox="0 0 100 100"
+        aria-hidden
+        className="pointer-events-none absolute right-[-8%] top-[12%] h-[70vh] w-[58vw] min-w-[320px] opacity-90"
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <div
-          className={cn(
-            'absolute inset-0 rounded-full',
-            'bg-gradient-to-r to-transparent',
-            gradient,
-            'backdrop-blur-[2px] border-2 border-white/[0.15]',
-            'shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]',
-            'after:absolute after:inset-0 after:rounded-full',
-            'after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]'
-          )}
+        {points.map(([x, y], idx) => (
+          <circle key={idx} cx={x} cy={y} r="0.9" fill="#A8B3CF" opacity="0.65" />
+        ))}
+        <motion.line
+          x1="6"
+          y1="76"
+          x2="94"
+          y2="14"
+          stroke="#F5B544"
+          strokeWidth="1.2"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.35, ease: 'easeInOut' }}
         />
-      </motion.div>
-    </motion.div>
-  );
-}
+      </motion.svg>
 
-function HeroGeometric({
-  title1 = 'Elevate Your Digital Vision',
-  title2 = 'Crafting Exceptional Websites',
-}: {
-  title1?: string;
-  title2?: string;
-}) {
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0.5 + i * 0.2,
-        ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
-      },
-    }),
-  };
-
-  return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.08] via-transparent to-rose-500/[0.08] blur-3xl" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.08),transparent_55%)]" />
-
-      <div className="absolute inset-0 overflow-hidden">
-        <ElegantShape
-          delay={0.3}
-          width={600}
-          height={140}
-          rotate={12}
-          gradient="from-indigo-500/[0.18]"
-          className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
-        />
-
-        <ElegantShape
-          delay={0.5}
-          width={500}
-          height={120}
-          rotate={-15}
-          gradient="from-rose-500/[0.18]"
-          className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
-        />
-
-        <ElegantShape
-          delay={0.4}
-          width={300}
-          height={80}
-          rotate={-8}
-          gradient="from-violet-500/[0.18]"
-          className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
-        />
-
-        <ElegantShape
-          delay={0.6}
-          width={200}
-          height={60}
-          rotate={20}
-          gradient="from-amber-500/[0.18]"
-          className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
-        />
-
-        <ElegantShape
-          delay={0.7}
-          width={150}
-          height={40}
-          rotate={-25}
-          gradient="from-cyan-500/[0.18]"
-          className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
-        />
-      </div>
-
-      <div className="absolute inset-0 pointer-events-none opacity-70">
-        <div className="absolute left-0 right-0 top-[22%] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        <div className="absolute left-0 right-0 top-[50%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        <div className="absolute left-0 right-0 top-[78%] h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">{title1}</span>
-              <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">{title2}</span>
-            </h1>
-          </motion.div>
-
-          <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <p className="text-base sm:text-lg md:text-xl text-white/50 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
-              Regression Consulting works with investors and leadership teams to stabilise complex technology delivery — aligning architecture, governance, and decision ownership. For venture investors, portfolio companies at inflection points, and leadership teams managing complex delivery environments.
-            </p>
-          </motion.div>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
+        <div className="max-w-3xl">
+          <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Signal over noise</p>
+          <h1 className="text-4xl font-semibold leading-[1.06] tracking-[-0.02em] text-[#E8ECF8] sm:text-6xl md:text-7xl">
+            <span className="block">{title1}</span>
+            <span className="mt-2 block text-[#F5B544]">{title2}</span>
+          </h1>
+          <p className="mt-7 max-w-[68ch] text-base leading-relaxed text-[#A8B3CF] sm:text-lg">
+            Regression Consulting helps investors and executive teams recover delivery control, architecture coherence, and governance clarity when execution risk threatens enterprise value.
+          </p>
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
-    </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#090d1a] to-transparent" />
+    </section>
   );
 }
 

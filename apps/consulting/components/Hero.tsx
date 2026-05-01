@@ -4,38 +4,32 @@ import { HeroGeometric } from './ui/hero-geometric';
 
 export function Hero() {
   return (
-    <section id="home" className="relative">
+    <section id="home" className="relative overflow-hidden">
       <HeroGeometric
         title1="When technology execution"
         title2="becomes enterprise risk."
       />
-      <div className="absolute bottom-0 left-0 right-0 pb-12 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-6 flex max-w-3xl items-center justify-center gap-2 text-[11px] uppercase tracking-[0.16em] text-gray-300/90">
-            <span className="h-px w-8 bg-white/30" />
+      <div className="absolute inset-x-0 bottom-0 pb-12 z-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-6 flex max-w-3xl items-center justify-center gap-2 text-[11px] font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">
+            <span className="h-px w-8 bg-[#2A3559]" />
             Investor & leadership execution advisory
-            <span className="h-px w-8 bg-white/30" />
+            <span className="h-px w-8 bg-[#2A3559]" />
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-indigo-500 to-rose-500 text-white px-8 py-3 rounded-md hover:from-indigo-600 hover:to-rose-600 transition-all flex items-center justify-center gap-2 shadow-[0_12px_30px_rgba(99,102,241,0.25)]"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#4DA3FF] px-8 py-3 text-[#0B1020] transition-all hover:bg-[#7cbaff]"
             >
-              Request an advisory conversation
+              Start a conversation
               <ArrowRight size={20} />
             </Link>
             <Link
-              href="/approach"
-              className="border border-indigo-300/40 text-indigo-200 px-8 py-3 rounded-md hover:bg-indigo-500/10 transition-all text-center"
+              href="/how-we-work"
+              className="rounded-md border border-[#2A3559] px-8 py-3 text-[#E8ECF8] transition-all hover:bg-[#111831]"
             >
-              See our advisory method
-            </Link>
-            <Link
-              href="/#services"
-              className="border-2 border-white/20 text-white px-8 py-3 rounded-md hover:bg-white/10 transition-all text-center backdrop-blur-sm"
-            >
-              View our services
+              See how we work
             </Link>
           </div>
         </div>
