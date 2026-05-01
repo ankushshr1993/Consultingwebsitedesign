@@ -31,6 +31,17 @@ const proofSlices = [
   },
 ];
 
+const strategicMoats = [
+  'Proprietary Data',
+  'Workflow',
+  'Regulatory',
+  'Distribution',
+  'Ecosystem',
+  'Network',
+  'Physical Infrastructure',
+  'Scale',
+];
+
 const strongFit = [
   'Investors evaluating technology execution risk',
   'Founders scaling beyond informal delivery',
@@ -82,6 +93,21 @@ export function About() {
                 <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Leadership outcome</p>
                 <p className="mt-2 text-sm text-[#E8ECF8]">{slice.outcome}</p>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-6 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Moat-building principles</p>
+          <h3 className="max-w-4xl text-2xl font-semibold text-[#E8ECF8] md:text-3xl">We help leadership design execution models that strengthen durable strategic moats.</h3>
+          <p className="max-w-[75ch] text-sm leading-relaxed text-[#A8B3CF]">
+            We do not treat moats as slideware. We help teams translate strategy into operational control across the moat categories that matter most to long-term defensibility.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {strategicMoats.map((moat) => (
+              <p key={moat} className="rounded-lg border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-sm text-[#E8ECF8]">
+                {moat}
+              </p>
             ))}
           </div>
         </section>
