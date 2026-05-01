@@ -52,35 +52,6 @@ export default function AboutPage() {
           </p>
         </header>
 
-        <section className="grid gap-8 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:grid-cols-[220px_1fr] md:p-10">
-          <div className="space-y-3">
-            <div className="flex h-48 w-full items-center justify-center rounded-xl border border-dashed border-[#2A3559] bg-[#0B1020] text-center text-sm text-[#A8B3CF]">
-              Founder photo placeholder
-            </div>
-            <Link href="#" className="inline-block font-mono text-xs uppercase tracking-[0.16em] text-[#F5B544] hover:text-[#ffd27e]">
-              Add LinkedIn profile link
-            </Link>
-          </div>
-          <div className="space-y-5">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Founder / operator</p>
-            <h2 className="text-2xl font-semibold text-[#E8ECF8]">[Founder Name] — [Founder Title]</h2>
-            <p className="text-[#A8B3CF]">
-              Regression Consulting was founded by [Founder Name], a technology operator with [X]+ years of experience leading architecture, delivery, governance, and platform execution across complex business environments. The firm was built around a simple belief: execution problems are rarely solved by more reporting. They are solved by finding where structure broke — and restoring decision control.
-            </p>
-            <div className="grid gap-3 text-sm text-[#E8ECF8] md:grid-cols-2">
-              <p><span className="font-mono text-[#A8B3CF]">Experience:</span> [Years of Experience]</p>
-              <p><span className="font-mono text-[#A8B3CF]">Background:</span> [Relevant Background]</p>
-              <p><span className="font-mono text-[#A8B3CF]">Environments:</span> [Industries / environments]</p>
-              <p><span className="font-mono text-[#A8B3CF]">Achievements:</span> [Notable non-confidential achievements]</p>
-            </div>
-            <ul className="space-y-2 text-sm text-[#A8B3CF]">
-              <li>• Optional selected experience bullet</li>
-              <li>• Optional selected experience bullet</li>
-              <li>• Optional selected experience bullet</li>
-            </ul>
-          </div>
-        </section>
-
         <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Why Regression?</p>
           <p className="mt-4 text-lg leading-relaxed text-[#E8ECF8]">
