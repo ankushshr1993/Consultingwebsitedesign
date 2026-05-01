@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 const services = [
@@ -80,6 +81,11 @@ const engagementModels = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: 'What We Do | Regression Consulting',
+  description: 'Operator-led execution-risk advisory services for investors, boards, CEOs, and leadership teams.',
+};
+
 export default function ServicesPage() {
   return (
     <section className="relative bg-[#0B1020] py-20 md:py-24">
@@ -136,7 +142,7 @@ export default function ServicesPage() {
           <p className="mx-auto mt-4 max-w-[70ch] text-[#A8B3CF]">
             Start with the situation. We will help identify whether the issue is architecture, governance, delivery control, or leadership alignment.
           </p>
-          <Link href="/contact" className="mt-6 inline-flex rounded-md bg-[#F5B544] px-8 py-3 font-medium text-[#0B1020] transition-colors hover:bg-[#ffd27e]">
+          <Link href="/contact" className="mt-6 inline-flex rounded-md border border-[#C8A45D] bg-[#111827] px-8 py-3 font-medium text-white transition-colors hover:bg-[#1F2937]">
             Start a conversation
           </Link>
         </section>

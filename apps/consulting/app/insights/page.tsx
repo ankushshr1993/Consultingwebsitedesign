@@ -1,24 +1,18 @@
-import Link from 'next/link';
+import type { Metadata } from 'next';
 
-const insights = [
-  { slug: 'market-positioning-playbook', title: 'Market Positioning Playbook' },
-  { slug: 'operational-efficiency-checklist', title: 'Operational Efficiency Checklist' },
-  { slug: 'change-management-framework', title: 'Change Management Framework' },
-];
+export const metadata: Metadata = {
+  title: 'Insights | Regression Consulting',
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function InsightsPage() {
   return (
-    <section className="max-w-4xl mx-auto px-4 py-28 sm:px-6 lg:px-8">
-      <h1 className="text-4xl font-bold mb-6">Insights</h1>
-      <ul className="space-y-3">
-        {insights.map((item) => (
-          <li key={item.slug}>
-            <Link className="text-indigo-300 hover:text-indigo-200 underline" href={`/insights/${item.slug}`}>
-              {item.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <section className="mx-auto max-w-4xl px-4 py-28 sm:px-6 lg:px-8">
+      <h1 className="mb-6 text-4xl font-semibold text-[#E8ECF8]">Insights</h1>
+      <p className="text-[#A8B3CF]">Insights are currently shared directly during client conversations.</p>
     </section>
   );
 }

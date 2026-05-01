@@ -1,59 +1,92 @@
-import { BarChart3, Briefcase, Lightbulb, TrendingUp } from 'lucide-react';
-
-const services = [
+const moments = [
   {
-    icon: Briefcase,
+    title: 'Investment deployment',
+    trigger: 'Before capital is committed, we test whether the technology plan can survive real execution pressure.',
+    inspect: 'Architecture viability, delivery assumptions, capability dependencies, and decision governance.',
+    outcome: 'A leadership-grade view of execution risk before assumptions harden into exposure.',
+  },
+  {
+    title: 'Growth inflection',
+    trigger: 'Velocity rises faster than operating structure, and hidden dependencies start compounding.',
+    inspect: 'System boundaries, operating cadence, ownership seams, and constraint bottlenecks.',
+    outcome: 'A clearer control model that supports growth without drifting into fragility.',
+  },
+  {
+    title: 'Execution drift',
+    trigger: 'Delivery appears active, but confidence in outcomes keeps deteriorating.',
+    inspect: 'Escalation mechanics, reporting logic, vendor coordination, and unresolved risk chains.',
+    outcome: 'Restored execution discipline with practical control checkpoints.',
+  },
+  {
+    title: 'Platform transition',
+    trigger: 'Core systems are moving while legacy commitments and integration debt remain live.',
+    inspect: 'Transition sequencing, architecture breakpoints, and accountability at system interfaces.',
+    outcome: 'Reduced transition risk and stronger delivery coherence during change.',
+  },
+  {
+    title: 'Leadership realignment',
+    trigger: 'Leadership changes create ambiguity around decision authority and execution continuity.',
+    inspect: 'Decision-rights clarity, mandate boundaries, dependency ownership, and governance continuity.',
+    outcome: 'Stabilised execution control through periods of leadership change.',
+  },
+];
+
+const method = [
+  {
     step: '01',
     title: 'Diagnose',
-    description: 'Execution perspective for deployment decisions, operating plans, and risk visibility.',
+    inspect: 'Architecture logic, delivery mechanics, governance cadence, and points where control has fractured.',
+    changes: 'Noise is separated from causality; structural issues are made explicit to leadership.',
+    gets: 'Execution-risk map and priority interventions.',
   },
   {
-    icon: BarChart3,
     step: '02',
     title: 'Reset',
-    description: 'Decision rights, platform boundaries, and governance controls for complex programs.',
+    inspect: 'Decision rights, escalation pathways, ownership boundaries, and delivery operating model.',
+    changes: 'Control structures are rebuilt around clarity, accountability, and speed of correction.',
+    gets: 'A practical reset plan with visible control checkpoints.',
   },
   {
-    icon: TrendingUp,
     step: '03',
-    title: 'Stabilize',
-    description: 'Cadence, accountability, and leadership reporting where execution confidence has eroded.',
-  },
-  {
-    icon: Lightbulb,
-    step: '04',
-    title: 'Fortify',
-    description: 'Execution continuity through leadership transition, portfolio shifts, or operating model realignment.',
+    title: 'Stabilise',
+    inspect: 'Weekly execution cadence, dependency visibility, and leadership reporting usefulness.',
+    changes: 'Governance becomes decision-useful rather than performative.',
+    gets: 'A durable operating rhythm that protects delivery confidence.',
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="relative bg-[#0B1020] py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-        <div className="mb-14 text-center">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF] mb-4">How we work</p>
-          <h2 className="text-3xl md:text-5xl font-semibold text-[#E8ECF8] mb-4">Signal over noise, step by step.</h2>
-          <p className="mx-auto max-w-[72ch] text-lg text-[#A8B3CF]">
-            Structured interventions for investors and leadership teams managing execution-critical environments.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <article key={service.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6">
-                <p className="font-mono text-3xl text-[#4DA3FF]">{service.step}</p>
-                <div className="mb-4 mt-4 inline-flex rounded-lg border border-[#2A3559] bg-[#0B1020] p-2">
-                  <Icon className="text-[#A8B3CF]" size={22} />
-                </div>
-                <h3 className="mb-3 text-xl font-semibold text-[#E8ECF8]">{service.title}</h3>
-                <p className="text-[#A8B3CF]">{service.description}</p>
+    <section className="relative bg-[#0B1020] py-20">
+      <div className="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
+        <section className="space-y-6">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Moments where we step in</p>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {moments.map((moment) => (
+              <article key={moment.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6 transition-colors hover:border-[#C8A45D]/70">
+                <h3 className="text-xl font-semibold text-[#E8ECF8]">{moment.title}</h3>
+                <p className="mt-3 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">Trigger:</span> {moment.trigger}</p>
+                <p className="mt-2 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">What we look for:</span> {moment.inspect}</p>
+                <p className="mt-2 text-sm text-[#E8ECF8]"><span className="font-mono text-[#A8B3CF]">What leadership gets back:</span> {moment.outcome}</p>
               </article>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-6 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">How we work</p>
+          <div className="grid gap-5 md:grid-cols-3">
+            {method.map((stage) => (
+              <article key={stage.step} className="rounded-xl border border-[#2A3559] bg-[#0B1020] p-6">
+                <p className="font-mono text-3xl text-[#C8A45D]">{stage.step}</p>
+                <h3 className="mt-2 text-2xl font-semibold text-[#E8ECF8]">{stage.title}</h3>
+                <p className="mt-4 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">What we inspect:</span> {stage.inspect}</p>
+                <p className="mt-2 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">What changes:</span> {stage.changes}</p>
+                <p className="mt-2 text-sm text-[#E8ECF8]"><span className="font-mono text-[#A8B3CF]">What the client gets:</span> {stage.gets}</p>
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );

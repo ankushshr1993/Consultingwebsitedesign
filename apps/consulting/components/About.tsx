@@ -1,63 +1,134 @@
-const outcomes = [
+const problemCards = [
   {
-    title: 'Governance clarity',
-    description: 'Decision rights and escalation paths made explicit across leadership, product, and engineering.',
+    title: 'Architecture',
+    description: 'Systems, platforms, and integration decisions fragment faster than leadership can see.',
   },
   {
-    title: 'Delivery stability',
-    description: 'Operating cadence reset so risks are surfaced early and corrective action happens before drift compounds.',
+    title: 'Delivery Ecosystem',
+    description: 'Internal teams and vendors optimise locally while the overall program loses coherence.',
   },
   {
-    title: 'Board-level visibility',
-    description: 'Execution reporting reframed around risk, confidence, and next decisions — not activity volume.',
+    title: 'Decision Control',
+    description: 'Ownership becomes unclear, escalations multiply, and leadership receives updates instead of control.',
   },
 ];
 
+const proofSlices = [
+  {
+    situation: 'Multi-vendor delivery environment',
+    intervention: 'Reset architecture and delivery decision rights across leadership, product, and engineering.',
+    outcome: 'Reduced ambiguity around ownership, escalation, and execution confidence.',
+  },
+  {
+    situation: 'Platform transition under investor pressure',
+    intervention: 'Mapped structural dependencies, clarified escalation thresholds, and rebuilt weekly control cadence.',
+    outcome: 'Leadership regained visibility on risks, blockers, and non-negotiable execution priorities.',
+  },
+  {
+    situation: 'Leadership transition during active program delivery',
+    intervention: 'Stabilised decision ownership and translated architectural risk into board-level action logic.',
+    outcome: 'Continuity improved while handover risk and delivery drift were contained.',
+  },
+];
+
+const strategicMoats = [
+  'Proprietary Data',
+  'Workflow',
+  'Regulatory',
+  'Distribution',
+  'Ecosystem',
+  'Network',
+  'Physical Infrastructure',
+  'Scale',
+];
+
+const strongFit = [
+  'Investors evaluating technology execution risk',
+  'Founders scaling beyond informal delivery',
+  'CEOs/CTOs/CIOs facing execution drift',
+  'Portfolio teams needing control before a board/investor moment',
+];
+
 const notFit = [
-  'Teams seeking presentation-only strategy without execution ownership',
-  'Low-urgency transformation programs without leadership mandate',
-  'Situations requiring promotional narratives over operational truth',
+  'Teams looking only for slideware strategy',
+  'Low-urgency transformation without leadership mandate',
+  'Situations where politics matter more than operational truth',
 ];
 
 export function About() {
   return (
-    <section id="about" className="relative bg-[#0B1020] py-20 md:py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(77,163,255,0.12),transparent_45%)]" />
+    <section className="relative bg-[#0B1020] py-20 md:py-24">
       <div className="relative mx-auto max-w-6xl space-y-16 px-4 sm:px-6 lg:px-8">
-        <header className="mx-auto max-w-4xl text-center space-y-6">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Who we are</p>
-          <h1 className="text-4xl md:text-6xl font-semibold leading-tight text-[#E8ECF8]">Operator-led execution advisory for high-stakes environments.</h1>
-          <p className="mx-auto max-w-[75ch] text-base md:text-lg leading-relaxed text-[#A8B3CF]">
-            We partner directly with investors and leadership teams when technology execution becomes enterprise risk.
-          </p>
-        </header>
-
-        <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/80 p-6 md:p-8 space-y-4">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Why regression</p>
-          <p className="max-w-[74ch] text-[#E8ECF8] leading-relaxed">
-            Regression is the discipline of finding true signal through noisy data. We apply the same principle in technology diligence and execution recovery: isolate what is causal, remove what is cosmetic, and return systems to a stable operating baseline.
-          </p>
-        </section>
-
         <section className="space-y-6">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">What changes when we are involved</p>
+          <h2 className="max-w-4xl text-3xl font-semibold leading-tight text-[#E8ECF8] md:text-5xl">
+            When execution drifts, the status report is usually the last place to find the truth.
+          </h2>
           <div className="grid gap-5 md:grid-cols-3">
-            {outcomes.map((outcome) => (
-              <article key={outcome.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6">
-                <h3 className="text-lg font-semibold text-[#E8ECF8]">{outcome.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#A8B3CF]">{outcome.description}</p>
+            {problemCards.map((card) => (
+              <article key={card.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6">
+                <h3 className="text-xl font-semibold text-[#E8ECF8]">{card.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#A8B3CF]">{card.description}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="space-y-4">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Not a fit</p>
-          <div className="space-y-2">
-            {notFit.map((item) => (
-              <p key={item} className="text-[#E8ECF8]">• {item}</p>
+        <section className="space-y-6">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Why Regression Consulting</p>
+          <h3 className="max-w-4xl text-3xl font-semibold text-[#E8ECF8] md:text-4xl">Operator-led structural diagnosis in high-stakes execution environments.</h3>
+          <p className="max-w-[75ch] text-[#A8B3CF] leading-relaxed">
+            Regression is the discipline of separating signal from noise. We apply that lens to architecture, delivery systems, and decision structure so leadership can recover control with clarity rather than narrative.
+          </p>
+        </section>
+
+        <section className="space-y-6">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Proof in execution contexts</p>
+          <div className="grid gap-5 md:grid-cols-3">
+            {proofSlices.map((slice) => (
+              <article key={slice.situation} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6">
+                <p className="font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Situation</p>
+                <p className="mt-2 text-[#E8ECF8]">{slice.situation}</p>
+                <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Intervention</p>
+                <p className="mt-2 text-sm text-[#A8B3CF]">{slice.intervention}</p>
+                <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Leadership outcome</p>
+                <p className="mt-2 text-sm text-[#E8ECF8]">{slice.outcome}</p>
+              </article>
             ))}
           </div>
+        </section>
+
+        <section className="space-y-6 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Moat-building principles</p>
+          <h3 className="max-w-4xl text-2xl font-semibold text-[#E8ECF8] md:text-3xl">We help leadership design execution models that strengthen durable strategic moats.</h3>
+          <p className="max-w-[75ch] text-sm leading-relaxed text-[#A8B3CF]">
+            We do not treat moats as slideware. We help teams translate strategy into operational control across the moat categories that matter most to long-term defensibility.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {strategicMoats.map((moat) => (
+              <p key={moat} className="rounded-lg border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-sm text-[#E8ECF8]">
+                {moat}
+              </p>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid gap-6 md:grid-cols-2">
+          <article className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8">
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">A strong fit</p>
+            <div className="mt-4 space-y-2 text-[#E8ECF8]">
+              {strongFit.map((item) => (
+                <p key={item}>• {item}</p>
+              ))}
+            </div>
+          </article>
+          <article className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8">
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Not a fit</p>
+            <div className="mt-4 space-y-2 text-[#E8ECF8]">
+              {notFit.map((item) => (
+                <p key={item}>• {item}</p>
+              ))}
+            </div>
+          </article>
         </section>
       </div>
     </section>
