@@ -1,23 +1,23 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-const noisePoints = [
-  { x: 8, y: 70 },
-  { x: 18, y: 34 },
-  { x: 24, y: 64 },
-  { x: 34, y: 44 },
-  { x: 41, y: 60 },
-  { x: 52, y: 38 },
-  { x: 61, y: 50 },
-  { x: 74, y: 30 },
-  { x: 82, y: 42 },
-  { x: 90, y: 24 },
-];
+const heroVideo =
+  'https://cdn.pixabay.com/video/2021/08/04/83815-582673704_large.mp4';
 
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden bg-[#0B1020] py-20 md:py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(200,164,93,0.18),transparent_45%)]" />
+      <video
+        className="absolute inset-0 h-full w-full object-cover opacity-20"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(200,164,93,0.22),transparent_45%)]" />
       <div className="relative mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
         <div className="space-y-8">
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">When technology execution becomes enterprise risk</p>
@@ -38,19 +38,20 @@ export function Hero() {
           </div>
         </div>
 
-        <aside className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8">
+        <aside className="rounded-2xl border border-[#2A3559] bg-[#111831]/75 p-6 md:p-8">
           <p className="font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Regression signal view</p>
-          <div className="mt-5 rounded-xl border border-[#2A3559] bg-[#0B1020] p-4">
-            <div className="relative h-64">
-              {noisePoints.map((point, idx) => (
-                <span key={`${point.x}-${point.y}-${idx}`} className="absolute h-2.5 w-2.5 rounded-full bg-[#8BA0CC]/80" style={{ left: `${point.x}%`, top: `${point.y}%` }} />
-              ))}
-              <div className="absolute left-[6%] right-[6%] top-[58%] h-px border-t border-dashed border-[#2A3559]" />
-              <div className="absolute left-[6%] right-[6%] top-[55%] h-[2px] rotate-[-14deg] bg-gradient-to-r from-[#C8A45D]/60 via-[#E8ECF8] to-[#C8A45D]" />
-              <span className="absolute left-[10%] top-[64%] text-[11px] font-mono uppercase tracking-[0.12em] text-[#8BA0CC]">noise</span>
-              <span className="absolute right-[24%] top-[32%] text-[11px] font-mono uppercase tracking-[0.12em] text-[#C8A45D]">signal</span>
-              <span className="absolute right-[8%] top-[19%] text-[11px] font-mono uppercase tracking-[0.12em] text-[#E8ECF8]">control restored</span>
-            </div>
+          <div className="mt-5 overflow-hidden rounded-xl border border-[#2A3559] bg-[#0B1020]">
+            <iframe
+              title="Signal and control animation"
+              src="https://hyperframes.heygen.com/"
+              className="h-64 w-full"
+              loading="lazy"
+            />
+          </div>
+          <div className="mt-3 flex items-center gap-4 text-[11px] font-mono uppercase tracking-[0.12em] text-[#A8B3CF]">
+            <span>Noise</span>
+            <span>Signal</span>
+            <span>Control restored</span>
           </div>
         </aside>
       </div>
