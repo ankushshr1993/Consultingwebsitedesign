@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { BrandLogo } from './BrandLogo';
-import { Facebook, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -13,28 +13,32 @@ export function Footer() {
               Operator-led strategy and execution for high-stakes technology delivery.
             </p>
           </div>
+
           <div>
-            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Services</h4>
+            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Navigate</h4>
             <ul className="space-y-2 text-[#A8B3CF]">
-              <li><Link href="/#services" className="transition-colors hover:text-[#E8ECF8]">Execution Planning</Link></li>
-              <li><Link href="/#services" className="transition-colors hover:text-[#E8ECF8]">Architecture Blueprint</Link></li>
-              <li><Link href="/#services" className="transition-colors hover:text-[#E8ECF8]">Program Governance</Link></li>
-              <li><Link href="/#services" className="transition-colors hover:text-[#E8ECF8]">Investor Support</Link></li>
+              <li><Link href="/what-we-do" className="transition-colors hover:text-[#E8ECF8]">What We Do</Link></li>
+              <li><Link href="/how-we-work" className="transition-colors hover:text-[#E8ECF8]">How We Work</Link></li>
+              <li><Link href="/who-we-are" className="transition-colors hover:text-[#E8ECF8]">Who We Are</Link></li>
+              <li><Link href="/contact" className="transition-colors hover:text-[#E8ECF8]">Start a Conversation</Link></li>
             </ul>
           </div>
+
           <div>
-            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Initiatives</h4>
-            <ul className="space-y-2 text-[#A8B3CF]">
-              <li><Link href="https://defencefund.regressionconsulting.com" className="transition-colors hover:text-[#E8ECF8]">Defence Fund — sector-specific initiative for defence technology founders and investors.</Link></li>
-            </ul>
+            <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Separate initiatives</h4>
+            <p className="mb-3 text-sm text-[#A8B3CF]">
+              Distinct from the core advisory business.
+            </p>
+            <Link href="https://deftech.regressionconsulting.com/" target="_blank" rel="noreferrer" className="text-[#E8ECF8] underline decoration-[#4DA3FF] underline-offset-4 hover:text-[#4DA3FF]">
+              DefTech Initiative
+            </Link>
           </div>
+
           <div>
             <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Connect</h4>
-            <div className="flex gap-4">
-              <Link href="https://www.linkedin.com/company/regressionconsulting" target="_blank" rel="noreferrer" className="text-[#A8B3CF] transition-colors hover:text-[#4DA3FF]" aria-label="LinkedIn"><Linkedin size={20} /></Link>
-              <Link href="https://x.com" target="_blank" rel="noreferrer" className="text-[#A8B3CF] transition-colors hover:text-[#4DA3FF]" aria-label="Twitter"><Twitter size={20} /></Link>
-              <Link href="https://facebook.com" target="_blank" rel="noreferrer" className="text-[#A8B3CF] transition-colors hover:text-[#4DA3FF]" aria-label="Facebook"><Facebook size={20} /></Link>
-              <Link href="mailto:info@regressionconsulting.com" className="text-[#A8B3CF] transition-colors hover:text-[#4DA3FF]" aria-label="Email"><Mail size={20} /></Link>
+            <div className="space-y-3 text-[#A8B3CF]">
+              <Link href="https://www.linkedin.com/company/regressionconsulting" target="_blank" rel="noreferrer" className="flex items-center gap-2 transition-colors hover:text-[#4DA3FF]" aria-label="LinkedIn"><Linkedin size={18} />LinkedIn</Link>
+              <Link href="mailto:info@regressionconsulting.com" className="flex items-center gap-2 transition-colors hover:text-[#4DA3FF]" aria-label="Email"><Mail size={18} />info@regressionconsulting.com</Link>
             </div>
           </div>
         </div>
