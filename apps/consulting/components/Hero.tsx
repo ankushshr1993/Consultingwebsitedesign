@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-const heroVideo = '/media/hero-execution-risk.mp4';
+const heroVideo = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4';
 
 const noisePoints = [
   { left: '8%', top: '68%', delay: '0s' },
