@@ -40,6 +40,37 @@ export default function Page() {
         </p>
       </div>
 
+
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="rounded-2xl border border-indigo-400/30 bg-gradient-to-br from-indigo-500/10 via-slate-900 to-rose-500/10 p-8 md:p-10">
+          <p className="text-xs uppercase tracking-[0.2em] text-indigo-300">Concept Design · HyperFrames</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">Mission Brief Video Prototype</h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-slate-300">
+            Inspired by the HyperFrames quickstart workflow, this concept block shows how we can turn a defence startup memo into a short, structured explainer video with deterministic HTML-based scenes.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {[
+              ['Scene 01', 'Hook', '4-second dark-mode opener with startup name, capability line, and subtle pulse animation.'],
+              ['Scene 02', 'Proof', 'Animated readiness metrics (compliance, TRL, pilot velocity) rendered as timeline-synced cards.'],
+              ['Scene 03', 'CTA', 'Investor/founder decision frame with intake URLs and clean fade-out.']
+            ].map(([scene, title, body]) => (
+              <article key={scene} className="rounded-xl border border-white/15 bg-black/30 p-5">
+                <p className="text-xs tracking-widest text-indigo-200">{scene}</p>
+                <h3 className="mt-2 text-lg font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{body}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3 text-xs text-slate-300">
+            <span className="rounded-full border border-white/20 px-3 py-1">1920×1080</span>
+            <span className="rounded-full border border-white/20 px-3 py-1">30fps</span>
+            <span className="rounded-full border border-white/20 px-3 py-1">~10 seconds</span>
+            <span className="rounded-full border border-white/20 px-3 py-1">GSAP timeline</span>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-6 py-20">
         <h2 className="text-3xl font-semibold tracking-tight text-white">Proof of Operating Discipline</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
