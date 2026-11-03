@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  openGraph: { title: 'Who We Are | Regression Consulting', description: 'Operator-led technology execution advisory for investors and leadership teams managing enterprise-risk delivery environments.', url: '/about', type: 'website' },
+  alternates: { canonical: '/about' },
   title: 'Who We Are | Regression Consulting',
   description:
     'Operator-led technology execution advisory for investors and leadership teams managing enterprise-risk delivery environments.',
@@ -26,7 +28,7 @@ const principles = [
   {
     title: 'Execution over theatre',
     description:
-      'We measure progress by changed behaviours, cleaner decisions, and delivery stability — not by presentation volume or status optics.',
+      'We measure progress by changed behaviours, cleaner decisions, and delivery stability: not by presentation volume or status optics.',
   },
 ];
 
@@ -39,57 +41,63 @@ const experienceAreas = [
 
 export default function AboutPage() {
   return (
-    <section className="relative bg-[#0B1020] py-20 md:py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,181,68,0.10),transparent_48%)]" />
-      <div className="relative mx-auto max-w-6xl space-y-16 px-4 sm:px-6 lg:px-8">
-        <header className="space-y-6 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Who we are</p>
-          <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-[#E8ECF8] md:text-6xl">
-            Operator-led advisory for moments when technology execution becomes enterprise risk.
-          </h1>
-          <p className="max-w-[75ch] text-lg leading-relaxed text-[#A8B3CF]">
-            Regression Consulting exists for the moments when leadership needs more than another strategy deck — when architecture, delivery, vendors, and decision rights need to be brought back under control.
+    <article className="site-container about-dossier">
+      <header className="dossier-intro">
+        <h1>An operator’s view of execution risk.</h1>
+        <p>
+          Regression Consulting exists for the moments when leadership needs more than another
+          strategy deck: when architecture, delivery, vendors, and decision rights need to be
+          brought back under control.
+        </p>
+      </header>
+
+      <section className="editorial-letter" aria-labelledby="why-heading">
+        <aside className="named-contact">
+          <h2>Speak with Ankush Sharma</h2>
+          <p>Discuss your situation directly with Ankush Sharma.</p>
+          <a className="text-link" href="https://www.linkedin.com/in/ankush-shr/" target="_blank" rel="noopener noreferrer">
+            View Ankush’s LinkedIn profile
+          </a>
+        </aside>
+        <div className="chapter-body">
+          <h2 id="why-heading" className="section-heading">Why Regression?</h2>
+          <p>
+            In statistics, regression analysis helps identify the true relationship beneath noisy
+            variables. It separates signal from distortion. That is the operating metaphor behind
+            Regression Consulting. We do not take the status report at face value. We look for the
+            structural causes behind delivery drift: architecture fragmentation, unclear ownership,
+            vendor misalignment, weak governance, and decisions that were never made cleanly.
           </p>
-        </header>
+        </div>
+      </section>
 
-        <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Why Regression?</p>
-          <p className="mt-4 text-lg leading-relaxed text-[#E8ECF8]">
-            In statistics, regression analysis helps identify the true relationship beneath noisy variables. It separates signal from distortion. That is the operating metaphor behind Regression Consulting. We do not take the status report at face value. We look for the structural causes behind delivery drift — architecture fragmentation, unclear ownership, vendor misalignment, weak governance, and decisions that were never made cleanly.
-          </p>
-        </section>
+      <section aria-labelledby="principles-heading">
+        <h2 id="principles-heading" className="section-heading">Principles</h2>
+        <ol className="principle-index">
+          {principles.map((principle, index) => (
+            <li key={principle.title}>
+              <span className="chapter-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{principle.title}</h3>
+              <p>{principle.description}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
 
-        <section className="space-y-6">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Principles</p>
-          <div className="grid gap-4 md:grid-cols-2">
-            {principles.map((principle) => (
-              <article key={principle.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6">
-                <h3 className="text-xl font-semibold text-[#E8ECF8]">{principle.title}</h3>
-                <p className="mt-3 text-[#A8B3CF]">{principle.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+      <section className="editorial-letter" aria-labelledby="experience-heading">
+        <div>
+          <h2 id="experience-heading" className="section-heading">Credibility through operating context</h2>
+          <p>These are experience areas, not client claims.</p>
+        </div>
+        <ul className="experience-index">
+          {experienceAreas.map((area) => <li key={area}>{area}</li>)}
+        </ul>
+      </section>
 
-        <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Credibility through operating context</p>
-          <p className="mt-3 text-sm text-[#A8B3CF]">These are experience areas, not client claims.</p>
-          <div className="mt-6 grid gap-3 md:grid-cols-2">
-            {experienceAreas.map((area) => (
-              <p key={area} className="rounded-lg border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]">
-                {area}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 text-center md:p-10">
-          <h2 className="text-3xl font-semibold text-[#E8ECF8]">Need an operator’s view on execution risk?</h2>
-          <Link href="/contact" className="mt-6 inline-flex rounded-md border border-[#C8A45D] bg-[#111827] px-8 py-3 font-medium text-white transition-colors hover:bg-[#1F2937]">
-            Start a conversation
-          </Link>
-        </section>
-      </div>
-    </section>
+      <section className="closing-note">
+        <h2>Need an operator’s view on execution risk?</h2>
+        <Link href="/contact" className="button-primary">Start a conversation</Link>
+      </section>
+    </article>
   );
 }

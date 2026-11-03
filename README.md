@@ -68,3 +68,13 @@ Use two Vercel projects pointed to the same Git repository:
    - Domain: `deftech.regressionconsulting.com`
 
 No route or metadata sharing is required between these deployments.
+
+## Validation
+
+Use Node.js 24 for the regression checks. Run `npm test` for structured intake and mocked email-provider tests. Run `npm run build` to build both applications.
+
+For the full browser checks, start the built consulting app on port 3000 and the built defence app on port 3001, then run `npm run test:browser`. Chromium must be installed; set `CHROME_PATH` if it is not at `/usr/bin/chromium`. Browser form submissions are intercepted and do not send emails.
+
+See [audit remediation](docs/audit-remediation.md) for the implemented recommendations, optional analytics configuration, and owner-supplied material still needed.
+
+The current visual system is the full Hallmark Ink redesign. See [design system](design.md) and [full theme design review](docs/theme-redesign-review.md) for the theme selection, independent review, comparison, and exact validation outcomes.

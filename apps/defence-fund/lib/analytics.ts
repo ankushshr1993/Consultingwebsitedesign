@@ -10,9 +10,9 @@ export function trackEvent(event: string, params?: Record<string, string | numbe
 
   if (typeof w.gtag === 'function') {
     w.gtag('event', event, params || {});
+    return;
   }
 
-  if (Array.isArray(w.dataLayer)) {
-    w.dataLayer.push(payload);
-  }
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push(payload);
 }

@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
   const validated = validateContactPayload(payload);
 
   if (!validated.ok) {
-    return jsonError('VALIDATION_ERROR', validated.message, 400);
+    return jsonError('VALIDATION_ERROR', validated.message, 400, { fieldErrors: validated.fieldErrors });
   }
 
   if (validated.data.website) {

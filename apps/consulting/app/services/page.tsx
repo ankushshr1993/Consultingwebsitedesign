@@ -82,71 +82,64 @@ const engagementModels = [
 ];
 
 export const metadata: Metadata = {
+  openGraph: { title: 'Investment-side execution review', description: 'Operator-led execution-risk advisory services for investors, boards, CEOs, and leadership teams.', url: '/services', type: 'website' },
+  alternates: { canonical: '/services' },
   title: 'What We Do | Regression Consulting',
   description: 'Operator-led execution-risk advisory services for investors, boards, CEOs, and leadership teams.',
 };
 
 export default function ServicesPage() {
   return (
-    <section className="relative bg-[#0B1020] py-20 md:py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(245,181,68,0.10),transparent_40%)]" />
-      <div className="relative mx-auto max-w-6xl space-y-16 px-4 sm:px-6 lg:px-8">
-        <header className="space-y-6 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">What we do</p>
-          <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-[#E8ECF8] md:text-6xl">
-            Technology execution support for high-stakes growth, investment, and control moments.
-          </h1>
-          <p className="max-w-[75ch] text-lg leading-relaxed text-[#A8B3CF]">
-            We help investors and leadership teams diagnose execution risk, reset architecture and delivery control, and stabilise programs where ambiguity has started to affect confidence.
-          </p>
-        </header>
+    <div className="services-dossier site-container">
+      <header className="dossier-intro">
+        <h1>Choose the support your situation needs.</h1>
+        <p className="lead">
+          We help investors and leadership teams diagnose execution risk, reset architecture and delivery control, and stabilise programs where ambiguity has started to affect confidence.
+        </p>
+      </header>
 
-        <section className="space-y-6">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Advisory services</p>
-          <div className="grid gap-5 md:grid-cols-2">
-            {services.map((service) => (
-              <article key={service.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6 space-y-4">
-                <h2 className="text-2xl font-semibold text-[#E8ECF8]">{service.title}</h2>
-                <p className="text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">Buyer:</span> {service.buyer}</p>
-                <p className="text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">Situation:</span> {service.situation}</p>
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">What we do</p>
-                  <ul className="mt-2 space-y-1 text-sm text-[#E8ECF8]">
-                    {service.actions.map((action) => (
-                      <li key={action}>• {action}</li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="rounded-lg border border-[#2A3559] bg-[#0B1020] p-3 text-sm text-[#E8ECF8]"><span className="font-mono text-[#A8B3CF]">Output:</span> {service.output}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+      <section className="service-chapters" aria-labelledby="advisory-services">
+        <h2 id="advisory-services" className="section-heading">Advisory services</h2>
+        {services.map((service, index) => (
+          <article key={service.title} className="service-chapter">
+            <div className="chapter-body">
+              <h3><span className="chapter-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{service.title}</h3>
+              <p>{service.situation}</p>
+              <ul>
+                {service.actions.map((action) => <li key={action}>{action}</li>)}
+              </ul>
+            </div>
+            <aside className="chapter-aside" aria-label={`${service.title}: buyer and output`}>
+              <dl>
+                <div><dt>Buyer</dt><dd>{service.buyer}</dd></div>
+                <div><dt>Output</dt><dd>{service.output}</dd></div>
+              </dl>
+            </aside>
+          </article>
+        ))}
+      </section>
 
-        <section className="space-y-6 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Engagement models</p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {engagementModels.map((model) => (
-              <article key={model.name} className="rounded-xl border border-[#2A3559] bg-[#0B1020] p-5">
-                <h3 className="text-lg font-semibold text-[#E8ECF8]">{model.name}</h3>
-                <p className="mt-3 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">When to use:</span> {model.when}</p>
-                <p className="mt-2 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">What happens:</span> {model.happens}</p>
-                <p className="mt-2 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">What client receives:</span> {model.receives}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+      <section className="engagement-comparison" aria-labelledby="engagement-models">
+        <h2 id="engagement-models" className="section-heading">Engagement models</h2>
+        {engagementModels.map((model) => (
+          <article key={model.name} className="engagement-option">
+            <h3>{model.name}</h3>
+            <dl>
+              <div><dt>When to use</dt><dd>{model.when}</dd></div>
+              <div><dt>What happens</dt><dd>{model.happens}</dd></div>
+              <div><dt>What client receives</dt><dd>{model.receives}</dd></div>
+            </dl>
+          </article>
+        ))}
+      </section>
 
-        <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 text-center md:p-10">
-          <h2 className="text-3xl font-semibold text-[#E8ECF8]">Not sure which service fits?</h2>
-          <p className="mx-auto mt-4 max-w-[70ch] text-[#A8B3CF]">
-            Start with the situation. We will help identify whether the issue is architecture, governance, delivery control, or leadership alignment.
-          </p>
-          <Link href="/contact" className="mt-6 inline-flex rounded-md border border-[#C8A45D] bg-[#111827] px-8 py-3 font-medium text-white transition-colors hover:bg-[#1F2937]">
-            Start a conversation
-          </Link>
-        </section>
-      </div>
-    </section>
+      <section className="closing-note">
+        <h2>Not sure which service fits?</h2>
+        <p>
+          Start with the situation. We will help identify whether the issue is architecture, governance, delivery control, or leadership alignment.
+        </p>
+        <Link href="/contact" className="button-primary">Start a conversation</Link>
+      </section>
+    </div>
   );
 }

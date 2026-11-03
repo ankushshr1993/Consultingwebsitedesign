@@ -11,6 +11,15 @@
     "dev:defence-fund": "npm --prefix apps/defence-fund run dev",
     "build:consulting": "npm --prefix apps/consulting run build",
     "build:defence-fund": "npm --prefix apps/defence-fund run build",
-    "build": "npm run build:consulting && npm run build:defence-fund"
+    "build": "npm run build:consulting && npm run build:defence-fund",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "test:browser": "node --experimental-strip-types scripts/verify-web.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.14.0",
+    "puppeteer-core": "25.16.0"
+  },
+  "dependencies": {
+    "@fontsource/epilogue": "5.3.0"
   }
 }

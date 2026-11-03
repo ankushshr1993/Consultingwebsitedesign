@@ -56,38 +56,8 @@ const method = [
 ];
 
 export function Services() {
-  return (
-    <section className="relative bg-[#0B1020] py-20">
-      <div className="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
-        <section className="space-y-6">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Moments where we step in</p>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {moments.map((moment) => (
-              <article key={moment.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6 transition-colors hover:border-[#C8A45D]/70">
-                <h3 className="text-xl font-semibold text-[#E8ECF8]">{moment.title}</h3>
-                <p className="mt-3 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">Trigger:</span> {moment.trigger}</p>
-                <p className="mt-2 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">What we look for:</span> {moment.inspect}</p>
-                <p className="mt-2 text-sm text-[#E8ECF8]"><span className="font-mono text-[#A8B3CF]">What leadership gets back:</span> {moment.outcome}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="space-y-6 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">How we work</p>
-          <div className="grid gap-5 md:grid-cols-3">
-            {method.map((stage) => (
-              <article key={stage.step} className="rounded-xl border border-[#2A3559] bg-[#0B1020] p-6">
-                <p className="font-mono text-3xl text-[#C8A45D]">{stage.step}</p>
-                <h3 className="mt-2 text-2xl font-semibold text-[#E8ECF8]">{stage.title}</h3>
-                <p className="mt-4 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">What we inspect:</span> {stage.inspect}</p>
-                <p className="mt-2 text-sm text-[#A8B3CF]"><span className="font-mono text-[#E8ECF8]">What changes:</span> {stage.changes}</p>
-                <p className="mt-2 text-sm text-[#E8ECF8]"><span className="font-mono text-[#A8B3CF]">What the client gets:</span> {stage.gets}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      </div>
-    </section>
-  );
+  return <div className="home-index">
+    <section><div className="site-container home-contexts"><h2>When to bring us in</h2><div>{moments.map(moment => <details key={moment.title} className="context-detail"><summary>{moment.title}</summary><div><p>{moment.trigger}</p><p>What we look for: {moment.inspect}</p><p>What leadership gets back: {moment.outcome}</p></div></details>)}</div></div></section>
+    <section className="home-method"><div className="site-container"><h2>Diagnose, reset, stabilise.</h2><ol>{method.map(stage => <li key={stage.step}><span className="chapter-number" aria-hidden="true">{stage.step}</span><h3>{stage.title}</h3><p>{stage.gets}</p><details><summary>What this involves</summary><div><p>What we inspect: {stage.inspect}</p><p>What changes: {stage.changes}</p></div></details></li>)}</ol></div></section>
+  </div>;
 }

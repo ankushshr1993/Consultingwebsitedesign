@@ -1,3 +1,7 @@
+import { pageMetadata } from '../../lib/page-metadata';
+
+export const metadata = pageMetadata('/faq', 'Frequently asked questions', 'Answers for founders and investors about participation, geographies, diligence, and response timelines.');
+
 import Link from 'next/link';
 
 const faqs = [
@@ -24,28 +28,8 @@ const faqs = [
 ];
 
 export default function FaqPage() {
-  return (
-    <div className="mx-auto max-w-5xl px-6 py-16">
-      <h1 className="text-4xl font-semibold tracking-tight text-slate-100 sm:text-5xl">FAQ</h1>
-      <p className="mt-4 max-w-3xl text-slate-300">Common questions from founders, investors, and ecosystem partners.</p>
-
-      <div className="mt-10 space-y-4">
-        {faqs.map((item) => (
-          <article key={item.q} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-lg font-semibold text-white">{item.q}</h2>
-            <p className="mt-2 leading-relaxed text-slate-300">{item.a}</p>
-          </article>
-        ))}
-      </div>
-
-      <div className="mt-10 flex gap-3">
-        <Link href="/process" className="rounded-md border border-white/20 px-5 py-2 text-sm text-white hover:bg-white/10">
-          See Process
-        </Link>
-        <Link href="/contact-us" className="rounded-md bg-indigo-500 px-5 py-2 text-sm text-white hover:bg-indigo-600">
-          Contact Us
-        </Link>
-      </div>
-    </div>
-  );
+  return <article className="site-container document-page">
+    <header className="dossier-intro"><h1>FAQ</h1><p>Common questions from founders, investors, and ecosystem partners.</p><div className="hero-actions"><Link href="/contact-us" className="button-primary">Contact us</Link><Link href="/process" className="button-secondary">See process</Link></div></header>
+    <div className="faq-index">{faqs.map(item => <details key={item.q}><summary><h2>{item.q}</h2></summary><p>{item.a}</p></details>)}</div>
+  </article>;
 }

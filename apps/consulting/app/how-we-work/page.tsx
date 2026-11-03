@@ -1,1 +1,5 @@
-export { default } from '@/app/approach/page';
+import { permanentRedirect } from 'next/navigation';
+
+export default function LegacyPage() {
+  permanentRedirect('/approach');
+}
