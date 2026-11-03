@@ -56,81 +56,17 @@ const notFit = [
 ];
 
 export function About() {
-  return (
-    <section className="relative bg-[#0B1020] py-20 md:py-24">
-      <div className="relative mx-auto max-w-6xl space-y-16 px-4 sm:px-6 lg:px-8">
-        <section className="space-y-6">
-          <h2 className="max-w-4xl text-3xl font-semibold leading-tight text-[#E8ECF8] md:text-5xl">
-            When execution drifts, the status report is usually the last place to find the truth.
-          </h2>
-          <div className="grid gap-5 md:grid-cols-3">
-            {problemCards.map((card) => (
-              <article key={card.title} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6">
-                <h3 className="text-xl font-semibold text-[#E8ECF8]">{card.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#A8B3CF]">{card.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="space-y-6">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Why Regression Consulting</p>
-          <h3 className="max-w-4xl text-3xl font-semibold text-[#E8ECF8] md:text-4xl">Operator-led structural diagnosis in high-stakes execution environments.</h3>
-          <p className="max-w-[75ch] text-[#A8B3CF] leading-relaxed">
-            Regression is the discipline of separating signal from noise. We apply that lens to architecture, delivery systems, and decision structure so leadership can recover control with clarity rather than narrative.
-          </p>
-        </section>
-
-        <section className="space-y-6">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Proof in execution contexts</p>
-          <div className="grid gap-5 md:grid-cols-3">
-            {proofSlices.map((slice) => (
-              <article key={slice.situation} className="rounded-xl border border-[#2A3559] bg-[#111831]/70 p-6">
-                <p className="font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Situation</p>
-                <p className="mt-2 text-[#E8ECF8]">{slice.situation}</p>
-                <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Intervention</p>
-                <p className="mt-2 text-sm text-[#A8B3CF]">{slice.intervention}</p>
-                <p className="mt-4 font-mono text-xs uppercase tracking-[0.16em] text-[#A8B3CF]">Leadership outcome</p>
-                <p className="mt-2 text-sm text-[#E8ECF8]">{slice.outcome}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="space-y-6 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Moat-building principles</p>
-          <h3 className="max-w-4xl text-2xl font-semibold text-[#E8ECF8] md:text-3xl">We help leadership design execution models that strengthen durable strategic moats.</h3>
-          <p className="max-w-[75ch] text-sm leading-relaxed text-[#A8B3CF]">
-            We do not treat moats as slideware. We help teams translate strategy into operational control across the moat categories that matter most to long-term defensibility.
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {strategicMoats.map((moat) => (
-              <p key={moat} className="rounded-lg border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-sm text-[#E8ECF8]">
-                {moat}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        <section className="grid gap-6 md:grid-cols-2">
-          <article className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">A strong fit</p>
-            <div className="mt-4 space-y-2 text-[#E8ECF8]">
-              {strongFit.map((item) => (
-                <p key={item}>• {item}</p>
-              ))}
-            </div>
-          </article>
-          <article className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8">
-            <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#A8B3CF]">Not a fit</p>
-            <div className="mt-4 space-y-2 text-[#E8ECF8]">
-              {notFit.map((item) => (
-                <p key={item}>• {item}</p>
-              ))}
-            </div>
-          </article>
-        </section>
+  return <div className="home-index">
+    <section><div className="site-container"><h2>Find the causes behind delivery drift.</h2>
+      <ul className="ruled-index">{problemCards.map(card => <li key={card.title}><h3>{card.title}</h3><p>{card.description}</p></li>)}</ul>
+    </div></section>
+    <section><div className="site-container home-contexts">
+      <div><h2>Separate signal from noise.</h2><p>Regression is the discipline of separating signal from noise. We apply that lens to architecture, delivery systems, and decision structure so leadership can recover control with clarity rather than narrative.</p></div>
+      <div><h3>Execution contexts</h3><p className="mt-4">Context, intervention, and leadership outcome. Discuss the relevant experience with us in confidence.</p>
+      {proofSlices.map(slice => <details className="context-detail" key={slice.situation}><summary>{slice.situation}</summary><div><h4>Intervention</h4><p>{slice.intervention}</p><h4>Leadership outcome</h4><p>{slice.outcome}</p></div></details>)}
+      <details className="context-detail"><summary>Moat-building principles</summary><div><h3>We help leadership design execution models that strengthen durable strategic moats.</h3><p>We do not treat moats as slideware. We help teams translate strategy into operational control across the moat categories that matter most to long-term defensibility.</p><ul className="experience-index">{strategicMoats.map(moat => <li key={moat}>{moat}</li>)}</ul></div></details>
       </div>
-    </section>
-  );
+    </div></section>
+    <section><div className="site-container home-contexts"><h2>Is this the right fit?</h2><div><h3>A strong fit</h3><ul className="experience-index">{strongFit.map(item => <li key={item}>{item}</li>)}</ul><details className="context-detail"><summary>When we are not a fit</summary><ul className="experience-index">{notFit.map(item => <li key={item}>{item}</li>)}</ul></details></div></div></section>
+  </div>;
 }

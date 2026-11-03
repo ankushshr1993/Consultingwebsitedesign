@@ -1,3 +1,7 @@
+import { pageMetadata } from '../../lib/page-metadata';
+
+export const metadata = pageMetadata('/criteria', 'Engagement criteria', 'Technology maturity, team, governance, compliance, and commercial criteria for working with Regression Defence Tech.');
+
 import Link from 'next/link';
 
 const stageItems = [
@@ -73,130 +77,70 @@ const readinessItems = [
 ];
 
 function BulletList({ items }: { items: string[] }) {
-  return (
-    <ul className="space-y-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-      {items.map((item) => (
-        <li key={item} className="flex gap-3">
-          <span className="mt-1 text-slate-500">•</span>
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
+  return <ul>{items.map(item => <li key={item}>{item}</li>)}</ul>;
 }
+
+const chapters = [
+  ['screening', 'Screening philosophy'],
+  ['stage-scope', 'Stage and scope'],
+  ['selection', 'Selection criteria'],
+  ['governance', 'Governance'],
+  ['not-a-fit', 'Not a fit'],
+  ['readiness', 'Before reaching out'],
+] as const;
 
 export default function CriteriaPage() {
   return (
-    <div>
-      <section className="border-b border-white/10">
-        <div className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-100 sm:text-5xl">Engagement Criteria</h1>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-100">Our Screening Philosophy</h2>
-        <div className="mt-6 max-w-4xl space-y-3 text-base leading-relaxed text-slate-300">
-          <p>We engage with a limited number of companies each year.</p>
-          <p>
-            Selection is based on institutional readiness, structural clarity, and scalable potential — not proximity, visibility, or
-            grant history.
-          </p>
-        </div>
-      </section>
-
-      <section className="border-y border-white/10">
-        <div className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-100">Stage &amp; Scope</h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <article className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-lg font-medium text-slate-100">Stage</h3>
-              <div className="mt-4">
-                <BulletList items={stageItems} />
-              </div>
-            </article>
-            <article className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-lg font-medium text-slate-100">Geography</h3>
-              <div className="mt-4">
-                <BulletList items={geographyItems} />
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-100">Core Selection Criteria</h2>
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {coreCriteria.map((criteria) => (
-            <article
-              key={criteria.title}
-              className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-white/20 hover:bg-white/[0.07]"
-            >
-              <h3 className="text-base font-semibold text-slate-100">{criteria.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300">{criteria.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y border-white/10">
-        <div className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-100">Governance &amp; Compliance Expectations</h2>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-300">Institutional capital requires structure.</p>
-          <div className="mt-6 max-w-4xl">
+    <article className="site-container document-page">
+      <header className="dossier-intro">
+        <h1>Engagement criteria</h1>
+        <p>We engage with a limited number of companies each year.</p>
+      </header>
+      <div className="document-body">
+        <nav className="document-index" aria-label="On this page">
+          {chapters.map(([id, label]) => <a href={`#${id}`} key={id}>{label}</a>)}
+        </nav>
+        <div>
+          <section id="screening" className="document-section">
+            <h2 className="section-heading">Our screening philosophy</h2>
+            <p>Selection is based on institutional readiness, structural clarity, and scalable potential: not proximity, visibility, or grant history.</p>
+          </section>
+          <section id="stage-scope" className="document-section">
+            <h2 className="section-heading">Stage and scope</h2>
+            <div className="criteria-list">
+              <div className="criteria-item"><h3>Stage</h3><BulletList items={stageItems} /></div>
+              <div className="criteria-item"><h3>Geography</h3><BulletList items={geographyItems} /></div>
+            </div>
+          </section>
+          <section id="selection" className="document-section">
+            <h2 className="section-heading">Core selection criteria</h2>
+            <div className="criteria-list">
+              {coreCriteria.map(criteria => <section key={criteria.title} className="criteria-item"><h3>{criteria.title}</h3><p>{criteria.text}</p></section>)}
+            </div>
+          </section>
+          <section id="governance" className="document-section">
+            <h2 className="section-heading">Governance and compliance expectations</h2>
+            <p>Institutional capital requires structure.</p>
             <BulletList items={governanceItems} />
-          </div>
-          <p className="mt-6 text-sm text-slate-300">If these elements cannot be implemented, engagement does not proceed.</p>
+            <p>If these elements cannot be implemented, engagement does not proceed.</p>
+          </section>
+          <section id="not-a-fit" className="document-section">
+            <h2 className="section-heading">Not a fit</h2>
+            <BulletList items={notFitItems} />
+          </section>
+          <section id="readiness" className="document-section">
+            <h2 className="section-heading">Before reaching out</h2>
+            <p>Founders should be able to answer “yes” to most of the following:</p>
+            <BulletList items={readinessItems} />
+            <p>If uncertain, internal preparation should precede outreach.</p>
+          </section>
+          <section className="closing-note">
+            <h2>Proceed selectively</h2>
+            <p>We review opportunities deliberately and confidentially. If your company aligns with the above criteria, we welcome a focused introduction.</p>
+            <div className="hero-actions"><Link href="/founder-intake" className="button-primary">Founder intake</Link><Link href="/thesis" className="button-secondary">View thesis</Link></div>
+          </section>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-100">Not a Fit</h2>
-        <div className="mt-6 max-w-4xl">
-          <BulletList items={notFitItems} />
-        </div>
-      </section>
-
-      <section className="border-y border-white/10">
-        <div className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-100">Before Reaching Out</h2>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-300">
-            Founders should be able to answer “yes” to most of the following:
-          </p>
-          <ul className="mt-6 max-w-4xl space-y-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-            {readinessItems.map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="mt-0.5 text-emerald-300">✓</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-sm text-slate-400">If uncertain, internal preparation should precede outreach.</p>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-100">Proceed Selectively</h2>
-        <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-300">
-          We review opportunities deliberately and confidentially. If your company aligns with the above criteria, we welcome a
-          focused introduction.
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link
-            href="/contact-us"
-            className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-indigo-500 to-rose-500 px-6 py-3 text-sm font-medium text-white transition-all hover:from-indigo-600 hover:to-rose-600"
-          >
-            Contact
-          </Link>
-          <Link
-            href="/thesis"
-            className="inline-flex items-center justify-center rounded-md border border-white/20 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10"
-          >
-            View Thesis
-          </Link>
-        </div>
-      </section>
-    </div>
+      </div>
+    </article>
   );
 }

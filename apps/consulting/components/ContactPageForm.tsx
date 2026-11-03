@@ -1,153 +1,97 @@
 'use client';
 
-import { Mail, MapPin, Phone } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { contactSchema, type ContactInput } from '../lib/validators';
 
-type SituationType =
-  | 'Investment deployment'
-  | 'Growth inflection'
-  | 'Execution drift'
-  | 'Platform transition'
-  | 'Leadership realignment'
-  | 'Other';
-
-type UrgencyType = 'Exploring' | 'Important this quarter' | 'Active issue' | 'Board/investor pressure';
-
-type ContactFormState = {
-  name: string;
-  email: string;
-  company: string;
-  role: string;
-  situationType: SituationType;
-  urgency: UrgencyType;
-  message: string;
-  website: string;
-};
-
-const initialForm: ContactFormState = {
-  name: '',
-  email: '',
-  company: '',
-  role: '',
-  situationType: 'Execution drift',
-  urgency: 'Exploring',
-  message: '',
-  website: '',
-};
-
-const nextSteps = [
-  'You share the context',
-  'We respond within one business day',
-  'We agree whether a diagnostic conversation makes sense',
-];
+const initialForm: ContactInput = { name: '', email: '', company: '', role: '', situationType: 'Execution drift', urgency: 'Exploring', message: '', website: '' };
+const fields = [
+  { name: 'name', label: 'Name', type: 'text', autoComplete: 'name', max: 100 },
+  { name: 'email', label: 'Work email', type: 'email', autoComplete: 'email', max: 200 },
+  { name: 'company', label: 'Company', type: 'text', autoComplete: 'organization', max: 120 },
+  { name: 'role', label: 'Role', type: 'text', autoComplete: 'organization-title', max: 120 },
+  { name: 'situationType', label: 'Situation', options: ['Investment deployment', 'Growth inflection', 'Execution drift', 'Platform transition', 'Leadership realignment', 'Other'] },
+  { name: 'urgency', label: 'Urgency', options: ['Exploring', 'Important this quarter', 'Active issue', 'Board/investor pressure'] },
+  { name: 'message', label: 'What is happening?', type: 'textarea', hint: 'Describe the situation and what is at stake. At least 10 characters.', max: 3000 },
+] as const;
 
 export function ContactPageForm() {
-  const [form, setForm] = useState<ContactFormState>(initialForm);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setStatus(null);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-
-      const data = await response.json().catch(() => null);
-
-      if (!response.ok) {
-        throw new Error(data?.error?.message || 'Unable to submit right now. Please try again later.');
-      }
-
-      setStatus({ type: 'success', message: 'Thanks. We will respond within one business day.' });
-      setForm(initialForm);
-    } catch (error) {
-      setStatus({
-        type: 'error',
-        message: error instanceof Error ? error.message : 'Unable to submit right now. Please try again later.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  const [form, setForm] = useState<ContactInput>(initialForm);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [pending, setPending] = useState(false);
+  const [status, setStatus] = useState<{ error: boolean; message: string } | null>(null);
+  const ref = useRef<HTMLFormElement>(null);
+  const fieldErrors = (values: ContactInput) => {
+    const result = contactSchema.safeParse(values);
+    return result.success ? {} : Object.fromEntries(Object.entries(result.error.flatten().fieldErrors).map(([name, messages]) => [name, messages?.[0] || 'Check this field.']));
   };
-
+  const checkField = (name: string, values = form) => setErrors(previous => ({ ...previous, [name]: fieldErrors(values)[name] || '' }));
+  const focusError = (next: Record<string, string>) => {
+    const field = fields.find(item => next[item.name]);
+    if (field) ref.current?.querySelector<HTMLElement>(`[name="${field.name}"]`)?.focus();
+  };
+  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus(null);
+    const nextErrors = fieldErrors(form);
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) { setStatus({ error: true, message: 'Please check the highlighted fields.' }); focusError(nextErrors); return; }
+    setPending(true);
+    try {
+      const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
+      const data = await response.json().catch(() => null);
+      if (!response.ok || data?.ok !== true) {
+        const serverErrors = Object.fromEntries(Object.entries(data?.error?.details?.fieldErrors || {}).map(([key, value]) => [key, Array.isArray(value) ? String(value[0]) : String(value)]));
+        setErrors(serverErrors); focusError(serverErrors);
+        throw new Error(data?.error?.message || 'Unable to submit. Please try again or email info@regressionconsulting.com.');
+      }
+      setForm(initialForm);
+      setStatus({ error: false, message: 'Your enquiry has been accepted. We will respond within one business day.' });
+    } catch (error) { setStatus({ error: true, message: error instanceof Error ? error.message : 'Unable to submit. Please try again.' }); }
+    finally { setPending(false); }
+  };
   return (
-    <section id="contact" className="relative bg-[#0B1020] py-20 md:py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(245,181,68,0.10),transparent_45%)]" />
-      <div className="relative mx-auto max-w-6xl space-y-12 px-4 sm:px-6 lg:px-8">
-        <header className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-8 md:p-10">
-          <h1 className="text-4xl font-semibold leading-tight text-[#E8ECF8] md:text-6xl">Something is not right with your program. Let’s talk about it.</h1>
-          <p className="mt-4 max-w-[78ch] text-lg leading-relaxed text-[#A8B3CF]">
-            Share the situation, the pressure, or the decision you are facing. We will respond within one business day. If we can help, we will tell you how. If we cannot, we will be direct about that too.
-          </p>
-          <p className="mt-3 text-sm text-[#A8B3CF]">All conversations are confidential. We work under NDA where required.</p>
-        </header>
-
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <form className="space-y-4 rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 md:p-8" onSubmit={handleSubmit}>
-            <input type="text" required value={form.name} onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="Name" />
-            <input type="email" required value={form.email} onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="Work email" />
-            <input type="text" required value={form.company} onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="Company" />
-            <input type="text" required value={form.role} onChange={(e) => setForm((p) => ({ ...p, role: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="Role" />
-
-            <select value={form.situationType} onChange={(e) => setForm((p) => ({ ...p, situationType: e.target.value as SituationType }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]">
-              {['Investment deployment', 'Growth inflection', 'Execution drift', 'Platform transition', 'Leadership realignment', 'Other'].map((option) => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
-
-            <select value={form.urgency} onChange={(e) => setForm((p) => ({ ...p, urgency: e.target.value as UrgencyType }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]">
-              {['Exploring', 'Important this quarter', 'Active issue', 'Board/investor pressure'].map((option) => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
-
-            <textarea rows={5} required minLength={10} value={form.message} onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))} className="w-full rounded-md border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]" placeholder="What is happening, what is at stake, and what would a useful conversation help clarify?" />
-            <input type="text" value={form.website} onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))} className="hidden" tabIndex={-1} autoComplete="off" />
-
-            {status && <p className={status.type === 'success' ? 'text-green-400' : 'text-rose-400'}>{status.message}</p>}
-            <button type="submit" disabled={isSubmitting} className="w-full rounded-md border border-[#C8A45D] bg-[#111827] px-8 py-3 font-medium text-white transition-colors hover:bg-[#1F2937] disabled:opacity-60">
-              {isSubmitting ? 'Sending...' : 'Start a conversation'}
-            </button>
-          </form>
-
-          <div className="space-y-6">
-            <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">What happens next</p>
-              <div className="mt-4 space-y-3">
-                {nextSteps.map((step, idx) => (
-                  <div key={step} className="rounded-lg border border-[#2A3559] bg-[#0B1020] px-4 py-3 text-[#E8ECF8]"><span className="mr-2 font-mono text-[#F5B544]">0{idx + 1}</span>{step}</div>
-                ))}
-              </div>
-            </section>
-
-            <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 space-y-4">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Contact details</p>
-              <div className="flex items-start gap-3 text-[#E8ECF8]"><Mail size={18} className="mt-1 text-[#F5B544]" /> info@regressionconsulting.com</div>
-              <div className="flex items-start gap-3 text-[#E8ECF8]"><Phone size={18} className="mt-1 text-[#F5B544]" /> +31 6 1911 6786</div>
-            </section>
-
-            <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 space-y-4">
-              <div className="flex items-center gap-2"><MapPin size={18} className="text-[#F5B544]" /><p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A8B3CF]">Locations</p></div>
-              <div>
-                <p className="text-[#E8ECF8]">Amsterdam, Netherlands — European presence</p>
-              </div>
-              <div>
-                <p className="text-[#A8B3CF]">Gurugram, India — Registered office</p>
-              </div>
-            </section>
-          </div>
-        </div>
-
-        <section className="rounded-2xl border border-[#2A3559] bg-[#111831]/70 p-6 text-center text-[#A8B3CF]">
-          No generic sales process. No pressure. The first conversation is simply to understand whether the issue is structural, urgent, and within our scope.
-        </section>
+    <section id="contact" className="site-container contact-page">
+      <header className="page-intro">
+        <h1>Let’s look at what is happening.</h1>
+        <p>Share the situation or decision you are facing. We respond within one business day.</p>
+        <p className="text-sm">All conversations are confidential. We work under NDA where required.</p>
+      </header>
+      <div className="contact-grid">
+        <form ref={ref} onSubmit={submit} noValidate aria-busy={pending} className="enquiry-form">
+          <p>All fields are required. Please share only information suitable for an initial enquiry.</p>
+          <fieldset disabled={pending}>
+            <legend className="sr-only">Your enquiry</legend>
+            <div className="form-grid">
+              {fields.map(field => {
+                const id = `contact-${field.name}`;
+                const common = {
+                  id, name: field.name, value: form[field.name], required: true,
+                  'aria-invalid': !!errors[field.name], 'aria-describedby': `${id}-help`,
+                  onBlur: () => checkField(field.name),
+                  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+                    const next = { ...form, [field.name]: event.target.value } as ContactInput;
+                    setForm(next); if (errors[field.name]) checkField(field.name, next);
+                  },
+                };
+                return <div className={field.name === 'message' ? 'form-field form-field-wide' : 'form-field'} key={field.name}>
+                  <label htmlFor={id}>{field.label}</label>
+                  {'options' in field ? <select {...common}>{field.options.map(option => <option key={option} value={option}>{option}</option>)}</select> : field.type === 'textarea' ? <textarea {...common} rows={5} minLength={10} maxLength={field.max} /> : <input {...common} type={field.type} minLength={2} maxLength={field.max} autoComplete={field.autoComplete} />}
+                  <p id={`${id}-help`} className={errors[field.name] ? 'field-help field-error' : 'field-help'}>{errors[field.name] || ('hint' in field ? field.hint : '\u00a0')}</p>
+                </div>;
+              })}
+            </div>
+          </fieldset>
+          <input type="text" name="website" value={form.website} onChange={event => setForm(previous => ({ ...previous, website: event.target.value }))} hidden tabIndex={-1} autoComplete="off" aria-hidden="true" />
+          <div role="status" aria-live="polite" aria-atomic="true" className={status?.error ? 'form-status field-error' : 'form-status'}>{status?.message}</div>
+          <button type="submit" disabled={pending} className="button-primary">{pending ? 'Sending…' : 'Start a conversation'}</button>
+        </form>
+        <aside className="contact-aside">
+          <section><h2>What happens next</h2><ol><li>You share the context.</li><li>We respond within one business day.</li><li>We agree whether a diagnostic conversation makes sense.</li></ol></section>
+          <section><h2>Contact directly</h2><a href="mailto:info@regressionconsulting.com" className="text-link">info@regressionconsulting.com</a><a href="tel:+31619116786" className="text-link">+31 6 1911 6786</a></section>
+          <section><h2>Locations</h2><p>Amsterdam, Netherlands: European presence</p><p>Gurugram, India: registered office</p></section>
+        </aside>
       </div>
+      <p className="contact-note">The first conversation is to understand whether the issue is structural, urgent, and within our scope.</p>
     </section>
   );
 }

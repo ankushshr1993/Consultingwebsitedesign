@@ -2,3 +2,8 @@ node_modules/
 dist/
 .env
 .env.local
+
+# Local Next.js output and audit evidence
+.next/
+*.tsbuildinfo
+.hallmark/

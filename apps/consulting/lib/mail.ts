@@ -13,7 +13,7 @@ export async function sendContactEmail(data: ContactInput) {
     throw new Error('Missing email configuration (RESEND_API_KEY, CONTACT_FROM_EMAIL).');
   }
 
-  return resend.emails.send({
+  const result = await resend.emails.send({
     from: fromEmail,
     to: [toEmail],
     replyTo: data.email,
@@ -30,4 +30,6 @@ export async function sendContactEmail(data: ContactInput) {
       data.message,
     ].join('\n'),
   });
+  if (result.error || !result.data?.id) throw new Error('Email provider did not accept the message.');
+  return result.data;
 }

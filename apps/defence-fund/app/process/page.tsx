@@ -1,3 +1,7 @@
+import { pageMetadata } from '../../lib/page-metadata';
+
+export const metadata = pageMetadata('/process', 'Investment process', 'From initial screening to diligence, institutional readiness, and selective capital alignment.');
+
 import Link from 'next/link';
 
 const steps = [
@@ -21,37 +25,28 @@ const steps = [
 
 export default function ProcessPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
-      <h1 className="text-4xl font-semibold tracking-tight text-slate-100 sm:text-5xl">How We Work</h1>
-      <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
-        Our process is designed to improve institutional readiness before scaling capital conversations.
-      </p>
-
-      <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {steps.map((step) => (
-          <article key={step.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-xl font-semibold text-white">{step.title}</h2>
-            <p className="mt-3 leading-relaxed text-slate-300">{step.body}</p>
-          </article>
+    <article className="site-container document-page">
+      <header className="dossier-intro">
+        <h1>How we work</h1>
+        <p>Our process is designed to improve institutional readiness before scaling capital conversations.</p>
+      </header>
+      <div className="method-timeline">
+        {steps.map((step, index) => (
+          <section key={step.title} className="method-stage">
+            <span className="chapter-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <div className="chapter-body"><h2>{step.title.replace(/^\d\)\s*/, '')}</h2><p>{step.body}</p></div>
+          </section>
         ))}
       </div>
-
-      <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-        <h2 className="text-2xl font-semibold text-white">What you can expect</h2>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-300">
+      <section className="closing-note">
+        <h2>What you can expect</h2>
+        <ul>
           <li>Clear qualification decision and transparent next steps.</li>
           <li>Compliance-first framing across diligence discussions.</li>
           <li>Focused, high-signal engagement rather than broad networking.</li>
         </ul>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/criteria" className="rounded-md border border-white/20 px-5 py-2 text-sm text-white hover:bg-white/10">
-            View Criteria
-          </Link>
-          <Link href="/contact-us" className="rounded-md bg-indigo-500 px-5 py-2 text-sm text-white hover:bg-indigo-600">
-            Start Conversation
-          </Link>
-        </div>
-      </div>
-    </div>
+        <div className="hero-actions"><Link href="/founder-intake" className="button-primary">Founder intake</Link><Link href="/investor-intake" className="button-secondary">Investor intake</Link><Link href="/criteria" className="text-link">View criteria</Link></div>
+      </section>
+    </article>
   );
 }

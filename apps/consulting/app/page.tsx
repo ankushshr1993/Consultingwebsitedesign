@@ -5,6 +5,8 @@ import { Services } from '@/components/Services';
 import { ContactCta } from '@/components/ContactCta';
 
 export const metadata: Metadata = {
+  openGraph: { title: 'Regression Consulting | Technology Execution Risk Advisory', description: 'Operator-led advisory for investors, boards, and leadership teams when technology execution becomes enterprise risk.', url: '/', type: 'website' },
+  alternates: { canonical: '/' },
   title: 'Regression Consulting | Technology Execution Risk Advisory',
   description: 'Operator-led advisory for investors, boards, and leadership teams when technology execution becomes enterprise risk.',
 };

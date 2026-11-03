@@ -1,1 +1,5 @@
-export { default } from '@/app/services/page';
+import { permanentRedirect } from 'next/navigation';
+
+export default function LegacyPage() {
+  permanentRedirect('/services');
+}
